@@ -144,3 +144,53 @@ def incmatrix(genl1,genl2):
 return M
     \end{pythoncode}
 \end{listing}
+
+%% INICIO DO CONTEUDO
+
+\section{Internship Start}
+
+The internship started on September 2nd 2019, being planned to last for 9 months, ending on the 31st of May 2020.
+
+The first day at the company was interesting, meeting most of the personalities of the workplace and getting set up with my work environment,
+consisting of a desk, chair, computer and 2 monitors.
+
+As soon as the computer was properly configured with all the software needed the project became the main focus of my time at the company,
+making progress daily, sometimes just planning the architecture or analyzing the source code, sometimes just writing code, and sometimes a mix of both.
+
+\section{Project Planning}
+
+Autopsy by itself is capable of providing a distributed solution for multi user collaboration, but it is very resource intensive and requires many complex configuration steps,
+and is also limited to Windows O.S. systems.
+
+The plan for this internship is to achieve the same kind of functionality provided by the original software, but without the dependency on harduous pre-configuration
+or hardware intensive requirements, resulting in needing only single capable server, and allowing the program to be used by multiple low capacity client devices using 
+any web capable O.S.
+
+\section{Autopsy source code analysis}
+
+Autopsy is a digital forensics analysis software that is available as Open Source Software on GitHub.
+
+With the goals set for this project, the source code was analyzed to understand which components need to be replicated and adapted in order to obtain the same logic flow.
+
+The ``Core`` module is where the most important components are located, and after analysis it was concluded that the following directories contain relevant information:
+
+\begin{itemize}
+ \item Actions: user interactions 
+ \item Casemodule: case class and other resources needed for the functioning of an autopsy case like data sources and artifacts
+ \item Centralrepository: data persistence classes 
+ \item Contentviewers: panels used for data representation 
+ \item Coordinationservice: configuration information distribution system
+ \item Core: addition of command line options, system configurations and collaboration monitor 
+ \item Corecomponents: main user interface components
+ \item Datamodel: all the entities needed to represent ingested data
+ \item Datasourceprocessors: data processing utilities 
+ \item Directorytree: file explorer for ingested artifacts
+ \item Ingest: utilities and events for data ingestion 
+ \item Keywordsearchservice: utility to search artifacts by keyword 
+ \item Modules: all the pre-included modules (data ingestion procedures)
+ \item Progress: progress indicators and similar classes
+ \item Python: resources needed for the functioning of the Jython language
+ \item Rejview: resources used to analyse Windows registry
+ \item Report: report generator
+ \item Timeline: recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows Operating System
+\end{itemize}

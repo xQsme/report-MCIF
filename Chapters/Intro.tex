@@ -48,34 +48,3 @@ A informação de background inclui os conhecimentos que o leitor deve possuir p
 Por fim, a introdução deve descrever como foi organizado o relatório, referindo brevemente o propósito de cada secção considerada no mesmo.
 
 O resto deste documento dá uma breve perspectiva das partes seguintes que devem constar do relatório, bem como de outros aspectos de formatação.
-
-%% INICIO DO CONTEUDO
-
-\section{Autopsy source code analysis}
-
-Autopsy is a digital forensics analysis software which is available as Open Source Software on GitHub.
-
-With the goals set for this project, the source code was analyzed to understand which components need to be replicated and adapted in order to obtain the same logic flow.
-
-The ``Core`` module is where the most important components are located, and after analysis it was concluded that the following directories contain relevant information:
-
-\begin{itemize}
- \item Actions: user interactions 
- \item Casemodule: case class and other resources needed for the functioning of an autopsy case like data sources and artifacts
- \item Centralrepository: data persistence classes 
- \item Contentviewers: panels used for data representation 
- \item Coordinationservice: configuration information distribution system
- \item Core: addition of command line options, system configurations and collaboration monitor 
- \item Corecomponents: main user interface components
- \item Datamodel: all the entities needed to represent ingested data
- \item Datasourceprocessors: data processing utilities 
- \item Directorytree: file explorer for ingested artifacts
- \item Ingest: utilities and events for data ingestion 
- \item Keywordsearchservice: utility to search artifacts by keyword 
- \item Modules: all the pre-included modules (data ingestion procedures)
- \item Progress: progress indicators and similar classes
- \item Python: resources needed for the functioning of the Jython language
- \item Rejview: resources used to analyse Windows registry
- \item Report: report generator
- \item Timeline: recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows Operating System
-\end{itemize}
