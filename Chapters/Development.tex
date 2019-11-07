@@ -6,6 +6,125 @@
 \label{ch:desenvolvimento}
 %************************************************
 
+\section{Internship Start}
+
+The internship started on September 2nd 2019, being planned to last for 9 months, ending on the 29th of May 2020.
+
+The first day at the company was interesting, meeting most of the personalities of the workplace and getting set up with my work environment,
+consisting of a desk, chair, computer and 2 monitors.
+
+As soon as the computer was properly configured with all the software needed the project became the main focus of my time at the company,
+making progress daily, sometimes just planning the architecture or analyzing the source code, sometimes just writing code, and sometimes a mix of both.
+
+\section{Project Planning}
+
+Autopsy by itself is capable of providing a distributed solution for multi user collaboration, but it is very resource intensive and requires many complex configuration steps,
+and is also only fully supported on the Windows O.S.
+
+The plan for this internship is to achieve the same kind of functionality provided by the original software, but without the dependency on harduous pre-configuration
+or hardware intensive requirements, resulting in needing only single capable server, and allowing the program to be used by multiple low capacity client devices using 
+any web capable O.S.
+
+To achieve that goal, the project will be an adaptation of the original Autopsy source code, into a server-client model, with the server developed in Java using the Quarkus framework,
+and the client developed in Javascript using the React framework.
+
+The project is outlined to work in a multi user environment, allowing users to be assigned to teams and teams assigned to cases, and allowing multiple users to interact with
+a case simultaneously.
+
+Autopsy has a major limitation, which is it only allows one case to be open at a time, ideally in this project we should find a workarround to allow working on multiple cases
+at once, but we feel like dedicating a server instance (which a single machine can have many virtualized within) per case is a good enough approach, though as future work the
+ability to spawn different containers as requested to work on different cases at once is an interesting challenge.
+
+Given that the core features will be running in a remote server, it was decided that the addition of data sources to cases will be handled by an FTP client, allowing users
+to transfer image files to the respective data source directories of each case, and FTP access will be controlled according to each user's assigned cases.
+
+\section{Autopsy source code analysis}
+
+Autopsy is a digital forensics analysis software that is available as Open Source Software on GitHub.
+
+With the goals set for this project, the source code was analyzed to understand which components need to be replicated and adapted in order to obtain the same logic flow.
+
+The ``Core`` module is where the most important components are located, and after analysis it was concluded that the following directories contain relevant information:
+
+\begin{itemize}
+ \item Actions: user interactions 
+ \item Casemodule: case class and other resources needed for the functioning of an autopsy case like data sources and artifacts
+ \item Centralrepository: data persisted and accessed by multiple cases (Correlation Engine)
+ \item Contentviewers: panels used for data representation 
+ \item Coordinationservice: configuration information distribution system
+ \item Core: addition of command line options, system configurations and collaboration monitor 
+ \item Corecomponents: main user interface components
+ \item Datamodel: all the entities needed to represent ingested data
+ \item Datasourceprocessors: data processing utilities 
+ \item Directorytree: file explorer for ingested artifacts
+ \item Ingest: utilities and events for data ingestion 
+ \item Keywordsearchservice: utility to search artifacts by keyword 
+ \item Modules: all the pre-included modules (data ingestion procedures)
+ \item Progress: progress indicators and similar classes
+ \item Python: resources needed for the functioning of the Jython language
+ \item Rejview: resources used to analyse Windows registry
+ \item Report: report generator
+ \item Timeline: recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows Operating System
+\end{itemize}
+
+The ``KeywordSearch`` module is also of critical importance as it provides one of the most meaningful features which is filtering all the artifacts in a case with a keyword
+search using the Apache Solr search platform, which indexes the text contents of all the artifacts and allows extremely fast searching through a large amount of data.  
+
+\section{Development}
+
+\subsection{Management Entities}
+
+As a first step in the development, the different persisted entities were created, which are Users, Teams, and Cases. All the endpoints for actions involving these 
+entities were created, resulting in the ability for the client program to interact with these entities and modify their relationships and other variables.
+For these functionalities there are two roles associated, the Manager role allows manipulation of the existing entities while the Investigator role only has access to his
+own information and the teams and cases he was assigned to. For these interactions, it was decided to create a drag and drop interface, which allows users to be dragged into
+teams and teams dragged into cases. All these entities are listed side by side and each have their own options and filtering input, as can be observed in Figure \ref{fig:users}.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=1\linewidth]{imgs/users.png}
+ \caption{Entity Management Interface}
+ \label{fig:users}
+\end{figure}
+
+Users can change their own profile picture, while Managers can also change any team or case's display picture.
+Managers can add new users to the platform, can approve membership requests, can enable/disable user accounts and can create new teams.
+When a user is added by a Manager or his membership request is approved he must define a password while activating his e-mail account.
+
+\subsection{Basic Autopsy Functionalities}
+
+Then the most basic functionality from Autopsy was adapted, the ability to open an autopsy case. For this some elements of the original Casemodule package were adapted,
+and after that all the other similar actions like closing, creating and deleting cases were also adapted.
+
+Autopsy cases have a case file containing case metadata, which allows the program to connect to the right database when the case is open, this database is also present
+in a file inside the filesystem, which uses the SQLite database engine, so for the cases to be usable in the server these files must also be present in the server,
+which resulted in the creation of a directory within the server called ``Server Repository``, contaning all the different cases created within the application.
+This same directory will also be used to store data sources that are added to cases, which will be added through FTP protocol.
+
+Later in the development there was the need to create an aditional directory inside the ``Server Repository`` called ``Central Repository``
+which contains the database used by the Correlation Engine to ingest data that can be queried by any case.
+
+\subsection{Ingested Results Presentation}
+
+Ingested results are the items present inside the provided data sources, Autopsy runs multiple modules on each data source and extracts these results using the Sleuth Kit,
+extracted results can either be a file instance or an artifact (which is something that corresponds only to a piece of information inside a file).
+
+The ingested results are presented in three different containers, one taking the shape of a file explorer, allowing exploration of the structure of all the results, 
+one taking the shape of a table, presenting all the contents of the result selected from the explorer, and one taking the shape of a content viewer, allowing visualization
+of the data contained inside the result selected from the table, as can be seen in Figure \ref{fig:data}.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=1\linewidth]{imgs/data.png}
+ \caption{Ingested Results Presentation}
+ \label{fig:data}
+\end{figure}
+
+The layout for the ingested results presentation, and for all the case related actions, was based on the original Autopsy layout, allowing each container to be resized as
+needed, allowing the user to focus on the information that is most important to him.
+
+
+\pagebreak
 
 O corpo do relatório compõe, normalmente, a parte mais extensa do relatório, e contém todos os conteúdos necessários para que o leitor perceba o assunto do mesmo. Estes conteúdos incluem detalhes, dados, resultados de teste, factos e conclusões. O que incluir exactamente no corpo do relatório e como será organizado é determinado pelo contexto do trabalho desenvolvido. Geralmente, o corpo do relatório inclui 7 secções distintas:
 
@@ -144,53 +263,3 @@ def incmatrix(genl1,genl2):
 return M
     \end{pythoncode}
 \end{listing}
-
-%% INICIO DO CONTEUDO
-
-\section{Internship Start}
-
-The internship started on September 2nd 2019, being planned to last for 9 months, ending on the 31st of May 2020.
-
-The first day at the company was interesting, meeting most of the personalities of the workplace and getting set up with my work environment,
-consisting of a desk, chair, computer and 2 monitors.
-
-As soon as the computer was properly configured with all the software needed the project became the main focus of my time at the company,
-making progress daily, sometimes just planning the architecture or analyzing the source code, sometimes just writing code, and sometimes a mix of both.
-
-\section{Project Planning}
-
-Autopsy by itself is capable of providing a distributed solution for multi user collaboration, but it is very resource intensive and requires many complex configuration steps,
-and is also limited to Windows O.S. systems.
-
-The plan for this internship is to achieve the same kind of functionality provided by the original software, but without the dependency on harduous pre-configuration
-or hardware intensive requirements, resulting in needing only single capable server, and allowing the program to be used by multiple low capacity client devices using 
-any web capable O.S.
-
-\section{Autopsy source code analysis}
-
-Autopsy is a digital forensics analysis software that is available as Open Source Software on GitHub.
-
-With the goals set for this project, the source code was analyzed to understand which components need to be replicated and adapted in order to obtain the same logic flow.
-
-The ``Core`` module is where the most important components are located, and after analysis it was concluded that the following directories contain relevant information:
-
-\begin{itemize}
- \item Actions: user interactions 
- \item Casemodule: case class and other resources needed for the functioning of an autopsy case like data sources and artifacts
- \item Centralrepository: data persistence classes 
- \item Contentviewers: panels used for data representation 
- \item Coordinationservice: configuration information distribution system
- \item Core: addition of command line options, system configurations and collaboration monitor 
- \item Corecomponents: main user interface components
- \item Datamodel: all the entities needed to represent ingested data
- \item Datasourceprocessors: data processing utilities 
- \item Directorytree: file explorer for ingested artifacts
- \item Ingest: utilities and events for data ingestion 
- \item Keywordsearchservice: utility to search artifacts by keyword 
- \item Modules: all the pre-included modules (data ingestion procedures)
- \item Progress: progress indicators and similar classes
- \item Python: resources needed for the functioning of the Jython language
- \item Rejview: resources used to analyse Windows registry
- \item Report: report generator
- \item Timeline: recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows Operating System
-\end{itemize}
