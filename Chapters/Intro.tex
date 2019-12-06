@@ -109,136 +109,81 @@ through presentation in court. It should contain entries for every time that a p
 has been touched, including collection, storage transport, and any time the evidence is checked out for
 handling by any personnel.
 
-\begin{center}
-A PARTIR DAQUI TODO O CONTEUDO DA INTRODUCAO É COPIA INTEGRAL DE FONTES EXTERNAS
-\end{center}
-
 \subsubsection{Analysis}
 
-Analysis is the process of locating and collecting evidentiary items from evidence
-that has been collected in a case. In a case involving spousal infidelity, the evidence
-that must be located can include e-mails and chat logs between the spouse and the
-paramour. In a fraud case, financial records would be the target of the analysis, as
-well as the possible deletion of records involving financial transactions. In a child
-pornography case, locating contraband pictures and movies would be the target of
-the examination. Each case is unique in this respect as the circumstances surrounding
-each case can vary widely, not only in the evidence being sought, but also in the
-approach used to perform the analysis. The analysis portion is also the area where
+Analysis is the process of locating and categorizing items from evidence
+that has been collected in a case. Each case is unique as the
+circumstances surrounding each case can vary immensely, not only in the evidence being analyzed, but also in the
+approach used to perform the analysis. The analysis is the area where
 the individual skills, tools used, and the training of the forensic examiner have
-the greatest impact on the outcome of the examination. For information on forensic
-tools used by examiners, see Chapter 5. Considering that electronic evidence
-appears in so many forms and comes from so many disparate locations and devices,
-the training and experience of the examiner begins to have an ever-greater impact
-on the success of the examination.
+the greatest impact on the outcome of the examination. Considering that electronic evidence
+appears in so many forms and comes from diverse locations and devices,
+the training and experience of the examiner has a much greater impact
+on the results of the examination.
 
-The analysis phase is also where the greatest disparity begins to become a factor
-between the skills and approach of a “computer expert” and those of a computer or
-digital forensics expert. While a computer expert may understand many aspects of
-computer usage and data, a properly trained forensic expert will be well versed in
-recovering data as well as in proper examination techniques.
-
-Analysis of digital evidence is more than just determining whether something
-like a file or e-mail message exists on a hard drive. It also includes finding out how
-that file or e-mail message got on the hard drive, and if possible, who put the file or
-message on the hard drive.
+Analysis of digital evidence is more than just determining whether a file exists on a hard drive, it involves finding out how
+that file got on the hard drive, and if possible, who put the file on the hard drive.
 
 \subsubsection{Presentation}
 
 Presentation of the examiner's findings is the last step in the process of forensic
 analysis of electronic evidence. This includes not only the written findings or forensic
-report, but also the creation of affidavits, depositions of experts, and court testimony.
-There are no hard and fast rules or standards for reporting the results of an
-examination. Each agency or private entity may have its own particular guidelines
+report, but also the creation of sworn statements, depositions of experts, and court testimony.
+There are no exact rules or standards for reporting the results of an
+examination. Each entity may have its own particular guidelines
 for reporting. However, forensic examination reports should be written clearly, concisely,
 and accurately, explaining what was examined, the tools used for the examination,
-the processes used by the examiner, and the results of that examination.
+the procedures used by the examiner, and the results of the examination.
 The report should also include the collection methods used, including specific steps
 taken to protect and preserve the original evidence and how the verification of the
 evidence was performed.
 
-In general, a digital forensics report should include:
-
-\begin{itemize}
-\item Background and experience of the examiner
-\item Tools used in the examination
-\item Methods used to verify the data
-\item Processes used to recover and extract the data
-\item Statement of what the examiner found
-\item Actual data recovered to support the statement of findings.
-\end{itemize}
-
 \section{The Sleuth Kit}
 
-The Sleuth Kit (TSK) is a library and collection of command line tools that allow
-you to investigate disk images. The core functionality of TSK allows you to analyze
-volume and file system data. The plug-in framework allows you to incorporate
-additional modules to analyze file contents and build automated systems. The
-library can be incorporated into larger digital forensics tools and the command
-line tools can be directly used to find evidence.
+The Sleuth Kit (TSK) is a library and collection of command line tools that allow the
+investigation of disk images. The core functionality of TSK allows volume and file system data analysis.
+The plug-in framework allows incorporation of additional modules to analyze file contents
+and build automated systems. The library can be incorporated into larger digital forensics tools and
+the command line tools can be directly used to find evidence.
 
-Description
+\subsection{Description}
 
 The original part of Sleuth Kit is a C library and collection of command line
-file and volume system forensic analysis tools. The file system tools allow you
-to examine file systems of a suspect computer in a non-intrusive fashion. Because
-the tools do not rely on the operating system to process the file systems, deleted
-and hidden content is shown. It runs on Windows and Unix platforms.
+file and volume system forensic analysis tools. The file system tools allows examining file systems
+of a computer in a non-intrusive fashion. Because the tools do not rely on the operating system to process
+the file systems, deleted and hidden content can be shown.
 
-The volume system (media management) tools allow you to examine the layout of disks
-and other media. The Sleuth Kit supports DOS partitions, BSD partitions 
-(disk labels), Mac partitions, Sun slices (Volume Table of Contents), and 
-GPT disks. With these tools, you can identify where partitions are located 
-and extract them so that they can be analyzed with file system analysis tools.
+The volume system tools allow examination of the layout of disks
+and other media. TSK supports DOS partitions, BSD partitions, Mac partitions, Sun slices, and 
+GPT disks. With these tools, partition locations can be identified 
+and extracted so that they can be analyzed with file system analysis tools.
 
-When performing a complete analysis of a system, we all know that command line 
-tools can become tedious. Autopsy is a graphical interface to the tools in The 
-Sleuth Kit, which allows you to more easily conduct an investigation. Autopsy 
+When performing a complete analysis of a system, command line 
+tools can become tedious. Autopsy is a graphical interface to the tools in TSK, 
+which allows easier conduction of an investigation. Autopsy 
 provides case management, image integrity, keyword searching, and other automated
 operations.
 
 A complete analysis also requires more than just file and volume system analysis.
 However, a single tool can't provide support for all file types and analysis 
-techniques. The TSK Framework allows tool so easily incorporate file analysis
-modules that were written by other developers. If you are developing a tool,
-consider incorporating in the framework or developing your analysis technique
-as a module into the framework.
+techniques. The TSK Framework allows tools to easily incorporate file analysis
+modules that were written by other developers.
 
-Input Data
+TSK Analyzes raw, Expert Witness and AFF file system and disk images.
+It supports the NTFS, FAT, ExFAT, UFS 1, UFS 2, EXT2FS, EXT3FS, Ext4, HFS, ISO 9660,
+and YAFFS2 file systems.
 
-Analyzes raw (i.e. dd), Expert Witness (i.e. EnCase) and AFF file system and disk
-images.
-Supports the NTFS, FAT, ExFAT, UFS 1, UFS 2, EXT2FS, EXT3FS, Ext4, HFS, ISO 9660,
-and YAFFS2 file systems (even when the host operating system does not or has a
-different endian ordering).
-Tools can be run on a live Windows or UNIX system during Incident Response. 
-These tools will show files that have been "hidden" by rootkits and will not 
-modify the A-Time of files that are viewed.
+\subsection{Search Techniques}
 
-Search Techniques
+TSK allows listing allocated and deleted ASCII and Unicode file names, can display the
+details and contents of all NTFS attributes, can display file system and meta-data structure details,
+can create time lines of file activity, which can be imported into a spread sheet to create graphs and reports.
+TSK allows the lookup of file hashes in hash databases, it organizes files based on their type, and pages of
+thumbnails can be made from graphic images to facilitate quick analysis.
 
-List allocated and deleted ASCII and Unicode file names.
-Display the details and contents of all NTFS attributes (including all Alternate
-Data Streams).
-Display file system and meta-data structure details.
-Create time lines of file activity, which can be imported into a spread sheet to 
-create graphs and reports.
-Lookup file hashes in a hash database, such as the NIST NSRL, Hash Keeper, and 
-custom databases that have been created with the 'md5sum' tool.
-Organize files based on their type (for example all executables, jpegs, and
-documents are separated). Pages of thumbnails can be made of graphic images 
-for quick analysis.
-
-The Sleuth Kit is written in C and Perl and uses some code and design from 
-The Coroner's Toolkit (TCT). The Sleuth Kit has been tested on:
-
-\begin{itemize}
-\item Linux
-\item Mac OS X
-\item Windows (Visual Studio and mingw)
-\item CYGWIN
-\item Open \& FreeBSD
-\item Solaris
-\end{itemize}
+\begin{center}
+A PARTIR DAQUI TODO O CONTEUDO DA INTRODUCAO É COPIA INTEGRAL DE FONTES EXTERNAS
+\end{center}
 
 \section{Autopsy}
 
