@@ -6,8 +6,6 @@
 \label{ch:development}
 %************************************************
 
-\section{Internship Start}
-
 The internship started on September 2nd 2019, being planned to last for 9 months, ending on the 29th of May 2020.
 
 The first day at the company was interesting, meeting most of the personalities of the workplace and getting set up with my work environment,
@@ -25,7 +23,7 @@ The plan for this internship is to achieve the same kind of functionality provid
 or hardware intensive requirements, resulting in needing only single capable server, and allowing the program to be used by multiple low capacity client devices using 
 any web capable O.S.
 
-To achieve that goal, the project will be an adaptation of the original Autopsy source code, into a server-client model, with the server developed in Java using the Quarkus framework,
+To achieve that goal, the project will be an adaptation of the original Autopsy source code, into a client-server model, with the server developed in Java using the Quarkus framework,
 and the client developed in Javascript using the React framework.
 
 The project is outlined to work in a multi user environment, allowing users to be assigned to teams and teams assigned to cases, and allowing multiple users to interact with
@@ -36,7 +34,7 @@ at once, but we feel like dedicating a server instance (which a single machine c
 ability to spawn different containers as requested to work on different cases at once is an interesting challenge.
 
 Given that the core features will be running in a remote server, it was decided that the addition of data sources to cases will be handled by an FTP client, allowing users
-to transfer image files to the respective data source directories of each case, and FTP access will be controlled according to each user's assigned cases.
+to transfer files to their respective data source directories, and FTP access will be controlled according to each user's credentials on the platform.
 
 \section{Autopsy source code analysis}
 
@@ -64,11 +62,14 @@ The ``Core`` module is where the most important components are located, and afte
  \item Python: resources needed for the functioning of the Jython language
  \item Rejview: resources used to analyse Windows registry
  \item Report: report generator
- \item Timeline: recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows Operating System
+ \item Timeline: recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows O.S.
 \end{itemize}
 
 The ``KeywordSearch`` module is also of critical importance as it provides one of the most meaningful features which is filtering all the artifacts in a case with a keyword
 search using the Apache Solr search platform, which indexes the text contents of all the artifacts and allows extremely fast searching through a large amount of data.  
+
+Another module that needs to be adapted is the ``RecentActivity`` module, which contains the tools needed to extract information from browsers, providing a great amount of
+critical evidence from data sources.
 
 \section{Development}
 
@@ -98,20 +99,19 @@ and after that all the other similar actions like closing, creating and deleting
 
 Autopsy cases have a case file containing case metadata, which allows the program to connect to the right database when the case is open, this database is also present
 in a file inside the filesystem, which uses the SQLite database engine, so for the cases to be usable in the server these files must also be present in the server,
-which resulted in the creation of a directory within the server called ``Server Repository``, contaning all the different cases created within the application.
-This same directory will also be used to store data sources that are added to cases, which will be added through FTP protocol.
+which resulted in the creation of a directory within the server called ``repository``, containing all the different cases created within the application.
 
-Later in the development there was the need to create an aditional directory inside the ``Server Repository`` called ``Central Repository``
+Later in the development there was the need to create an additional directory alongside the ``repository`` called ``central-repository``
 which contains the database used by the Correlation Engine to ingest data that can be queried by any case.
 
 \subsection{Ingested Results Presentation}
 
-Ingested results are the items present inside the provided data sources, Autopsy runs multiple modules on each data source and extracts these results using the Sleuth Kit,
+Ingested results are the items present inside the provided data sources, Autopsy runs multiple modules on each data source and extracts these results using The Sleuth Kit,
 extracted results can either be a file instance or an artifact (which is something that corresponds only to a piece of information inside a file).
 
 The ingested results are presented in three different containers, one taking the shape of a file explorer, allowing exploration of the structure of all the results, 
-one taking the shape of a table, presenting all the contents of the result selected from the explorer, and one taking the shape of a content viewer, allowing visualization
-of the data contained inside the result selected from the table, as can be seen in Figure \ref{fig:data}.
+one taking the shape of a table or thumbnail viewer, presenting all the contents of the results selected from the explorer, and one taking the shape of a content viewer, allowing visualization
+of the data contained inside the result selected from the table as can be seen in Figure \ref{fig:data}.
 
 \begin{figure}[h]
  \centering
@@ -120,146 +120,55 @@ of the data contained inside the result selected from the table, as can be seen 
  \label{fig:data}
 \end{figure}
 
-The layout for the ingested results presentation, and for all the case related actions, was based on the original Autopsy layout, allowing each container to be resized as
+The content viewer can display different kinds of information depending on the type of item selected, these can be some of the following:
+\begin{itemize}
+ \item Text browser
+ \item Media viewer
+ \item Database browser
+ \item Registry browser
+ \item Key-value browser
+ \item Table data viewer
+\end{itemize}
+
+The layout for the ingested results presentation, and for all the case related actions, was based on the original Autopsy layout, allowing each container to be re-sized as
 needed, allowing the user to focus on the information that is most important to him.
 
+\subsection{Data Sources}
 
-\pagebreak
+Using the same credentials used to log-in to the platform, the user can also upload data source files into his folder located inside the server, using an FTP client like filezilla.
+Then the user can browse these directories using the web interface and select a data source to add to the case, as can be seen in Figure \ref{fig:datasource}
 
-O corpo do relatório compõe, normalmente, a parte mais extensa do relatório, e contém todos os conteúdos necessários para que o leitor perceba o assunto do mesmo. Estes conteúdos incluem detalhes, dados, resultados de teste, factos e conclusões. O que incluir exactamente no corpo do relatório e como será organizado é determinado pelo contexto do trabalho desenvolvido. Geralmente, o corpo do relatório inclui 7 secções distintas:
-
-\begin{enumerate}
- \item Uma secção para teorias, modelos e hipóteses. Esta secção tem uma maior proeminência em artigos de investigação, onde é sugerida uma hipótese (contribuição) inovadora. Esta secção deve ser omitida para o caso de trabalhos mais práticos, cuja elaboração não origine uma contribuição inovadora, mas sim num produto de aplicação de tecnologias e metodologias;
- \item Uma secção onde são discutidas as tecnologias, metodologias, ferramentas e técnicas utilizadas, e a forma como foram adequadas para se fazerem cumprir com os objectivos do trabalho. Algumas questões que esta secção deve procurar responder incluem:
- \begin{itemize}
-  \item Que equipamentos de hardware e ferramentas de software foram utilizados para o desenvolvimento do trabalho?
-  \item Qual a metodologia de desenvolvimento foi adoptada, e como é que ela se reflecte em termos de protótipos, modelos, diagramas, código, testes e documentação, de acordo com os objectivos do projecto? Sugere-se a utilização de exemplos no corpo do relatório, remetendo para anexos a descrição dos produtos intermédios completos;
-  \item Como foi planeado o trabalho, em termos de sequenciamento de actividades, recursos necessários, estimativas de tempo, e produtos intermédios., de acordo com a metodologia de desenvolvimento adoptada?
- \end{itemize}
- \item Uma secção na qual se apresentam e interpretam os resultados da elaboração do trabalho. A apresentação dos resultados finais do trabalho deve contrapor-se com os objectivos iniciais do projecto, e deve ser acompanhada de uma avaliação comprovada, por exemplo, através de testes elaborados e devidamente documentados. Deve também procurar-se quantificar o grau de satisfação dos requisitos do problema do projecto, através da exposição de funcionalidades não cumpridas ou cumpridas parcialmente (por exemplo, incluir uma lista de bugs de uma aplicação de software desenvolvida), bem como funcionalidades que extrapolam os objectivos iniciais do projecto;
- \item Uma secção de conclusões, onde são resumidos os principais resultados do trabalho e onde se usufrui de uma outra hipótese de expressar a sua qualidade/relevância através de um resumo conciso e coerente com o trabalho desenvolvido. É também o local onde se devem referir quais as principais forças e fraquezas do trabalho desenvolvido.
- \item Uma secção de trabalho futuro, onde se devem propor possíveis desenvolvimentos futuros para colmatar as deficiências e lacunas identificadas atrás, ou simplesmente para evoluir o produto do trabalho desenvolvido;
- \item Uma secção para referências bibliográficas, onde cada referência deve incluir, no mínimo, o nome dos seus autores, o título, data de publicação (ou de acesso, para o caso de URLs) e o tipo de documento (livro, artigo, website, etc.);
- \item Uma secção para anexos, para a colocação dos produtos finais ou intermédios do projecto, por forma a não interromper a linha de desenvolvimento adoptada para a escrita da introdução e corpo do relatório.
-Deve ser utilizado um cabeçalho do estilo Heading 1 para identificar cada uma destas secções.
-\end{enumerate}
-
-
-
-\section{Estilos}
-
-O \LaTeXe trata da formação, apenas temos de usar as tags correctas. Seguem-se alguns exemplos. A Figura \ref{fig:terrenos} é constituída por 3 imagens em ficheiros \textbf{.jpg} separados. A Figura \ref{fig:volcao} é constituída apenas por um ficheiro e ocupa 50\% da largura de uma linha de texto.
-
-
-% Ao omitirmos a extensão do ficheiro de imagem estamos a permitir que 
-% seja possível compilar o ficheiro com Latex ou PDFLatex
-% em contrapartida temos de ter 2 vezes a mesma imagem:
-% 	- .eps para o Latex
-% 	- .jpg ou .pdf para o PDFLatex
-\begin{figure}
+\begin{figure}[h]
  \centering
- \includegraphics[width=0.32\linewidth]{imgs/tp04a_450}
- \includegraphics[width=0.32\linewidth]{imgs/tp04a_450}
- \includegraphics[width=0.32\linewidth]{imgs/tp04a_450}
- % tp04a_450.jpg: 720x335 pixel, 72dpi, 25.40x11.82 cm, bb=0 0 720 335
- \caption[curta]{Imagem composta por três figuras em ficheiros separados}
- \label{fig:terrenos}
+ \includegraphics[width=0.85\linewidth]{imgs/data-sources.png}
+ \caption{Data Source Selection}
+ \label{fig:datasource}
+\end{figure}
+
+The procedure for adding a data source to a case was adapted from Autopsy's source code, and depends on the type of data source added, which can be one of the following:
+\begin{itemize}
+ \item Disk image
+ \item Virtual machine
+ \item Logical file collection
+ \item Unallocated space image file
+ \item Autopsy logical imager results
+ \item Memory image files from Volatility
+\end{itemize}
+
+Local disk data sources were also an option provided by Autopsy but since the local disks the software has access to belong to a server, this feature is undesired.
+
+\subsection{Data Ingestion Modules}
+
+Firstly the default modules included with Autopsy were adapted, and can be ran through the web interface. When the modules are running the server communicates to each client when
+they start, updates their progress, and informs that they finished while also updating the case explorer, as can be seen in Figure \ref{fig:modules}.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.5\linewidth]{imgs/modules.png}
+ \caption{Data Source Selection}
+ \label{fig:modules}
 \end{figure}
 
 
-\begin{figure}
- \centering
- \includegraphics[width=0.5\linewidth]{imgs/tp45a_450}
- % tp45a_450.eps: 1179666x1179666 pixel, 300dpi, 9987.84x9987.84 cm, bb=20 20 575 615
- \caption{Vulcão}
- \label{fig:volcao}
-\end{figure}
 
-
-Na Tabela \ref{tableBenchmark} temos um exemplo de uma tabela onde existem linhas que ocupam mais do que uma linha da tabela.
-
-% TODO - falta fazer isto!
-
-\begin{table}
-  \caption[exemplo de uma tabela]{Floating point benchmark.
-	\textbf{R$_{max}$}: the performance in Gflops for the largest problem run on a machine;
-	\textbf{N$_{max}$}: the size of the largest problem run on a machine;
-	\textbf{N$_{1/2}$}: the size where half the R$_{max}$ execution rate is achieved;
-	\textbf{R$_{peak}$}: the theoretical peak performance in Gflops for the machine}
-  \label{tableBenchmark}
-  \begin{center} 
-  \begin{tabular*}{1\textwidth}{@{\extracolsep{\fill}} rccccc } \toprule
-\textbf{Linpack	Benchmark}& Proc.	& \textbf{R$_{max}$} & \textbf{N$_{max}$} & \textbf{N$_{1/2}$}	& \textbf{R$_{peak}$} \\ 
-(Full precision)	& or Cores	& GFlops	     & Order		  & Order		& GFlops \\ [0.25ex] \midrule
-Thinking Machine CM-5	& 32		& 1,900		     & 9216		  & 4096		& 4 \\
-Pentium 4 3.0 GHz & 1	& 4,730		     & 7600		  & 365			& 6 \\
-\multirow{2}{*}{IBM Cell BE 3.2 GHz} 	& \multirow{2}{*}{9}& \multirow{2}{*}{98,05} & \multirow{2}{*}{4096} & \multirow{2}{*}{1536} & 204,8 {\scriptsize{(32 bits)}} \\
-			&		&		     &			  &			& 14,6 {\scriptsize{(64 bits)}} \\ \bottomrule
-  \end{tabular*}
-  \end{center}	
-\end{table}
-
-
-
-As técnicas evolutivas baseiam-se em algoritmos bio-inspirados que aplicam a teoria de Darwin \parencite{Darwin1859}. Esta defende a evolução natural das espécies onde os organismos vivos são recompensados, através da sobrevivência e da propagação dos seus próprios genes aos sucessores. Actualmente existem quatro classes principais de algoritmos evolutivos: Algoritmos Genéticos (AG) \parencite{Holland1975}, Estratégias Evolutivas, Programação Genética (GP) \parencite{Koza1992} e Programação Evolutiva. Todos os algoritmos evolutivos mantêm uma população de soluções candidatas sobre a qual efectuam uma pesquisa para determinar os indivíduos mais fracos. De acordo com um determinado critério, estes são substituídos por outros gerados através de operadores aplicados aos melhores indivíduos da população, criando assim uma nova geração. Este processo é repetido sobre sucessivas gerações até se encontrar uma boa solução, que pode não ser a óptima.
-
-Existem vários trabalhos e até video jogos que usam algoritmos evolutivos \parencite{Sims1992,url_Spore}.
-
-\section{Incluir código fonte}
-Nas Listagens \ref{ls:fibonacci} e \ref{ls:bash} temos um exemplo da inclusão de código fonte diretamente a partir do ficheiro fonte. Para mais informação ler o Manual da packge minted \parencite{Rudolph2016}. Nestes exemplos a formação foi configurada no ficheiro \texttt{config.tex} (procurar por \texttt{minted}). 
-
-
-\begin{listing}[H] % quando cabe numa só página
-    \caption{Código fonte C com sintaxe colorida}
-    \label{ls:fibonacci}
-    \codefilec{Code/fibonacci.c}
-\end{listing}
-
-
-\begin{longlisting} % quando ocupa mais que uma página
-    \caption{Código fonte Bash que ocupa \underline{mais que uma página}}
-    \label{ls:bash}
-    \codefilebash{Code/bash.sh}
-\end{longlisting}
-
-
-
-Também é possível incluir código diretamente no ficheiro \LaTeXe, como no exemplo em baixo. A numeração das linhas é importante para ser possível referir o número da linha numa descrição.
-
-
-
-\begin{listing}[H]
-    \caption{Código fonte Python com sintaxe colorida}
-    \label{ls:bash}
-    \begin{pythoncode}
-import numpy as np
-
-def incmatrix(genl1,genl2):
-    m = len(genl1)
-    n = len(genl2)
-    M = None #to become the incidence matrix
-    VT = np.zeros((n*m,1), int)  #dummy variable
-
-    #compute the bitwise xor matrix
-    M1 = bitxormatrix(genl1)
-    M2 = np.triu(bitxormatrix(genl2),1) 
-
-    for i in range(m-1):
-        for j in range(i+1, m):
-            [r,c] = np.where(M2 == M1[i,j])
-            for k in range(len(r)):
-                VT[(i)*n + r[k]] = 1;
-                VT[(i)*n + c[k]] = 1;
-                VT[(j)*n + r[k]] = 1;
-                VT[(j)*n + c[k]] = 1;
-
-                if M is None:
-                    M = np.copy(VT)
-                else:
-                    M = np.concatenate((M, VT), 1)
-
-                VT = np.zeros((n*m,1), int)
-
-return M
-    \end{pythoncode}
-\end{listing}
+\subsection{Report Modules}
