@@ -130,7 +130,7 @@ The content viewer can display different kinds of information depending on the t
  \item Table data viewer
 \end{itemize}
 
-The layout for the ingested results presentation, and for all the case related actions, was based on the original Autopsy layout, allowing each container to be re-sized as
+The layout for the ingested results presentation, and for all the case related actions, was based on the original Autopsy layout, so that each container can be re-sized as
 needed, allowing the user to focus on the information that is most important to him.
 
 \subsection{Data Sources}
@@ -160,15 +160,21 @@ Local disk data sources were also an option provided by Autopsy but since the lo
 \subsection{Data Ingestion Modules}
 
 Firstly the default modules included with Autopsy were adapted, and can be ran through the web interface. When the modules are running the server communicates to each client when
-they start, updates their progress, and informs that they finished while also updating the case explorer, as can be seen in Figure \ref{fig:modules}.
+they start, updates their progress, and informs that they finished, as can be seen in Figure \ref{fig:modules}.
 
 \begin{figure}[h]
  \centering
  \includegraphics[width=0.5\linewidth]{imgs/modules.png}
- \caption{Data Source Selection}
+ \caption{Ingest Modules Communication}
  \label{fig:modules}
 \end{figure}
 
-
+When a module finishes the case explorer is updated with the extracted information.
 
 \subsection{Report Modules}
+
+TODO
+
+\section{Other Projects}
+
+TODO
