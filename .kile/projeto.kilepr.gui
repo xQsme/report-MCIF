@@ -2,11 +2,24 @@
 kile_livePreviewEnabled=false
 kile_livePreviewStatusUserSpecified=true
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=main.tex
+lastDocument=config.tex
+
+[document-settings,item:Chapters/Analysis.tex]
+Bookmarks=
+Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
+Highlighting=LaTeX
+Highlighting Set By User=false
+Indentation Mode=normal
+Mode=LaTeX
+Mode Set By User=false
 
 [document-settings,item:Chapters/ApendixA.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -16,6 +29,8 @@ Mode Set By User=false
 [document-settings,item:Chapters/ApendixB.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -25,6 +40,8 @@ Mode Set By User=false
 [document-settings,item:Chapters/Background.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -34,6 +51,8 @@ Mode Set By User=false
 [document-settings,item:Chapters/Conclusion.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -43,6 +62,8 @@ Mode Set By User=false
 [document-settings,item:Chapters/Development.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -52,6 +73,8 @@ Mode Set By User=false
 [document-settings,item:Chapters/Intro.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -61,6 +84,8 @@ Mode Set By User=false
 [document-settings,item:Code/bash.sh]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=Bash
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -70,6 +95,8 @@ Mode Set By User=false
 [document-settings,item:Code/fibonacci.c]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=C
 Highlighting Set By User=false
 Indentation Mode=cstyle
@@ -79,6 +106,8 @@ Mode Set By User=false
 [document-settings,item:Covers/Abstract.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -88,6 +117,8 @@ Mode Set By User=false
 [document-settings,item:Covers/Acknowledgments.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -97,6 +128,8 @@ Mode Set By User=false
 [document-settings,item:Covers/Acronyms.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -106,6 +139,8 @@ Mode Set By User=false
 [document-settings,item:Covers/Bibliography.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -115,6 +150,8 @@ Mode Set By User=false
 [document-settings,item:Covers/Contents.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -124,6 +161,8 @@ Mode Set By User=false
 [document-settings,item:Covers/Declaration.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -133,6 +172,8 @@ Mode Set By User=false
 [document-settings,item:Covers/Titleback.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -142,6 +183,8 @@ Mode Set By User=false
 [document-settings,item:Covers/Titlepage.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -151,6 +194,8 @@ Mode Set By User=false
 [document-settings,item:Makefile]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=Makefile
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -160,6 +205,8 @@ Mode Set By User=false
 [document-settings,item:References.bib]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=BibTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -169,6 +216,8 @@ Mode Set By User=false
 [document-settings,item:config.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -178,6 +227,8 @@ Mode Set By User=false
 [document-settings,item:main.tex]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=LaTeX
 Highlighting Set By User=false
 Indentation Mode=normal
@@ -187,75 +238,81 @@ Mode Set By User=false
 [document-settings,item:projeto.kilepr]
 Bookmarks=
 Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
 Highlighting=None
 Highlighting Set By User=false
 Indentation Mode=normal
 Mode=Normal
 Mode Set By User=false
 
+[item:Chapters/Analysis.tex]
+open=true
+order=16
+
 [item:Chapters/ApendixA.tex]
-open=true
-order=14
-
-[item:Chapters/ApendixB.tex]
-open=true
-order=11
-
-[item:Chapters/Background.tex]
-open=true
-order=4
-
-[item:Chapters/Conclusion.tex]
-open=true
-order=7
-
-[item:Chapters/Development.tex]
 open=true
 order=15
 
-[item:Chapters/Intro.tex]
+[item:Chapters/ApendixB.tex]
 open=true
-order=17
+order=14
 
-[item:Code/bash.sh]
+[item:Chapters/Background.tex]
+open=true
+order=5
+
+[item:Chapters/Conclusion.tex]
 open=true
 order=8
 
-[item:Code/fibonacci.c]
+[item:Chapters/Development.tex]
 open=true
+order=6
+
+[item:Chapters/Intro.tex]
+open=true
+order=3
+
+[item:Code/bash.sh]
+open=false
+order=8
+
+[item:Code/fibonacci.c]
+open=false
 order=3
 
 [item:Covers/Abstract.tex]
 open=true
-order=19
+order=9
 
 [item:Covers/Acknowledgments.tex]
 open=true
-order=13
+order=2
 
 [item:Covers/Acronyms.tex]
 open=true
-order=5
+order=17
 
 [item:Covers/Bibliography.tex]
 open=true
-order=1
+order=10
 
 [item:Covers/Contents.tex]
 open=true
-order=18
+order=7
 
 [item:Covers/Declaration.tex]
 open=true
-order=2
+order=11
 
 [item:Covers/Titleback.tex]
 open=true
-order=6
+order=13
 
 [item:Covers/Titlepage.tex]
 open=true
-order=0
+order=12
 
 [item:Covers/estg_h.pdf]
 open=false
@@ -266,16 +323,16 @@ open=false
 order=-1
 
 [item:Makefile]
-open=true
-order=12
+open=false
+order=2
 
 [item:References.bib]
 open=true
-order=16
+order=4
 
 [item:config.tex]
 open=true
-order=9
+order=1
 
 [item:imgs/tp04a_450.jpg]
 open=false
@@ -291,15 +348,23 @@ order=-1
 
 [item:main.tex]
 open=true
-order=20
+order=0
 
 [item:projeto.kilepr]
-open=true
-order=10
+open=false
+order=0
+
+[view-settings,view=0,item:Chapters/Analysis.tex]
+CursorColumn=4
+CursorLine=8
+Dynamic Word Wrap=false
+JumpList=
+TextFolding=[]
+ViMarks=
 
 [view-settings,view=0,item:Chapters/ApendixA.tex]
 CursorColumn=0
-CursorLine=0
+CursorLine=11
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
@@ -307,23 +372,23 @@ ViMarks=
 
 [view-settings,view=0,item:Chapters/ApendixB.tex]
 CursorColumn=0
-CursorLine=0
+CursorLine=5
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/Background.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=21
+CursorLine=7
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=
+ViMarks=.,8,17,[,7,2,],8,17
 
 [view-settings,view=0,item:Chapters/Conclusion.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=4
+CursorLine=8
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
@@ -331,19 +396,19 @@ ViMarks=
 
 [view-settings,view=0,item:Chapters/Development.tex]
 CursorColumn=0
-CursorLine=0
+CursorLine=4
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=
+ViMarks=.,3,31,[,3,25,],-1,-1
 
 [view-settings,view=0,item:Chapters/Intro.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=14
+CursorLine=7
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=
+ViMarks=.,7,13,[,7,1,],7,13
 
 [view-settings,view=0,item:Code/bash.sh]
 CursorColumn=0
@@ -362,48 +427,48 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Covers/Abstract.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=16
+CursorLine=26
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Covers/Acknowledgments.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=37
+CursorLine=31
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=
+ViMarks=.,28,61,[,28,61,],28,61
 
 [view-settings,view=0,item:Covers/Acronyms.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=6
+CursorLine=8
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Covers/Bibliography.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=25
+CursorLine=12
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Covers/Contents.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=58
+CursorLine=18
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Covers/Declaration.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=27
+CursorLine=20
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
@@ -418,8 +483,8 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Covers/Titlepage.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=56
+CursorLine=10
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
@@ -434,8 +499,8 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:References.bib]
-CursorColumn=0
-CursorLine=0
+CursorColumn=10
+CursorLine=11
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
@@ -443,7 +508,7 @@ ViMarks=
 
 [view-settings,view=0,item:config.tex]
 CursorColumn=0
-CursorLine=0
+CursorLine=332
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
@@ -451,16 +516,16 @@ ViMarks=
 
 [view-settings,view=0,item:main.tex]
 CursorColumn=1
-CursorLine=51
+CursorLine=92
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,57,0,[,57,0,],57,0
+ViMarks=.,92,0,[,92,0,],92,0
 
 [view-settings,view=0,item:projeto.kilepr]
-CursorColumn=0
-CursorLine=0
+CursorColumn=10
+CursorLine=17
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=
+ViMarks=.,18,0,[,18,0,],18,0
