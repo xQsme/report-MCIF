@@ -1,21 +1,15 @@
 \addtocontents{toc}{\protect\vspace{\beforebibskip}} % Place slightly below the rest of the document content in the table
 
-
-%Kensentme platform delevopment
-
-
 %************************************************
-\chapter{Internship Programme}
+\chapter{Kensentme Platform Delevopment}
 \label{ch:development}
 %************************************************
 
 The internship started on September 2nd 2019, being planned to last for 9 months, ending on the 29th of May 2020.
 
-The first day at the company was interesting, meeting most of the personalities of the workplace and getting set up with my work environment,
-consisting of a desk, chair, computer and 2 monitors.
+The main goal of the internship is the development of a collaborative platform based on Autopsy, which was soon named ``Kensentme`` by the company's designer.
 
-As soon as the computer was properly configured with all the software needed the project became the main focus of my time at the company,
-making progress daily, sometimes just planning the architecture or analyzing the source code, sometimes just writing code, and sometimes a mix of both.
+Each step taken towards the development of this platform is documented in this chapter, from project planning to full roll out on a production environment.
 
 \section{Project Planning}
 
@@ -26,8 +20,8 @@ The plan for this internship is to achieve the same kind of functionality provid
 or hardware intensive requirements, resulting in needing only single capable server, and allowing the program to be used by multiple low capacity client devices using 
 any web capable O.S.
 
-To achieve that goal, the project will be an adaptation of the original Autopsy source code, into a client-server model, with the server developed in Java using the Quarkus framework,
-and the client developed in Javascript using the React framework.
+To achieve that goal, the project will be an adaptation of the original Autopsy source code, into a client-server model, with the server developed in Java using the Quarkus \cite{quarkus} framework,
+and the client developed in Javascript using the React \cite{react} framework.
 
 The project is outlined to work in a multi user environment, allowing users to be assigned to teams and teams assigned to cases, and allowing multiple users to interact with
 a case simultaneously.
@@ -39,34 +33,58 @@ ability to spawn different containers as requested to work on different cases at
 Given that the core features will be running in a remote server, it was decided that the addition of data sources to cases will be handled by an FTP client, allowing users
 to transfer files to their respective data source directories, and FTP access will be controlled according to each user's credentials on the platform.
 
-\section{Autopsy source code analysis}
+\section{Autopsy Source Code Analysis}
 
-Autopsy is a digital forensics analysis software that is available as Open Source Software on GitHub.
+Autopsy is a digital forensics analysis software that is available as Open Source Software \cite{opensource} on \citetitle{github} \cite{github}.
 
 With the goals set for this project, the source code was analyzed to understand which components need to be replicated and adapted in order to obtain the same logic flow.
 
 The ``Core`` module is where the most important components are located, and after analysis it was concluded that the following directories contain relevant information:
 
-\begin{itemize}
- \item Actions: user interactions 
- \item Casemodule: case class and other resources needed for the functioning of an autopsy case like data sources and artifacts
- \item Centralrepository: data persisted and accessed by multiple cases (Correlation Engine)
- \item Contentviewers: panels used for data representation 
- \item Coordinationservice: configuration information distribution system
- \item Core: addition of command line options, system configurations and collaboration monitor 
- \item Corecomponents: main user interface components
- \item Datamodel: all the entities needed to represent ingested data
- \item Datasourceprocessors: data processing utilities 
- \item Directorytree: file explorer for ingested artifacts
- \item Ingest: utilities and events for data ingestion 
- \item Keywordsearchservice: utility to search artifacts by keyword 
- \item Modules: all the pre-included modules (data ingestion procedures)
- \item Progress: progress indicators and similar classes
- \item Python: resources needed for the functioning of the Jython language
- \item Rejview: resources used to analyse Windows registry
- \item Report: report generator
- \item Timeline: recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows O.S.
-\end{itemize}
+\begin{table}[h]
+  \begin{tabularx}{\textwidth}{@{}|c| *1{>{\centering\arraybackslash}X}@{}|}
+    \hline
+    \textbf{Name} & \textbf{Description} \\
+    \hline\hline
+    Actions & user interactions  \\
+    \hline
+    Casemodule & case class and other resources needed for the functioning of an autopsy case like data sources and artifacts \\
+    \hline
+    Centralrepository & data persisted and accessed by multiple cases (Correlation Engine) \\
+    \hline
+    Contentviewers & panels used for data representation  \\
+    \hline
+    Coordinationservice & configuration information distribution system \\
+    \hline
+    Core & addition of command line options, system configurations and collaboration monitor  \\
+    \hline
+    Corecomponents & main user interface components \\
+    \hline
+    Datamodel & all the entities needed to represent ingested data \\
+    \hline
+    Datasourceprocessors & data processing utilities  \\
+    \hline
+    Directorytree & file explorer for ingested artifacts \\
+    \hline
+    Ingest & utilities and events for data ingestion  \\
+    \hline
+    Keywordsearchservice & utility to search artifacts by keyword  \\
+    \hline
+    Modules & all the pre-included modules (data ingestion procedures) \\
+    \hline
+    Progress & progress indicators and similar classes \\
+    \hline
+    Python & resources needed for the functioning of the Jython language \\
+    \hline
+    Rejview & resources used to analyse Windows registry \\
+    \hline
+    Report & report generator \\
+    \hline
+    Timeline & recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows O.S. \\
+    \hline
+  \end{tabularx}
+\end{table}
+
 
 The ``KeywordSearch`` module is also of critical importance as it provides one of the most meaningful features which is filtering all the artifacts in a case with a keyword
 search using the Apache Solr search platform, which indexes the text contents of all the artifacts and allows extremely fast searching through a large amount of data.  
@@ -74,7 +92,7 @@ search using the Apache Solr search platform, which indexes the text contents of
 Another module that needs to be adapted is the ``RecentActivity`` module, which contains the tools needed to extract information from browsers, providing a great amount of
 critical evidence from data sources.
 
-\section{Development}
+\section{Development Stages}
 
 \subsection{Management Entities}
 
@@ -97,7 +115,7 @@ When a user is added by a Manager or his membership request is approved he must 
 
 \subsection{Basic Autopsy Functionalities}
 
-Then the most basic functionality from Autopsy was adapted, the ability to open an autopsy case. For this some elements of the original Casemodule package were adapted,
+Furthermore, the most basic functionality from Autopsy was adapted, the ability to open an autopsy case. For this some elements of the original Casemodule package were adapted,
 and after that all the other similar actions like closing, creating and deleting cases were also adapted.
 
 Autopsy cases have a case file containing case metadata, which allows the program to connect to the right database when the case is open, this database is also present
@@ -178,6 +196,6 @@ When a module finishes the case explorer is updated with the extracted informati
 
 TODO
 
-\section{Other Projects}
+\section{Critical Analysis and Proposed Improvements}
 
 TODO
