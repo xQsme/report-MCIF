@@ -92,6 +92,42 @@ search using the Apache Solr search platform, which indexes the text contents of
 Another module that needs to be adapted is the ``RecentActivity`` module, which contains the tools needed to extract information from browsers, providing a great amount of
 critical evidence from data sources.
 
+An autopsy case database contains the tables present in Table \ref{tab:tables}.
+
+\begin{tabularx}{\textwidth}{|c|c|c|}
+    \hline
+    tsk\_db\_info & tsk\_db\_info\_extended & tsk\_objects \\
+    \hline
+    tsk\_image\_info & tsk\_image\_names & tsk\_vs\_info \\
+    \hline
+    tsk\_vs\_parts & tsk\_fs\_info & data\_source\_info \\
+    \hline
+    tsk\_files & file\_encoding\_types & tsk\_files\_path \\
+    \hline
+    tsk\_files\_derived & tsk\_files\_derived\_method & tag\_names \\
+    \hline
+    review\_statuses & blackboard\_artifacts & blackboard\_attributes \\
+    \hline
+    ingest\_modules & blackboard\_attribute\_types & ingest\_module\_types \\
+    \hline
+    reports & blackboard\_artifact\_types & ingest\_jobs \\
+    \hline
+    ingest\_job\_modules & ingest\_job\_status\_types & account\_types \\
+    \hline
+    accounts & account\_relationships & tsk\_event\_types \\
+    \hline
+    tsk\_examiners & blackboard\_artifact\_tags & content\_tags \\
+    \hline
+    tsk\_file\_layout & tsk\_event\_descriptions & tsk\_events \\
+    \hline
+    tsk\_pool\_info & & \\
+    \hline
+    \caption{Case Database Tables}
+    \label{tab:tables}
+\end{tabularx}
+
+From these tables, the ones containing the information accessed most frequently are the ones related to blackboard artifacts, along with tables related to files and tags.
+
 \section{Development Stages}
 
 \subsection{Management Entities}
@@ -144,16 +180,17 @@ If no extra factors were added to an account, the authentication attempt with th
 When extra factors are present in an account, the response from the same request will contain an array with the extra factors added, and a UUID, which is a pseudo random string, which must be sent in the next request to validate the user's identity.
 This UUID is saved in the database in the form of salted hash using the blowfish algorithm, and is invalidated after a successful login attempt. The user then has the choice between any of the extra factors and must complete the required steps to validate that factor.
 
+\pagebreak
+
 \subsubsection*{One Time Password}
 
 The process of seting up OTP for an account begins with generating a secret string, which is used by both the server and the authenticator app to generate OTP, when the secret is generated, it is saved as a temporary secret after being encrypted by the RSA algorithm.
 
-
 The temporary secret must be added to the user's device, either by inserting the string itself or by scanning a QR code, and must be validated by the user by submitting the current OTP, after validation the temporary secret is considered permanent.
 
-All OTP validations have a 30 second window, which means the current OTP is valid for an extra 30 seconds after being replaced by the next OTP, allowing the user to have a better experience with these passwords.
+All OTP validations have a 30 second threshold, which means the current OTP is valid for an extra 30 seconds after being replaced by the next OTP, allowing the user to have a better experience with these passwords.
 
-The processes of authenticating or removing this authentication factor both depend on validating the current OTP, which is provided by the user's app.
+The processes of authenticating and removing this authentication factor both depend on validating the current OTP, which is provided by the user's app.
 
 In the event of loss of the device that the user uses to generate OTP, all the authentication factors can be reset using the ''Reset Password'' functionality, which relies on e-mail validation to prove the user's identity.
 
@@ -171,9 +208,7 @@ in a file inside the filesystem, which uses the SQLite database engine, so for t
 which resulted in the creation of a directory within the server called ``repository``, containing all the different cases created within the application.
 
 Later in the development there was the need to create an additional directory alongside the ``repository`` called ``central-repository``
-which contains the database used by the Correlation Engine to ingest data that can be queried by any case.
-
-EXPLAIN CORRELATION ENGINE HERE?
+which contains the database used by the Correlation Engine, which is a feature that finds files present in multiple cases, to ingest data that can be queried by any case.
 
 \subsection{Ingested Results Presentation}
 
@@ -211,7 +246,7 @@ Then the user can browse these directories using the web interface and select a 
 
 \begin{figure}[h]
  \centering
- \includegraphics[width=0.85\linewidth]{imgs/data-sources.png}
+ \includegraphics[width=0.75\linewidth]{imgs/data-sources.png}
  \caption{Data Source Selection}
  \label{fig:datasource}
 \end{figure}
@@ -221,9 +256,7 @@ The procedure for adding a data source to a case was adapted from Autopsy's sour
  \item Disk image
  \item Virtual machine
  \item Logical file collection
- \item Unallocated space image file
  \item Autopsy logical imager results
- \item Memory image files from Volatility
 \end{itemize}
 
 Local disk data sources were also an option provided by Autopsy but since the local disks the software has access to belong to a server, this feature is undesired.
@@ -235,7 +268,7 @@ they start, updates their progress, and informs that they finished, as can be se
 
 \begin{figure}[h]
  \centering
- \includegraphics[width=0.5\linewidth]{imgs/modules.png}
+ \includegraphics[width=0.55\linewidth]{imgs/modules.png}
  \caption{Ingest Modules Communication}
  \label{fig:modules}
 \end{figure}

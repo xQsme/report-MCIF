@@ -220,9 +220,7 @@ it out of the box and others that are available from third-parties. An overview 
 Autopsy runs background tasks in parallel using multiple cores and provides results as soon as they are found.
 It may take hours to fully search a drive, but the user will know in minutes if certain keywords were found in a specific folder.
 
-Autopsy is free, and cost effective digital forensics solutions are essential. Autopsy offers
-the same core features as other digital forensics tools and offers other essential features, such as web artifact analysis
-and registry analysis, that other commercial tools do not provide.
+Autopsy is free and open source, allowing for cost-effective digital forensics analysis and community contributions.
 
 \section{Related Software}
 
@@ -245,81 +243,62 @@ Nuix Lab also claims to contain powerful artificial intelligence, machine learni
 
 \subsection{EnCase Forensic}
 
-\citetitle{encase} \cite{encase} enables quickly searching, identifying, and prioritizing potential evidence, in computers and mobile devices, to determine whether 
-further investigation is warranted. This will result in a decreased backlog so that investigators can focus on getting to case closed. 
+\citetitle{encase} \cite{encase} enables searching, identifying, and prioritizing potential evidence, in computers and mobile devices, to determine whether 
+further investigation is warranted.
 
-EnCase Forensic helps acquire more evidence than any product on the market. Can collect from a wide variety of operating and file systems, 
-including over 25 types of mobile devices with EnCase Forensic. Parses the most popular mobile apps across iOS, Android, and Blackberry devices so that 
-no evidence is hidden. This is the flexibility needed to ensure teams can complete cases no matter where the potential evidence resides.
+It can collect from a wide variety of operating and file systems, including over 25 types of mobile devices, and parses the most popular mobile apps across iOS, Android, and Blackberry devices.
+Has strong decryption capabilities, allowing identification and unlocking password-protected files, and contains a custom indexing engine.
 
-EnCase Forensic is unmatched in its decryption capabilities, offering the broadest support of any forensic solution. Encryption support includes products 
-such as Dell Data Protection, Symantec, McAfee, and many more. Decryption power can be further expanded with Tableau Password 
-Recovery — a purpose-built, cost-effective hardware solution to identify and unlock password-protected files. 
-
-The EnCase Forensic evidence processor provides industry-leading processing capabilities that can automate the preparation of evidence, making 
-it easier to complete an investigation. Powered by an indexing engine built for scale and performance, it can automate complex queries across 
-varied evidence sources in one step saving time and increasing efficiency. 
-
-The most important part of any investigation is your ability to analyze evidence. EnCase Forensic is built with the investigator in mind, 
-providing a wide range of capabilities that enables performing deep forensic analysis as well as fast triage analysis from the same solution. 
-
-EnCase Forensic provides a flexible reporting framework that empowers tailoring case reports to meet specific needs. With comprehensive 
-and triage reporting options built in, can create reports for a wide range of audiences and easily share them across an organization. 
+EnCase Forensic provides a wide range of capabilities that enable performing deep forensic analysis as well as fast triage analysis from the same solution, and provides a flexible
+reporting framework that empowers tailoring case reports to meet specific needs.
 
 \subsection{Forensics Toolkit}
 
-\citetitle{ftk} \cite{ftk}  is an award-winning, court-cited digital investigations solution built for speed, stability and ease of use. It quickly 
-locates evidence and forensically collects and analyzes any digital device or system producing, transmitting or 
-storing data by using a single application from multiple devices. Known for its intuitive interface, email analysis, 
-customizable data views, processing speeds and stability.
+\citetitle{ftk} \cite{ftk} is an award-winning, court-cited digital investigations solution. 
 
-All digital evidence is stored in one case database, giving teams access to the most current case evidence. It 
-reduces the time, cost and complexity of creating multiple datasets. And best of all, there is continuous data transfer between AccessData's forensic 
-and e-discovery solutions, allowing for true collaboration between all parties working on the case. 
+It locates evidence, collects and analyzes any digital device or system producing, transmitting or 
+storing data by using a single application for multiple devices.
 
-With customizable processing, teams have the ability to establish enterprise-wide processing standards, creating 
-consistency for the investigations and reducing the possibility of missed data. Since evidence is processed up 
-front, investigators don't have to wait for searches to execute during the analysis phase. FTK is designed to provide the fastest, 
-most accurate and consistent processing with distributed processing and true multi-threaded/multi-core support.
-
-Indexing is done up front, so filtering and searching are faster than with any other solution. FTK offers 
-the flexibility to perform multipass data review and change indexing options without reprocessing data. 
-Whether teams are in the investigating phase or performing document review they have a shared index 
-file, eliminating the need to recreate or duplicate the file. Most importantly, they receive consistent search 
-results regardless of whether they are searching in FTK or Summation. Social Analyzer allows viewing email 
-communications at the domain level and drill down to the custodian level to see communications among 
-specific individuals. 
+All digital evidence is stored in one case database. It reduces the time, cost and complexity of creating multiple datasets, and there is continuous data transfer between AccessData's forensic 
+and e-discovery solutions, allowing for collaboration between all parties working on the case. 
 
 FTK allows users to create images, process a wide range of data types from forensic images to email archives and 
-mobile devices, analyze the registry, crack passwords, and build reports—all within a single solution. 
+mobile devices, analyze the registry, crack passwords, and build reports. 
 
-With the single-node enterprise, users can preview, acquire and analyze evidence remotely from computers 
-on the same network. 
+FTK allows collaboration, contains indexed searches, constructs timelines and other graphical assets, categorizes all the extracted atrifacts, and also contains malware identification modules.
 
-Automatically constructs timelines and graphically illustrates relationships among parties of interest in a 
-case. With Email, Social and File Visualization users can view data in multiple display formats, including timelines, 
-cluster graphs, pie charts, geolocations and more, to help determine relationships and find key pieces 
-of information. Then generate reports that are easily consumed by attorneys, CIOs or other investigators. 
+\subsection{Comparison}
 
-Almost every investigation involves the analysis of Internet artifacts. Web browsing caches store records of sites a 
-suspect has visited, web-based emails may help to prove intent or correlate other events and instant message 
-conversations or social media sites can contain evidence. 
-When evidence is processed, artifact files are categorized and organized so they can easily be seen. 
+A comparison of the features offered by each software is presented in Table \ref{tab:comparison}.
 
-Available as an option to FTK, \citetitle{cerberus} \cite{cerberus} is an automated malware triage platform solution designed to integrate 
-with FTK. It's a first layer of defense against the risk of imaging unknown devices and allows identifying 
-risky files after processing data in FTK. Then users can see which files are potentially infected and can avoid 
-exporting them. Cerberus is one tool in the malware arsenal and helps identify potentially malicious files.
+\begin{table}[h]
+  \begin{tabularx}{\textwidth}{|c|c|c|c|c|}
+    \hline
+    \textbf{Feature} & \textbf{Autopsy} & \textbf{Nuix} & \textbf{Encase} & \textbf{FTK} \\
+    \hline\hline
+    Collaboration & \cmark & \cmark & \cmark & \cmark \\
+    \hline
+    Web Based Interface & \xmark & \cmark & \xmark & \xmark \\
+    \hline
+    Indexed Searches & \cmark & \cmark & \cmark & \cmark \\
+    \hline
+    Decryption & \xmark & \textbf{?} & \cmark & \cmark \\
+    \hline
+    Artificial Intelligence & \xmark & \cmark & \textbf{?} & \textbf{?} \\
+    \hline
+    Malware Analysis & \xmark & \textbf{?} & \textbf{?} & \cmark \\
+    \hline
+    Report Generation & \cmark & \cmark & \cmark & \cmark \\
+    \hline
+    Free and Open Source & \cmark & \xmark & \xmark & \xmark \\
+    \hline
+    Modular Plugins & \cmark & \xmark & \xmark & \xmark \\
+    \hline
+  \end{tabularx}
+    \caption{Software Comparison}
+  \label{tab:comparison}
+\end{table}
 
-Teams can:
-\begin{itemize}
-\item Determine both the behavior and intent of security breaches sooner by providing complex analysis prior 
-to a full-blown malware attack. 
-\item Strengthen security defenses and prevent malicious software from running with state-of-the-art technology 
-called whitelisting. 
-\item Take action sooner when security breaches occur; unlike other competitors, Cerberus doesn't rely on a sandbox 
-or signature-based solutions. 
-\end{itemize}
 
 \section{Proposed Solution}
 
@@ -327,7 +306,7 @@ As can be seen from the existing alternative software, collaboration is a major 
 configured in a manner to allow collaboration it involves a complicated setup and has certain limitations.
 The setup required for collaborative cases in Autopsy is as follows:
 \begin{itemize}
- \item Shared hard drive accessible for every computer setup for every machine using the same drive letter
+ \item Shared hard drive accessible to every machine using the same drive letter
  \item PostgreSQL Database server 
  \item Solr indexing server
  \item ActiveMQ messaging server
