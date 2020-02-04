@@ -7,7 +7,7 @@
 
 The scope of this internship concerns digital forensics, as it focuses on adapting an existing forensics platform into a collaborative client-server model.
 
-In this chapter, a contextualization of digital forensics is given, an analysis of both \citetitle{sleuthkit} \cite{sleuthkit} and \citetitle{autopsy} \cite{autopsy} is made, it's given a brief description of
+In this chapter, a contextualization of digital forensics is given, an analysis of both \citetitle{sleuthkit} (TSK) \cite{sleuthkit} and \citetitle{autopsy} \cite{autopsy} is made, it's given a brief description of
 the existing forensic platform alternatives and the proposed solution for the scope of the internship is described.
 
 \section{Digital Forensics}
@@ -143,7 +143,7 @@ evidence was performed.
 
 \section{The Sleuth Kit}
 
-The Sleuth Kit (TSK) is a library and collection of command line tools that allow the
+TSK is a library and collection of command line tools that allow the
 investigation of disk images. The core functionality of TSK allows volume and file system data analysis.
 The plug-in framework allows incorporation of additional modules to analyze file contents
 and build automated systems. The library can be incorporated into larger digital forensics tools and
@@ -151,7 +151,7 @@ the command line tools can be directly used to find evidence.
 
 \subsection{Overview}
 
-The original part of Sleuth Kit is a C library and collection of command line
+The original part of TSK is a C library and collection of command line
 file and volume system forensic analysis tools. The file system tools allow examining file systems
 of a computer in a non-intrusive fashion. Because the tools do not rely on the operating system to process
 the file systems, deleted and hidden content can be shown.
@@ -182,7 +182,7 @@ thumbnails can be made from graphic images to facilitate quick analysis.
 
 \section{Autopsy}
 
-Autopsy is a digital forensics platform and a graphical interface to The Sleuth Kit
+Autopsy is a digital forensics platform and a graphical interface to TSK
 along with other digital forensics tools. It is used by law enforcement, military, 
 and corporate examiners to investigate what happened on a computer. It can even 
 be used by anyone to recover photos from a camera's memory card.
@@ -193,7 +193,7 @@ wizards guide the user through every step. All results are shown in a single tre
 Autopsy was designed to be an end-to-end platform with modules that come with
 it out of the box and others that are available from third-parties. An overview of Autopsy's modules can be found in Table \ref{tab:autopsyModules}.
 
-\begin{table}[h]
+\begin{table}[ht]
   \begin{tabularx}{\textwidth}{@{}|c| *1{>{\centering\arraybackslash}X}@{}|}
     \hline
     \textbf{Name} & \textbf{Description} \\
@@ -271,7 +271,7 @@ FTK allows collaboration, contains indexed searches, constructs timelines and ot
 
 A comparison of the features offered by each software is presented in Table \ref{tab:comparison}.
 
-\begin{table}[h]
+\begin{table}[ht]
   \begin{tabularx}{\textwidth}{|c|c|c|c|c|}
     \hline
     \textbf{Feature} & \textbf{Autopsy} & \textbf{Nuix} & \textbf{Encase} & \textbf{FTK} \\

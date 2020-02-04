@@ -138,7 +138,7 @@ For these functionalities there are two roles associated, the Manager role allow
 own information and the teams and cases he was assigned to. For these interactions, it was decided to create a drag and drop interface, which allows users to be dragged into
 teams and teams dragged into cases. All these entities are listed side by side and each have their own options and filtering input, as can be observed in Figure \ref{fig:users}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
  \centering
  \includegraphics[width=1\linewidth]{imgs/users.png}
  \caption{Entity Management Interface}
@@ -157,7 +157,7 @@ The authentication process is handled through a REST API, when the authenticatio
 JWT is an open standard that defines a compact and self-contained way for securely transmitting information between parties. This information can be verified and trusted because it is digitally signed.
 JWT contain three parts, as can be seen in Table \ref{tab:jwtComposition}.
 
-\begin{table}[h]
+\begin{table}[ht]
   \begin{tabularx}{\textwidth}{@{}|c| *1{>{\centering\arraybackslash}X}@{}|}
     \hline
     \textbf{Name} & \textbf{Contents} \\
@@ -212,14 +212,14 @@ which contains the database used by the Correlation Engine, which is a feature t
 
 \subsection{Ingested Results Presentation}
 
-Ingested results are the items present inside the provided data sources, Autopsy runs multiple modules on each data source and extracts these results using The Sleuth Kit,
+Ingested results are the items present inside the provided data sources, Autopsy runs multiple modules on each data source and extracts these results using TSK,
 extracted results can either be a file instance or an artifact (which is something that corresponds only to a piece of information inside a file).
 
 The ingested results are presented in three different containers, one taking the shape of a file explorer, allowing exploration of the structure of all the results, 
 one taking the shape of a table or thumbnail viewer, presenting all the contents of the results selected from the explorer, and one taking the shape of a content viewer, allowing visualization
 of the data contained inside the result selected from the table as can be seen in Figure \ref{fig:data}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
  \centering
  \includegraphics[width=1\linewidth]{imgs/data.png}
  \caption{Ingested Results Presentation}
@@ -244,7 +244,7 @@ needed, allowing the user to focus on the information that is most important to 
 Using the same credentials used to log-in to the platform, the user can also upload data source files into his folder located inside the server, using an FTP client like filezilla.
 Then the user can browse these directories using the web interface and select a data source to add to the case, as can be seen in Figure \ref{fig:datasource}
 
-\begin{figure}[h]
+\begin{figure}[ht]
  \centering
  \includegraphics[width=0.75\linewidth]{imgs/data-sources.png}
  \caption{Data Source Selection}
@@ -266,7 +266,7 @@ Local disk data sources were also an option provided by Autopsy but since the lo
 Firstly the default modules included with Autopsy were adapted, and can be ran through the web interface. When the modules are running the server communicates to each client when
 they start, updates their progress, and informs that they finished, as can be seen in Figure \ref{fig:modules}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
  \centering
  \includegraphics[width=0.55\linewidth]{imgs/modules.png}
  \caption{Ingest Modules Communication}
