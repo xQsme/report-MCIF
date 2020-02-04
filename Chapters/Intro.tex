@@ -5,357 +5,91 @@
 \label{ch:introduction}
 %************************************************
 
-The scope of this internship concerns digital forensics, as it focuses on adapting an existing forensics platform into a collaborative client-server model.
+In the scope of the master's degree in cybersecurity and digital forensics, students had the choice between writing a thesis, developing a project or doing an internship.
+This document is the report for a curricular internship conducted at \company, where the main goal of the internship was to develop a collaborative digital forensics platform,
+while also learning to develop software in an enterprise environment.
 
-In this chapter, a contextualization of digital forensics is given, an analysis of both The Sleuth Kit and Autopsy is made, it's given a brief description of
-the existing forensic platform alternatives and is described the proposed solution for the scope of the internship.
+This chapter encompasses the motivation for this internship, a characterization of the host entity, the scope of the proposed project, and the structure of this document.
 
-\section{Digital Forensics}
+\section{Motivation}
 
-\subsection{Contextualization}
+As a computer science student, my major interest has always been software engineering, and even after completing the first year of a master's degree in a more advanced subject, 
+my interests remained unchanged. Based on that interest, the opportunity to work in an enterprise environment was captivating, as I could gain experience in the 
+field while also developing an interesting project to complement my education.
 
-Forensic science is the use of scientific methods or expertise to investigate crimes
-or examine evidence that might be presented in a court of law.
+\section{Host Entity}
 
-The definition of digital forensics is directly related to the definition of
-computer forensics which is the collection, preservation, analysis,
-and presentation (\citetitle{daniels}) of evidence stemming from digital sources for use in a legal matter
-using investigative processes, tools, and practices.
+To attain an internship, an interview was conducted at ``\company``, and a 9 month long curricular internship was planned. The initial project proposals were the development of a 
+client-server model for the existing Autopsy platform, or the adaptation of the existing Autopsy platform for MacOS environments, the chosen proposal was the former.
 
-Digital forensics is the application of computer technology to criminal cases where evidence
-includes items that are created by digital systems.
+\subsection{Company Information}
 
-Digital forensics, according to \citeauthor{nist}, is the field of forensic science that is concerned with retrieving,
-storing and analyzing electronic data that can be useful in criminal investigations.
-This includes information from computers, hard drives, mobile phones and other data
-storage devices.
+VOID is a privately held software development company established in Leiria, Portugal, in 2006, focused on building high-end products embodied in web, 
+mobile and desktop applications, supported by creative software engineering tailored to each challenge's specific needs. 
+It currently employs 30 high-end professionals in several fields of expertise.
 
-Digital forensic investigators face challenges such as extracting data from damaged or destroyed
-devices, locating individual items of evidence among vast quantities of data,
-and ensuring that their methods capture data reliably without altering it in any way.
+\subsection{Work Environment}
 
-Personal data should ultimately be attributable to an individual; however, making
-that attribution can be difficult due to the presence or absence of individualized
-user accounts, security to protect those user accounts, and the actual placement of a
-person at the same location and time when the data is created.
+VOID prides itself in providing very good conditions to it's workers, making them feel like they are at home while working,
+and also to feel motivated to come to work every day. These conditions include the work environment itself, which is an open space where 
+everyone can interact with each other, the ``play areas`` where people can relax while playing a game of pool or video games and the rooftop terrace where workers can relax on sunny days.
+The company also makes sure nothing is missing to provide the best work environment possible by always having food and drink to all it's workers at any time.
 
-\subsection{Digital Evidence}
+\subsection{Areas of Expertise}
 
-Digital evidence is any type of digital data with incriminating characteristics,
-which can result from any type of action preformed by a user, like transactions,
-recordings, or virtually any action preformed on a device.
+VOID mostly functions as a company that develops software tailored to the specifications provided by the client, although 
+it can also provide services in different areas like cybersecurity and digital forensics.
 
-Nowadays it's virtually impossible not to leave a digital track behind, since most
-of us carry and use devices capable of connecting to the internet.
-
-The explosion of social media sites has created a whole new area of electronic
-evidence. Most people today are willing to share all kinds of information through
-social media platforms.
-
-In order for electronic data to become digital evidence, it must be stored and be recoverable
-by a forensic examiner. One of the great challenges is not whether digital
-evidence may exist, but where the evidence is stored, getting access to that storage,
-and finally, recovering and processing that digital evidence for relevance within
-a civil or criminal action.
-
-The potential storage options for electronic evidence has shifted from being only contained locally
-to being either located locally or remotely in what is called ``The Cloud``. 
-
-More and more everyday computing processes are moving to the Internet
-where companies offer software as a service. Software as a service means that
-the customer no longer has to install software on their computer, allowing access to the software remotely,
-and not storing any data locally.
-
-%%Comment about difficulty between retrieving local evidence and cloud stored evidence
-
-\subsection{Processes and Procedures}
-
-Digital forensics is the application of forensic science to electronic evidence in a
-legal matter.
-
-While there are many different subdisciplines and many types of devices, communication,
-and storage methods available, the basic principles of digital forensics
-apply to all of them.
-
-These principles encompass four areas:
-
-\begin{enumerate}
-\item Acquisition
-\item Preservation
-\item Analysis
-\item Presentation
-\end{enumerate}
-
-Each of these areas includes specific forensic processes and procedures.
-
-\subsubsection{Acquisition}
-
-Acquisition is the process of collecting electronic data. Seizing a computer at a crime scene or
-taking custody of a smartphone in a civil suit are examples of device acquisition, but the data 
-must be extracted from these devices using specific procedures that equate to making a copy of
-the storage devices, while following strict rules to ensure the integrity of all the extracted data.
-
-Since acquisition is the first interaction between the investigators and the evidence,
-it is the step where it's most likely to occur modifications of the contents of the seized devices,
-because turning on the device or extracting the data without following the right procedures can alter
-it's contents irreversibly.
-
-\subsubsection{Preservation}
-
-For evidence to be defendable in court it must be preserved properly.
-Preservation in the forensics context is the process of creating a chain of custody
-that begins before collecting the evidence and ends when the evidence is released.
-Any interference in the chain of custody can lead to issues regarding the validity of the evidence.
-Additionally, preservation includes maintaining the evidence in a safe environment, preventing
-intentional destruction with malicious purpose or accidental modification by unqualified people.
-
-A chain of custody log allows proving that the integrity of the evidence has been maintained from seizure
-through presentation in court. It should contain entries for every time that a piece of evidence
-has been touched, including collection, storage transport, and any time the evidence is checked out for
-handling by any personnel.
-
-\subsubsection{Analysis}
-
-Analysis is the process of locating and categorizing items from evidence
-that has been collected in a case. Each case is unique as the
-circumstances surrounding each case can vary immensely, not only in the evidence being analyzed, but also in the
-approach used to perform the analysis. The analysis is the area where
-the individual skills, tools used, and the training of the forensic examiner have
-the greatest impact on the outcome of the examination. Considering that electronic evidence
-appears in so many forms and comes from diverse locations and devices,
-the training and experience of the examiner has a much greater impact
-on the results of the examination.
-
-Analysis of digital evidence is more than just determining whether a file exists on a hard drive, it involves finding out how
-that file got on the hard drive, and if possible, who put the file on the hard drive.
-
-\subsubsection{Presentation}
-
-Presentation of the examiner's findings is the last step in the process of forensic
-analysis of electronic evidence. This includes not only the written findings or forensic
-report, but also the creation of sworn statements, depositions of experts, and court testimony.
-There are no exact rules or standards for reporting the results of an
-examination. Each entity may have its own particular guidelines
-for reporting. However, forensic examination reports should be written clearly, concisely,
-and accurately, explaining what was examined, the tools used for the examination,
-the procedures used by the examiner, and the results of the examination.
-The report should also include the collection methods used, including specific steps
-taken to protect and preserve the original evidence and how the verification of the
-evidence was performed.
-
-\section{The Sleuth Kit}
-
-The Sleuth Kit (TSK) is a library and collection of command line tools that allow the
-investigation of disk images. The core functionality of TSK allows volume and file system data analysis.
-The plug-in framework allows incorporation of additional modules to analyze file contents
-and build automated systems. The library can be incorporated into larger digital forensics tools and
-the command line tools can be directly used to find evidence.
-
-\subsection{Description}
-
-The original part of Sleuth Kit is a C library and collection of command line
-file and volume system forensic analysis tools. The file system tools allows examining file systems
-of a computer in a non-intrusive fashion. Because the tools do not rely on the operating system to process
-the file systems, deleted and hidden content can be shown.
-
-The volume system tools allow examination of the layout of disks
-and other media. TSK supports DOS partitions, BSD partitions, Mac partitions, Sun slices, and 
-GPT disks. With these tools, partition locations can be identified 
-and extracted so that they can be analyzed with file system analysis tools.
-
-When performing a complete analysis of a system, command line 
-tools can become tedious. Autopsy is a graphical interface to the tools in TSK, 
-which allows easier conduction of an investigation. Autopsy 
-provides case management, image integrity, keyword searching, and other automated
-operations.
-
-A complete analysis also requires more than just file and volume system analysis.
-However, a single tool can't provide support for all file types and analysis 
-techniques. The TSK Framework allows tools to easily incorporate file analysis
-modules that were written by other developers.
-
-TSK Analyzes raw, Expert Witness and AFF file system and disk images.
-It supports the NTFS, FAT, ExFAT, UFS 1, UFS 2, EXT2FS, EXT3FS, Ext4, HFS, ISO 9660,
-and YAFFS2 file systems.
-
-\subsection{Search Techniques}
-
-TSK allows listing allocated and deleted ASCII and Unicode file names, can display the
-details and contents of all NTFS attributes, can display file system and meta-data structure details,
-can create time lines of file activity, which can be imported into a spread sheet to create graphs and reports.
-TSK allows the lookup of file hashes in hash databases, it organizes files based on their type, and pages of
-thumbnails can be made from graphic images to facilitate quick analysis.
-
-\section{Autopsy}
-
-Autopsy is a digital forensics platform and a graphical interface to The Sleuth Kit
-along with other digital forensics tools. It is used by law enforcement, military, 
-and corporate examiners to investigate what happened on a computer. It can even 
-be used by anyone to recover photos from a camera's memory card.
-
-Autopsy was designed to be intuitive out of the box. Installation is easy and
-wizards guide the user through every step. All results are shown in a single tree.
-
-Autopsy was designed to be an end-to-end platform with modules that come with
-it out of the box and others that are available from third-parties. Some of the
-modules provide:
-
+The company is capable of comfortably providing services in the following areas:
 \begin{itemize}
-\item Timeline Analysis - Advanced graphical event viewing interface;
-\item Hash Filtering - Flag known bad files and ignore known good;
-\item Keyword Search - Indexed keyword search to find files that mention relevant
-terms;
-\item Web Artifacts - Extract history, bookmarks, and cookies from Firefox, Chrome,
-Internet Explorer and Microsoft Edge;
-\item Data Carving - Recover deleted files from unallocated space;
-\item Multimedia - Extract EXIF metadata from pictures and videos and display these files;
-\item Indicators of Compromise - Scan a computer using STIX.
+ \item Blockchain
+ \item Machine learning and data science
+ \item Augmented reality and virtual reality
+ \item Mobile applications
+ \item Web applications
+ \item Desktop applications
+ \item Cybersecurity and digital forensics
 \end{itemize}
 
-Autopsy runs background tasks in parallel using multiple cores and provides results as soon as they are found.
-It may take hours to fully search a drive, but the user will know in minutes if certain keywords were found in a specific folder.
+\subsection{Main Projects}
 
-Autopsy is free. As budgets are decreasing, cost effective digital forensics solutions are essential. Autopsy offers
-the same core features as other digital forensics tools and offers other essential features, such as web artifact analysis
-and registry analysis, that other commercial tools do not provide.
+Throughout it's 14 years of being active in the software development industry, VOID has conducted some very interesting projects, as can be seen in Table \ref{tab:voidProjects}.
 
-\section{Alternative Software}
+\begin{table}[h]
+  \begin{tabularx}{\textwidth}{@{}|c| *1{>{\centering\arraybackslash}X}@{}|}
+    \hline
+    \textbf{Name} & \textbf{Description} \\
+    \hline\hline
+    Yes Account & A suite of applications for automated digitization of accounting documents \\
+    \hline
+    Web Portal & A large scale project for the European commission \\
+    \hline
+    Digital Archive & A digital preservation application \\
+    \hline
+    Dream Football & A social network along with web and mobile applications  \\
+    \hline
+    Fuel Write & A comprehensive platform for fleet management, data collection and route optimization \\
+    \hline
+    Caspers & A mobile augmented reality customer experience and engagement \\
+    \hline
+    PBCore Toolkit & A desktop application to support the creation, editing, and export of moving image-related inventory metadata as PBCore XML records \\
+    \hline
+    Avenue Securities & A trading platform \\
+    \hline
+  \end{tabularx}
+  \caption{VOID's Main Projects}
+  \label{tab:voidProjects}
+\end{table}
 
-\subsection{Nuix}
+\section{Project Scope}
 
-Nuix Lab allows investigators to work efficiently on gigabyte to terabyte-sized investigations and beyond.
-It’s ideal for local or small regional forensic labs struggling with the expanding volume, variety, and 
-complexity of digital evidence and looking to build or upgrade a dedicated digital forensics facility.
+The planned project can be categorized in the field of digital forensics, even though the main focus is on typical software development, there are plenty of advanced concepts
+related to forensics science and cybersecurity that must be assimilated for the project to succeed.
 
-If the resources are spread geographically or companies are looking to facilitate greater collaboration across departments,
-Nuix Lab breaks down evidence silos and makes better use of existing team members and intelligence. Nuix software puts 
-evidence into the hands of less technical reviewers or case officers sooner in the investigation.
 
-The core technologies of the Nuix Lab, Nuix Workstation and Nuix Investigate, give digital forensic technicians and case investigators 
-different lenses into the same case data. Investigators benefit from an easy-to-use browser experience where they can collaborate on 
-the same data at the same time, creating efficiency and helping them share insights.
+\section{Document Structure}
 
-Implementing Elasticsearch as a data store for the Nuix Lab boosts evidence processing, investigation, and intelligence capabilities. 
-It’s appropriate for investigations that contain massive volumes of digital evidence and numerous digital exhibits; are conducted across multiple
-regions or jurisdictions, or need to cross-reference and correlate intelligence across multiple current and historical cases. 
-
-In addition, it contains powerful artificial intelligence, machine learning, and analytics to supercharge the investigations. 
-
-\subsection{EnCase Forensic}
-
-EnCase Forensic enables quickly searching, identifying, and prioritizing potential evidence, in computers and mobile devices, to determine whether 
-further investigation is warranted. This will result in a decreased backlog so that investigators can focus on getting to case closed. 
-
-EnCase Forensic helps acquire more evidence than any product on the market. Can collect from a wide variety of operating and file systems, 
-including over 25 types of mobile devices with EnCase Forensic. Parses the most popular mobile apps across iOS, Android, and Blackberry devices so that 
-no evidence is hidden. This is the flexibility needed to ensure teams can complete cases no matter where the potential evidence resides.
-
-EnCase Forensic is unmatched in its decryption capabilities, offering the broadest support of any forensic solution. Encryption support includes products 
-such as Dell Data Protection, Symantec, McAfee, and many more. Decryption power can be further expanded with Tableau Password 
-Recovery — a purpose-built, cost-effective hardware solution to identify and unlock password-protected files. 
-
-The EnCase Forensic evidence processor provides industry-leading processing capabilities that can automate the preparation of evidence, making 
-it easier to complete an investigation. Powered by an indexing engine built for scale and performance, it can automate complex queries across 
-varied evidence sources in one step saving time and increasing efficiency. 
-
-The most important part of any investigation is your ability to analyze evidence. EnCase Forensic is built with the investigator in mind, 
-providing a wide range of capabilities that enables performing deep forensic analysis as well as fast triage analysis from the same solution. 
-
-EnCase Forensic provides a flexible reporting framework that empowers tailoring case reports to meet specific needs. With comprehensive 
-and triage reporting options built in, can create reports for a wide range of audiences and easily share them across an organization. 
-
-\subsection{Forensics Toolkit}
-
-FTK is an award-winning, court-cited digital investigations solution built for speed, stability and ease of use. It quickly 
-locates evidence and forensically collects and analyzes any digital device or system producing, transmitting or 
-storing data by using a single application from multiple devices. Known for its intuitive interface, email analysis, 
-customizable data views, processing speeds and stability.
-
-All digital evidence is stored in one case database, giving teams access to the most current case evidence. It 
-reduces the time, cost and complexity of creating multiple datasets. And best of all, there is continuous data transfer between AccessData's forensic 
-and e-discovery solutions, allowing for true collaboration between all parties working on the case. 
-
-With customizable processing, teams have the ability to establish enterprise-wide processing standards, creating 
-consistency for the investigations and reducing the possibility of missed data. Since evidence is processed up 
-front, investigators don't have to wait for searches to execute during the analysis phase. FTK is designed to provide the fastest, 
-most accurate and consistent processing with distributed processing and true multi-threaded/multi-core support.
-
-Indexing is done up front, so filtering and searching are faster than with any other solution. FTK offers 
-the flexibility to perform multipass data review and change indexing options without reprocessing data. 
-Whether teams are in the investigating phase or performing document review they have a shared index 
-file, eliminating the need to recreate or duplicate the file. Most importantly, they receive consistent search 
-results regardless of whether they are searching in FTK or Summation. Social Analyzer allows viewing email 
-communications at the domain level and drill down to the custodian level to see communications among 
-specific individuals. 
-
-FTK allows users to create images, process a wide range of data types from forensic images to email archives and 
-mobile devices, analyze the registry, crack passwords, and build reports—all within a single solution. 
-
-With the single-node enterprise, users can preview, acquire and analyze evidence remotely from computers 
-on the same network. 
-
-Automatically constructs timelines and graphically illustrates relationships among parties of interest in a 
-case. With Email, Social and File Visualization users can view data in multiple display formats, including timelines, 
-cluster graphs, pie charts, geolocations and more, to help determine relationships and find key pieces 
-of information. Then generate reports that are easily consumed by attorneys, CIOs or other investigators. 
-
-Almost every investigation involves the analysis of Internet artifacts. Web browsing caches store records of sites a 
-suspect has visited, web-based emails may help to prove intent or correlate other events and instant message 
-conversations or social media sites can contain evidence. 
-When evidence is processed, artifact files are categorized and organized so they can easily be seen. 
-
-Available as an option to FTK, Cerberus is an automated malware triage platform solution designed to integrate 
-with FTK. It's a first layer of defense against the risk of imaging unknown devices and allows identifying 
-risky files after processing data in FTK. Then users can see which files are potentially infected and can avoid 
-exporting them. Cerberus is one tool in the malware arsenal and helps identify potentially malicious files.
-
-Teams can:
-\begin{itemize}
-\item Determine both the behavior and intent of security breaches sooner by providing complex analysis prior 
-to a full-blown malware attack. 
-\item Strengthen security defenses and prevent malicious software from running with state-of-the-art technology 
-called whitelisting. 
-\item Take action sooner when security breaches occur; unlike other competitors, Cerberus doesn't rely on a sandbox 
-or signature-based solutions. 
-\end{itemize}
-
-\section{Proposed Solution}
-
-As can be seen from the existing alternative software, collaboration is a major feature included in all these programs, and while Autopsy also allows the software to be
-configured in a manner to allow collaboration it involves a complicated setup and has certain limitations.
-The setup required for collaborative cases in Autopsy is as follows:
-\begin{itemize}
- \item Shared hard drive accessible for every computer setup for every machine using the same drive letter
- \item PostgreSQL Database server 
- \item Solr indexing server
- \item ActiveMQ messaging server
-\end{itemize}
-The limitations of Autopsy's multi-user case feature are that it requires every user to be using a Windows O.S. computer and it also requires specific configuration on each
-machine involved in the case that is set up.
-
-The proposed solution aims to cover 3 main aspects:
-\begin{enumerate}
- \item Accessibility
- \item Collaboration
- \item Organization 
-\end{enumerate}
-
-\subsection{Accessibility}
-
-Given a client-server architecture, any client with access to the network where the server is located can access the contents provided by the server.
-The aim is to condense the processing heavy features of Autopsy in a single server and provide any number of clients access to this information, requiring less 
-resources from each client, allowing collaboration and removing any type of setup required for each of the client machines, while also providing a more modern 
-and user friendly design.
-
-\subsection{Collaboration}
-
-In order to provide collaboration, all the information is maintained in a single server, or a collection of servers providing different functions (like exposing endpoints,
-storing data, and indexing searches), and every client can preform all the allowed actions whether they consist in consulting, generating, or removing information. 
-Collaboration comes naturally with a client-server model, as the same server that provides the endpoints can also communicate with each client using websockets, and maintain 
-information in a coordinated state along every connected client.
-
-\subsection{Organization}
-
-Digital forensics investigations are usually done by specialized organizations, who need to organize their human resources in an efficient and secure manner.
-Assigning investigators to teams, assigning teams to cases, allowing access to the platform and certain information is a critical part of the activities preformed by
-a company that specializes in digital forensics, so having these functionalities properly integrated into a digital forensics platform should be an important feature.
+This document contains five chapters, the first one provides an introduction about the internship that was carried out, 
+the second contains important concepts to help better understand the contents of this document, the third focuses on the development
+of the platform that is the main focus of the internship, the fourth presents experiences from being involved in different projects inside the company,
+and finally the conclusion about the performed internship is presented in the fifth chapter.

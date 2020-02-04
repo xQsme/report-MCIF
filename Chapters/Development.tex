@@ -1,18 +1,15 @@
 \addtocontents{toc}{\protect\vspace{\beforebibskip}} % Place slightly below the rest of the document content in the table
 
-
 %************************************************
-\chapter{Internship Programme}
+\chapter{Kensentme Platform Delevopment}
 \label{ch:development}
 %************************************************
 
 The internship started on September 2nd 2019, being planned to last for 9 months, ending on the 29th of May 2020.
 
-The first day at the company was interesting, meeting most of the personalities of the workplace and getting set up with my work environment,
-consisting of a desk, chair, computer and 2 monitors.
+The main goal of the internship is the development of a collaborative platform based on Autopsy, which was soon named ``Kensentme`` by the company's designer.
 
-As soon as the computer was properly configured with all the software needed the project became the main focus of my time at the company,
-making progress daily, sometimes just planning the architecture or analyzing the source code, sometimes just writing code, and sometimes a mix of both.
+Each step taken towards the development of this platform is documented in this chapter, from project planning to full roll out on a production environment.
 
 \section{Project Planning}
 
@@ -23,8 +20,8 @@ The plan for this internship is to achieve the same kind of functionality provid
 or hardware intensive requirements, resulting in needing only single capable server, and allowing the program to be used by multiple low capacity client devices using 
 any web capable O.S.
 
-To achieve that goal, the project will be an adaptation of the original Autopsy source code, into a client-server model, with the server developed in Java using the Quarkus framework,
-and the client developed in Javascript using the React framework.
+To achieve that goal, the project will be an adaptation of the original Autopsy source code, into a client-server model, with the server developed in Java using the Quarkus \cite{quarkus} framework,
+and the client developed in Javascript using the React \cite{react} framework.
 
 The project is outlined to work in a multi user environment, allowing users to be assigned to teams and teams assigned to cases, and allowing multiple users to interact with
 a case simultaneously.
@@ -36,34 +33,58 @@ ability to spawn different containers as requested to work on different cases at
 Given that the core features will be running in a remote server, it was decided that the addition of data sources to cases will be handled by an FTP client, allowing users
 to transfer files to their respective data source directories, and FTP access will be controlled according to each user's credentials on the platform.
 
-\section{Autopsy source code analysis}
+\section{Autopsy Source Code Analysis}
 
-Autopsy is a digital forensics analysis software that is available as Open Source Software on GitHub.
+Autopsy is a digital forensics analysis software that is available as Open Source Software \cite{opensource} on \citetitle{github} \cite{github}.
 
 With the goals set for this project, the source code was analyzed to understand which components need to be replicated and adapted in order to obtain the same logic flow.
 
-The ``Core`` module is where the most important components are located, and after analysis it was concluded that the following directories contain relevant information:
+The ``Core`` module is where the most important components are located, and after analysis it was concluded that the following directories contain relevant information, as can be seen in Table \ref{tab:autopsyOverview}.
 
-\begin{itemize}
- \item Actions: user interactions 
- \item Casemodule: case class and other resources needed for the functioning of an autopsy case like data sources and artifacts
- \item Centralrepository: data persisted and accessed by multiple cases (Correlation Engine)
- \item Contentviewers: panels used for data representation 
- \item Coordinationservice: configuration information distribution system
- \item Core: addition of command line options, system configurations and collaboration monitor 
- \item Corecomponents: main user interface components
- \item Datamodel: all the entities needed to represent ingested data
- \item Datasourceprocessors: data processing utilities 
- \item Directorytree: file explorer for ingested artifacts
- \item Ingest: utilities and events for data ingestion 
- \item Keywordsearchservice: utility to search artifacts by keyword 
- \item Modules: all the pre-included modules (data ingestion procedures)
- \item Progress: progress indicators and similar classes
- \item Python: resources needed for the functioning of the Jython language
- \item Rejview: resources used to analyse Windows registry
- \item Report: report generator
- \item Timeline: recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows O.S.
-\end{itemize}
+\begin{tabularx}{\textwidth}{@{}|c| *1{>{\centering\arraybackslash}X}@{}|}
+    \hline
+    \textbf{Name} & \textbf{Description} \\
+    \hline\hline
+    Actions & user interactions  \\
+    \hline
+    Casemodule & case class and other resources needed for the functioning of an autopsy case like data sources and artifacts \\
+    \hline
+    Centralrepository & data persisted and accessed by multiple cases (Correlation Engine) \\
+    \hline
+    Contentviewers & panels used for data representation  \\
+    \hline
+    Coordinationservice & configuration information distribution system \\
+    \hline
+    Core & addition of command line options, system configurations and collaboration monitor  \\
+    \hline
+    Corecomponents & main user interface components \\
+    \hline
+    Datamodel & all the entities needed to represent ingested data \\
+    \hline
+    Datasourceprocessors & data processing utilities  \\
+    \hline
+    Directorytree & file explorer for ingested artifacts \\
+    \hline
+    Ingest & utilities and events for data ingestion  \\
+    \hline
+    Keywordsearchservice & utility to search artifacts by keyword  \\
+    \hline
+    Modules & all the pre-included modules (data ingestion procedures) \\
+    \hline
+    Progress & progress indicators and similar classes \\
+    \hline
+    Python & resources needed for the functioning of the Jython language \\
+    \hline
+    Rejview & resources used to analyse Windows registry \\
+    \hline
+    Report & report generator \\
+    \hline
+    Timeline & recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows O.S. \\
+    \hline
+    \caption{Autopsy Modules Overview}
+    \label{tab:autopsyOverview}
+\end{tabularx}
+
 
 The ``KeywordSearch`` module is also of critical importance as it provides one of the most meaningful features which is filtering all the artifacts in a case with a keyword
 search using the Apache Solr search platform, which indexes the text contents of all the artifacts and allows extremely fast searching through a large amount of data.  
@@ -71,7 +92,43 @@ search using the Apache Solr search platform, which indexes the text contents of
 Another module that needs to be adapted is the ``RecentActivity`` module, which contains the tools needed to extract information from browsers, providing a great amount of
 critical evidence from data sources.
 
-\section{Development}
+An autopsy case database contains the tables present in Table \ref{tab:tables}.
+
+\begin{tabularx}{\textwidth}{|c|c|c|}
+    \hline
+    tsk\_db\_info & tsk\_db\_info\_extended & tsk\_objects \\
+    \hline
+    tsk\_image\_info & tsk\_image\_names & tsk\_vs\_info \\
+    \hline
+    tsk\_vs\_parts & tsk\_fs\_info & data\_source\_info \\
+    \hline
+    tsk\_files & file\_encoding\_types & tsk\_files\_path \\
+    \hline
+    tsk\_files\_derived & tsk\_files\_derived\_method & tag\_names \\
+    \hline
+    review\_statuses & blackboard\_artifacts & blackboard\_attributes \\
+    \hline
+    ingest\_modules & blackboard\_attribute\_types & ingest\_module\_types \\
+    \hline
+    reports & blackboard\_artifact\_types & ingest\_jobs \\
+    \hline
+    ingest\_job\_modules & ingest\_job\_status\_types & account\_types \\
+    \hline
+    accounts & account\_relationships & tsk\_event\_types \\
+    \hline
+    tsk\_examiners & blackboard\_artifact\_tags & content\_tags \\
+    \hline
+    tsk\_file\_layout & tsk\_event\_descriptions & tsk\_events \\
+    \hline
+    tsk\_pool\_info & & \\
+    \hline
+    \caption{Case Database Tables}
+    \label{tab:tables}
+\end{tabularx}
+
+From these tables, the ones containing the information accessed most frequently are the ones related to blackboard artifacts, along with tables related to files and tags.
+
+\section{Development Stages}
 
 \subsection{Management Entities}
 
@@ -92,9 +149,58 @@ Users can change their own profile picture, while Managers can also change any t
 Managers can add new users to the platform, can approve membership requests, can enable/disable user accounts and can create new teams.
 When a user is added by a Manager or his membership request is approved he must define a password while activating his e-mail account.
 
+
+\subsection{Authentication Process}
+
+The authentication process is handled through a REST API, when the authentication is completed the user receives a JSON Web Token (JWT).
+
+JWT is an open standard that defines a compact and self-contained way for securely transmitting information between parties. This information can be verified and trusted because it is digitally signed.
+JWT contain three parts, as can be seen in Table \ref{tab:jwtComposition}.
+
+\begin{table}[h]
+  \begin{tabularx}{\textwidth}{@{}|c| *1{>{\centering\arraybackslash}X}@{}|}
+    \hline
+    \textbf{Name} & \textbf{Contents} \\
+    \hline\hline
+    Header & Information about the signing algorithm used  \\
+    \hline
+    Payload & Information about the user, such as username, e-mail and roles \\
+    \hline
+    Signature & A signature used to verify the contents weren't changed \\
+    \hline
+  \end{tabularx}
+  \caption{JWT Composition}
+  \label{tab:jwtComposition}
+\end{table}
+
+The authentication can be performed with either username or e-mail and a password, and extra authentication factors can be added such as One Time Passwords (OTP) and Universal Second Factor (U2F).
+
+If no extra factors were added to an account, the authentication attempt with the user's credentials will return the JWT when successful and the user can freely access protected content.
+
+When extra factors are present in an account, the response from the same request will contain an array with the extra factors added, and a UUID, which is a pseudo random string, which must be sent in the next request to validate the user's identity.
+This UUID is saved in the database in the form of salted hash using the blowfish algorithm, and is invalidated after a successful login attempt. The user then has the choice between any of the extra factors and must complete the required steps to validate that factor.
+
+\pagebreak
+
+\subsubsection*{One Time Password}
+
+The process of seting up OTP for an account begins with generating a secret string, which is used by both the server and the authenticator app to generate OTP, when the secret is generated, it is saved as a temporary secret after being encrypted by the RSA algorithm.
+
+The temporary secret must be added to the user's device, either by inserting the string itself or by scanning a QR code, and must be validated by the user by submitting the current OTP, after validation the temporary secret is considered permanent.
+
+All OTP validations have a 30 second threshold, which means the current OTP is valid for an extra 30 seconds after being replaced by the next OTP, allowing the user to have a better experience with these passwords.
+
+The processes of authenticating and removing this authentication factor both depend on validating the current OTP, which is provided by the user's app.
+
+In the event of loss of the device that the user uses to generate OTP, all the authentication factors can be reset using the ''Reset Password'' functionality, which relies on e-mail validation to prove the user's identity.
+
+\subsubsection*{Universal Second Factor}
+
+TODO
+
 \subsection{Basic Autopsy Functionalities}
 
-Then the most basic functionality from Autopsy was adapted, the ability to open an autopsy case. For this some elements of the original Casemodule package were adapted,
+As a first step into replicating the functionalities of the original program, the most basic functionality from Autopsy was adapted, the ability to open an Autopsy case. For this some elements of the original Casemodule package were adapted,
 and after that all the other similar actions like closing, creating and deleting cases were also adapted.
 
 Autopsy cases have a case file containing case metadata, which allows the program to connect to the right database when the case is open, this database is also present
@@ -102,7 +208,7 @@ in a file inside the filesystem, which uses the SQLite database engine, so for t
 which resulted in the creation of a directory within the server called ``repository``, containing all the different cases created within the application.
 
 Later in the development there was the need to create an additional directory alongside the ``repository`` called ``central-repository``
-which contains the database used by the Correlation Engine to ingest data that can be queried by any case.
+which contains the database used by the Correlation Engine, which is a feature that finds files present in multiple cases, to ingest data that can be queried by any case.
 
 \subsection{Ingested Results Presentation}
 
@@ -140,7 +246,7 @@ Then the user can browse these directories using the web interface and select a 
 
 \begin{figure}[h]
  \centering
- \includegraphics[width=0.85\linewidth]{imgs/data-sources.png}
+ \includegraphics[width=0.75\linewidth]{imgs/data-sources.png}
  \caption{Data Source Selection}
  \label{fig:datasource}
 \end{figure}
@@ -150,9 +256,7 @@ The procedure for adding a data source to a case was adapted from Autopsy's sour
  \item Disk image
  \item Virtual machine
  \item Logical file collection
- \item Unallocated space image file
  \item Autopsy logical imager results
- \item Memory image files from Volatility
 \end{itemize}
 
 Local disk data sources were also an option provided by Autopsy but since the local disks the software has access to belong to a server, this feature is undesired.
@@ -164,7 +268,7 @@ they start, updates their progress, and informs that they finished, as can be se
 
 \begin{figure}[h]
  \centering
- \includegraphics[width=0.5\linewidth]{imgs/modules.png}
+ \includegraphics[width=0.55\linewidth]{imgs/modules.png}
  \caption{Ingest Modules Communication}
  \label{fig:modules}
 \end{figure}
@@ -175,6 +279,6 @@ When a module finishes the case explorer is updated with the extracted informati
 
 TODO
 
-\section{Other Projects}
+\section{Critical Analysis and Proposed Improvements}
 
 TODO

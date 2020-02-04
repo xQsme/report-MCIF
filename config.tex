@@ -68,7 +68,6 @@
 
 \PassOptionsToPackage{portuguese}{babel}
 \usepackage{babel}
-
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliografia
@@ -79,9 +78,9 @@
 % carrega a package biblatex
 \usepackage[
     backend=biber,    % usar o biber para processar
-    style=authoryear, % estilo de citação
+    style=ieee, % estilo de citação
     sortcites=true,
-    maxcitenames=2,   % a partir de 2 escreve "et al."
+    dashed=false,
 ]{biblatex} 
 
 % para adicionar uma vírgula antes do ano: (Dirac, 1981)
@@ -126,8 +125,14 @@
 %****************************************************************************************************
 % 4. Setup floats: tables, (sub)figures, and captions
 %****************************************************************************************************
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\usepackage{ltablex}
 \usepackage{tabularx} % better tables
     \setlength{\extrarowheight}{3pt} % increase table row height
+\def\tabularxcolumn#1{m{#1}}
 \newcommand{\tableheadline}[1]{\multicolumn{1}{c}{\spacedlowsmallcaps{#1}}}
 \newcommand{\tableheadlineR}[1]{\multicolumn{1}{r}{\spacedlowsmallcaps{#1}}}
 \newcommand{\myfloatalign}{\centering} % to be used with each float for alignment
