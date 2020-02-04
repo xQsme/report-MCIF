@@ -1,13 +1,5 @@
 \addtocontents{toc}{\protect\vspace{\beforebibskip}} % Place slightly below the rest of the document content in the table
 
-%Background / Related Work
-
-%Digital Forensics
-%TSK
-%Autopsy
-%Alternative Software
-%Proposed Solution
-
 %************************************************
 \chapter{Background}
 \label{ch:background}
@@ -16,7 +8,7 @@
 The scope of this internship concerns digital forensics, as it focuses on adapting an existing forensics platform into a collaborative client-server model.
 
 In this chapter, a contextualization of digital forensics is given, an analysis of both \citetitle{sleuthkit} \cite{sleuthkit} and \citetitle{autopsy} \cite{autopsy} is made, it's given a brief description of
-the existing forensic platform alternatives and is described the proposed solution for the scope of the internship.
+the existing forensic platform alternatives and the proposed solution for the scope of the internship is described.
 
 \section{Digital Forensics}
 
@@ -160,7 +152,7 @@ the command line tools can be directly used to find evidence.
 \subsection{Overview}
 
 The original part of Sleuth Kit is a C library and collection of command line
-file and volume system forensic analysis tools. The file system tools allows examining file systems
+file and volume system forensic analysis tools. The file system tools allow examining file systems
 of a computer in a non-intrusive fashion. Because the tools do not rely on the operating system to process
 the file systems, deleted and hidden content can be shown.
 
@@ -179,10 +171,6 @@ A complete analysis also requires more than just file and volume system analysis
 However, a single tool can't provide support for all file types and analysis 
 techniques. The TSK Framework allows tools to easily incorporate file analysis
 modules that were written by other developers.
-
-TSK Analyzes raw, Expert Witness and AFF file system and disk images.
-It supports the NTFS, FAT, ExFAT, UFS 1, UFS 2, EXT2FS, EXT3FS, Ext4, HFS, ISO 9660,
-and YAFFS2 file systems.
 
 \subsection{Search Techniques}
 
@@ -203,8 +191,7 @@ Autopsy was designed to be intuitive out of the box. Installation is easy and
 wizards guide the user through every step. All results are shown in a single tree.
 
 Autopsy was designed to be an end-to-end platform with modules that come with
-it out of the box and others that are available from third-parties. Some of the
-modules provide:
+it out of the box and others that are available from third-parties. An overview of Autopsy's modules can be found in Table \ref{tab:autopsyModules}.
 
 \begin{table}[h]
   \begin{tabularx}{\textwidth}{@{}|c| *1{>{\centering\arraybackslash}X}@{}|}
@@ -226,36 +213,35 @@ modules provide:
     Indicators of Compromise & Scan a computer using STIX \\
     \hline
   \end{tabularx}
+    \caption{Autopsy's Modules}
+  \label{tab:autopsyModules}
 \end{table}
 
 Autopsy runs background tasks in parallel using multiple cores and provides results as soon as they are found.
 It may take hours to fully search a drive, but the user will know in minutes if certain keywords were found in a specific folder.
 
-Autopsy is free. As budgets are decreasing, cost effective digital forensics solutions are essential. Autopsy offers
+Autopsy is free, and cost effective digital forensics solutions are essential. Autopsy offers
 the same core features as other digital forensics tools and offers other essential features, such as web artifact analysis
 and registry analysis, that other commercial tools do not provide.
 
 \section{Related Software}
 
+There are plenty of alternatives to Autopsy in the form of digital forensic analysis platforms, but the ones with most recognition work on a software as a service model, 
+without providing a free trial, so it wasn't possible to test them and compare them.
+
 \subsection{Nuix}
 
-\citetitle{nuix} \cite{nuix} allows investigators to work efficiently on gigabyte to terabyte-sized investigations and beyond.
-It’s ideal for local or small regional forensic labs struggling with the expanding volume, variety, and 
-complexity of digital evidence and looking to build or upgrade a dedicated digital forensics facility.
-
-If the resources are spread geographically or companies are looking to facilitate greater collaboration across departments,
-Nuix Lab breaks down evidence silos and makes better use of existing team members and intelligence. Nuix software puts 
-evidence into the hands of less technical reviewers or case officers sooner in the investigation.
+\citetitle{nuix} \cite{nuix} allows investigators to work on large investigations.
+It can be used for local or small regional forensic labs handling high data volume, variety, and 
+complex digital evidence and looking to build or upgrade a dedicated digital forensics facility.
 
 The core technologies of the Nuix Lab, Nuix Workstation and Nuix Investigate, give digital forensic technicians and case investigators 
-different lenses into the same case data. Investigators benefit from an easy-to-use browser experience where they can collaborate on 
-the same data at the same time, creating efficiency and helping them share insights.
+different viewpoints into the same case data. Investigators can collaborate on 
+the same data at the same time by using browser based tools.
 
-Implementing \citetitle{elasticsearch} \cite{elasticsearch} as a data store for the Nuix Lab boosts evidence processing, investigation, and intelligence capabilities. 
-It’s appropriate for investigations that contain massive volumes of digital evidence and numerous digital exhibits; are conducted across multiple
-regions or jurisdictions, or need to cross-reference and correlate intelligence across multiple current and historical cases. 
+The Implementation of \citetitle{elasticsearch} \cite{elasticsearch} as a data store for the Nuix Lab boosts evidence processing, investigation, and intelligence capabilities. 
 
-In addition, it contains powerful artificial intelligence, machine learning, and analytics to supercharge the investigations. 
+Nuix Lab also claims to contain powerful artificial intelligence, machine learning, and analytics which should make it stand out from the competition. 
 
 \subsection{EnCase Forensic}
 
