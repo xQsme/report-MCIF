@@ -178,9 +178,15 @@ The authentication can be performed with either username or e-mail and a passwor
 If no extra factors were added to an account, the authentication attempt with the user's credentials will return the JWT when successful and the user can freely access protected content.
 
 When extra factors are present in an account, the response from the same request will contain an array with the extra factors added, and a UUID, which is a pseudo random string, which must be sent in the next request to validate the user's identity.
-This UUID is saved in the database in the form of salted hash using the blowfish algorithm, and is invalidated after a successful login attempt. The user then has the choice between any of the extra factors and must complete the required steps to validate that factor.
+This UUID is saved in the database in the form of salted hash using the blowfish algorithm, and is invalidated after a successful login attempt. The user then has the choice between any of the extra factors and must complete the required steps to validate that factor, as can be seen in Figure \ref{fig:login}.
 
-\pagebreak
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.35\linewidth]{imgs/login.png}
+ \includegraphics[width=0.35\linewidth]{imgs/mfa.png}
+ \caption{Login Screen and Extra Factors}
+ \label{fig:login}
+\end{figure}
 
 \subsubsection*{One Time Password}
 

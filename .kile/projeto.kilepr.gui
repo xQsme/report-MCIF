@@ -2,7 +2,7 @@
 kile_livePreviewEnabled=false
 kile_livePreviewStatusUserSpecified=true
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=Chapters/Development.tex
+lastDocument=Chapters/Background.tex
 
 [document-settings,item:Chapters/Analysis.tex]
 Bookmarks=
@@ -286,7 +286,7 @@ open=true
 order=13
 
 [item:Chapters/Projects.tex]
-open=false
+open=true
 order=17
 
 [item:Code/bash.sh]
@@ -394,12 +394,12 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/Background.tex]
-CursorColumn=0
-CursorLine=296
+CursorColumn=91
+CursorLine=276
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,221,0,[,221,0,],221,0
+ViMarks=.,288,46,[,288,42,],288,46
 
 [view-settings,view=0,item:Chapters/Conclusion.tex]
 CursorColumn=0
@@ -411,7 +411,7 @@ ViMarks=
 
 [view-settings,view=0,item:Chapters/Development.tex]
 CursorColumn=0
-CursorLine=189
+CursorLine=191
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
@@ -428,7 +428,9 @@ ViMarks=
 [view-settings,view=0,item:Chapters/Projects.tex]
 CursorColumn=0
 CursorLine=13
+Dynamic Word Wrap=false
 JumpList=
+TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Code/bash.sh]
