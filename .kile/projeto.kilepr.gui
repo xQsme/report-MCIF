@@ -410,12 +410,12 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/Development.tex]
-CursorColumn=17
-CursorLine=244
+CursorColumn=26
+CursorLine=316
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,148,218,[,148,214,],148,218
+ViMarks=.,316,25,[,316,15,],316,25
 
 [view-settings,view=0,item:Chapters/Intro.tex]
 CursorColumn=10

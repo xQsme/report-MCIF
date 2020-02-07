@@ -231,8 +231,10 @@ implementations, resulting in a more secure development process.
 
 \subsection{Ingested Results Presentation}
 
-Ingested results are the items present inside the provided data sources, Autopsy runs multiple modules on each data source and extracts these results using TSK,
-extracted results can either be a file instance or an artifact (which is something that corresponds only to a piece of information inside a file).
+Ingested results are the items present inside the provided data sources, Autopsy can run multiple modules on each data source to extract results, and the extracted results can either be a file instance or an artifact instance.
+The difference between a file and an artifact is that an artifact represents only a smaller piece of a file's information, which means a file can contain multiple artifacts, for example a registry file can contain multiple O.S. user account artifacts.
+
+Even though the data ingestion features weren't implemented yet on the platform, the data that was ingested into a case using the original program could also be used on this platform, which allowed this feature to be developed earlier.
 
 The ingested results are presented in three different containers, one taking the shape of a file explorer, allowing exploration of the structure of all the results, 
 one taking the shape of a table or thumbnail viewer, presenting all the contents of the results selected from the explorer, and one taking the shape of a content viewer, allowing visualization
@@ -258,10 +260,14 @@ The content viewer can display different kinds of information depending on the t
 The layout for the ingested results presentation, and for all the case related actions, was based on the original Autopsy layout, so that each container can be re-sized as
 needed, allowing the user to focus on the information that is most important to him.
 
+This development stage was one of the most intensive, as it required understanding Autopsy's data structure very well. The source code used here was rewritten almost completely, 
+because of the way the user interface and the data structure in the original program and interconnected, resulting in the need to adapt and write custom queries to obtain the desired results, creating more than 
+50 endpoints so that all the needed information could be supplied. As well as creating and adjusting all the UI elements to achieve an user experience similar to what Autopsy's users are used to.
+
 \subsection{Data Sources}
 
 Using the same credentials used to log-in to the platform, the user can also upload data source files into his folder located inside the server, using an FTP client like filezilla.
-Then the user can browse these directories using the web interface and select a data source to add to the case, as can be seen in Figure \ref{fig:datasource}
+Then the user can browse these directories using the web interface and select a data source to add to the case, as can be seen in Figure \ref{fig:datasource}.
 
 \begin{figure}[ht]
  \centering
@@ -280,10 +286,18 @@ The procedure for adding a data source to a case was adapted from Autopsy's sour
 
 Local disk data sources were also an option provided by Autopsy but since the local disks the software has access to belong to a server, this feature is undesired.
 
+When a data source is added to a case, it is processed and instances of abstract files and other entities are created, which allow the user to navigate the data source's contents as soon as it is processed.
+Just navigating the data source contents isn't very useful, as the contents are in a raw state, showing mostly the file structure of the source, and not even categorizing files by mime types, so running data
+ingestion modules is a critical step into allowing a deeper analysis of a data source, which is covered in the next section.
+
 \subsection{Data Ingestion Modules}
 
-Firstly the default modules included with Autopsy were adapted, and can be ran through the web interface. When the modules are running the server communicates to each client when
-they start, updates their progress, and informs that they finished, as can be seen in Figure \ref{fig:modules}.
+Firstly the default modules included with Autopsy were adapted, these modules are either file ingest modules, which analyse each file contained in a data source, one by one,
+or data source ingest modules, which run on specific components of a data source.
+
+To run a collection of modules, the user selects which modules to run, and may also configure some parameters related to the modules, when the request is received by the server, the modules are started in a background thread.
+
+When the modules are running the server communicates to each client through websockets, offering feedback on the progress of the modules, as can be seen in Figure \ref{fig:modules}.
 
 \begin{figure}[ht]
  \centering
@@ -292,9 +306,15 @@ they start, updates their progress, and informs that they finished, as can be se
  \label{fig:modules}
 \end{figure}
 
-When a module finishes the case explorer is updated with the extracted information.
+Originally it was intended to have the clients update their explorer as new information is ingested, but it would slow down the ingest progress considerably, so what was decided was that every client would refresh it's explorer every 30 seconds while ingests are running.
+
+There were other measures taken into consideration to improve the performance of the ingest procedure, while also maintaining the user informed of it's progress, the server communicates a maximum of one file name per second, and it also only communicates a module's progress when it advances at least one percentual point.
 
 \subsection{Report Modules}
+
+TODO
+
+\subsection{Add-on Modules}
 
 TODO
 
