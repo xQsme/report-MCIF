@@ -11,6 +11,16 @@ The main goal of the internship is the development of a collaborative platform b
 
 Each step taken towards the development of this platform is documented in this chapter, from project planning to full roll out on a production environment.
 
+\section{Development Framework}
+
+The project development followed an agile workflow, using a JIRA board to organize bi-weekly sprints.
+
+The project had four intervinient parties involved. The developer was responsible for developing the software. The product owner provided help in decisions surrounding the developed product. 
+The designer came up with ideas for the user interface and user experience of the platform. And the tester made sure everything was working as intended.
+
+For each sprint the process was identical, a sprint review was conducted to assess the progress made in the previous sprint, then a new sprint would be planned by the developer, 
+the features would be implemented during the two week duration of the sprint, and developed features would be tested thoroughly before the sprint ended.
+
 \section{Project Planning}
 
 Autopsy by itself is capable of providing a distributed solution for multi user collaboration, but it is very resource intensive and requires many complex configuration steps,
@@ -40,6 +50,8 @@ Autopsy is a digital forensics analysis software that is available as Open Sourc
 With the goals set for this project, the source code was analyzed to understand which components need to be replicated and adapted in order to obtain the same logic flow.
 
 The ``Core`` module is where the most important components are located, and after analysis it was concluded that the following directories contain relevant information, as can be seen in Table \ref{tab:autopsyOverview}.
+
+\pagebreak
 
 \begin{tabularx}{\textwidth}{@{}|c| *1{>{\centering\arraybackslash}X}@{}|}
     \hline
@@ -357,6 +369,12 @@ developed and adapted code into two different name spaces, the original software
 
 This requirement of the original code can also mean that some modules which weren't tested may fail to run due to missing code, but a procedure to handle failure to run modules is implemented, 
 and it informs the user about which modules are failing to run, allowing the user to disable the unsupported modules.
+
+\subsection{Project Deployment}
+
+A readme document was created, detailing each step required to setup the platform, which involves installing all the dependencies required, as well as compiling the developed code.
+
+The setup was tested in multiple versions of Linux and with different versions of needed dependencies, resulting in a controlled step-by-step guide that can be followed in about 30 minutes that leads to a successful deployment of the complete platform.
 
 \section{Critical Analysis and Proposed Improvements}
 
