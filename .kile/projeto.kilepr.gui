@@ -410,12 +410,12 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/Development.tex]
-CursorColumn=26
-CursorLine=316
+CursorColumn=36
+CursorLine=350
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,316,25,[,316,15,],316,25
+ViMarks=.,367,0,[,367,0,],367,0
 
 [view-settings,view=0,item:Chapters/Intro.tex]
 CursorColumn=10
@@ -427,11 +427,11 @@ ViMarks=
 
 [view-settings,view=0,item:Chapters/Projects.tex]
 CursorColumn=0
-CursorLine=13
+CursorLine=11
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=
+ViMarks=.,16,166,[,17,0,],-1,-1
 
 [view-settings,view=0,item:Code/bash.sh]
 CursorColumn=0
@@ -530,8 +530,8 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:config.tex]
-CursorColumn=42
-CursorLine=320
+CursorColumn=0
+CursorLine=337
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]

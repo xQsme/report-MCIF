@@ -264,6 +264,21 @@ This development stage was one of the most intensive, as it required understandi
 because of the way the user interface and the data structure in the original program and interconnected, resulting in the need to adapt and write custom queries to obtain the desired results, creating more than 
 50 endpoints so that all the needed information could be supplied. As well as creating and adjusting all the UI elements to achieve an user experience similar to what Autopsy's users are used to.
 
+\subsection{Tag Management}
+
+Tagging content is a very important step in forensics investigations, as it allows the investigators to keep an organized list of important information.
+
+Tagging was added to the platform in the form of a context menu, that is shown by selecting information from the table/thumbnail viewer.
+
+Tags take the form of file or result tags, and the difference is that a result tag is specific to an artifact, while a file tag is related to the file itself.
+
+Autopsy contains 10 different tag types by default, and more can be added, which can result in a very big number of tag types in use, which deteriorates the user experience.
+
+Tag names are also shared between cases, so it seemed important to have more controll over the management of these tags, and the ability to delete tag types was added, even though it didn't exist in the original software.
+
+Since each case contains it's own database, it's impossible to syncronize every case at once when a tag is deleted, so it was necessary to create a procedure to syncronize case tags when a case is opened.
+ 
+
 \subsection{Data Sources}
 
 Using the same credentials used to log-in to the platform, the user can also upload data source files into his folder located inside the server, using an FTP client like filezilla.
@@ -292,7 +307,7 @@ ingestion modules is a critical step into allowing a deeper analysis of a data s
 
 \subsection{Data Ingestion Modules}
 
-Firstly the default modules included with Autopsy were adapted, these modules are either file ingest modules, which analyse each file contained in a data source, one by one,
+Data ingestion modules can be either file ingest modules, which analyse each file contained in a data source, one by one,
 or data source ingest modules, which run on specific components of a data source.
 
 To run a collection of modules, the user selects which modules to run, and may also configure some parameters related to the modules, when the request is received by the server, the modules are started in a background thread.
@@ -306,18 +321,47 @@ When the modules are running the server communicates to each client through webs
  \label{fig:modules}
 \end{figure}
 
-Originally it was intended to have the clients update their explorer as new information is ingested, but it would slow down the ingest progress considerably, so what was decided was that every client would refresh it's explorer every 30 seconds while ingests are running.
+Originally it was intended to have the clients update their explorer as new information is ingested, but it would slow down the ingest progress considerably, so what was decided was that every client would refresh 
+it's explorer every 30 seconds while ingests are running.
 
-There were other measures taken into consideration to improve the performance of the ingest procedure, while also maintaining the user informed of it's progress, the server communicates a maximum of one file name per second, and it also only communicates a module's progress when it advances at least one percentual point.
+There were other measures taken into consideration to improve the performance of the ingest procedure, while also maintaining the user informed of it's progress, the server communicates a maximum of one file name per
+second, and it also only communicates a module's progress when it advances at least one percentual point.
 
 \subsection{Report Modules}
 
-TODO
+Report modules consist in generating a file or collection of files, to further process, filter, or present the results found in a case, it can take many shapes such as a text file, spreadsheets, HTML pages or even a portable case that can be imported into Autopsy.
+
+Report modules have the ability to process existing data and generate results based on that, such as validating e-mail addresses or credit card numbers, 
+which are found based on regular expressions by the keyword search module and may contain false positives.
+
+The adaptation of the source code for report modules went pretty smoothly, with the exception that some modules require the user to provide a file when running the module, which resulted in the creation of a file repository within the server, for files to be used in this manner.
 
 \subsection{Add-on Modules}
 
-TODO
+Autopsy supports third party modules in the form or netbeans module files (NBM), and in the form of python scripts, using the Jython language, which allows python code to run alongside classes defined in Java.
+
+Since the developed platform doesn't support a java user interface, the procedure to install netbeans modules could not be implemented, as this feature is specific to netbeans applications. 
+But most modules are made in the Jython language, and the addition of this modules was implemented as intended.
+
+A user with a manager role can add new modules to the platform by uploading a zip archive containing the modules, the platform also allows management of the added modules, so that managers can enable, disabled and remove certain modules, as can be seen in Figure \ref{fig:settings}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=1\linewidth]{imgs/settings.png}
+ \caption{Add-on Modules Management}
+ \label{fig:settings}
+\end{figure}
+
+Third party modules require that the original Autopsy source code is accessible in the original name space, which resulted in the seperation of the
+developed and adapted code into two different name spaces, the original software's namespace which is org.sleuthkit.autopsy, and the company's namespace which is pt.voidsoftware.kensentme. 
+
+This requirement of the original code can also mean that some modules which weren't tested may fail to run due to missing code, but a procedure to handle failure to run modules is implemented, 
+and it informs the user about which modules are failing to run, allowing the user to disable the unsupported modules.
 
 \section{Critical Analysis and Proposed Improvements}
 
-TODO
+The development of the platform halted due to it being considered in a finished state, which means that all the objectives for the project were completed successfully.
+
+Given that Autopsy is still in active development, it would be very important to keep following it's development, and complimenting this platform with new features and bug fixes which might come up in the future.
+
+Besides accompanying Autopsy's improvements, it could also be interesting to further develop the platform to better serve the needs of it's users, which would require installations of the platform, and a feedback channel to better understand the user's needs.
