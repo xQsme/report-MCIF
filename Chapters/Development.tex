@@ -43,6 +43,17 @@ ability to spawn different containers as requested to work on different cases at
 Given that the core features will be running in a remote server, it was decided that the addition of data sources to cases will be handled by an FTP client, allowing users
 to transfer files to their respective data source directories, and FTP access will be controlled according to each user's credentials on the platform.
 
+The architecture of the expected result is represented in Figure \ref{fig:arch}, where it can be seen that multiple clients can connect through REST API, WebSockets and FTP with the Kensentme server, 
+which requests and provides data to both database and indexation servers.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.75\linewidth]{imgs/arch.png}
+ \caption{Software Arquitecture}
+ \label{fig:arch}
+\end{figure}
+
+
 \section{Autopsy Source Code Analysis}
 
 Autopsy is a digital forensics analysis software that is available as Open Source Software \cite{opensource} on \citetitle{github} \cite{github}.
@@ -50,8 +61,6 @@ Autopsy is a digital forensics analysis software that is available as Open Sourc
 With the goals set for this project, the source code was analyzed to understand which components need to be replicated and adapted in order to obtain the same logic flow.
 
 The ``Core`` module is where the most important components are located, and after analysis it was concluded that the following directories contain relevant information, as can be seen in Table \ref{tab:autopsyOverview}.
-
-\pagebreak
 
 \begin{tabularx}{\textwidth}{@{}|c| *1{>{\centering\arraybackslash}X}@{}|}
     \hline
@@ -240,6 +249,15 @@ or possible directory traversal attacks, resulting from the creation of case dir
 
 The lessons learned from the testers on this stage of development carried on through the entire development process and ensured that every new feature added was accounting for possible weaknesses which may result from the new 
 implementations, resulting in a more secure development process.
+
+The platform's resulting data model can be observed in Figure \ref{fig:database}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=1\linewidth]{imgs/database.png}
+ \caption{Database Structure}
+ \label{fig:database}
+\end{figure}
 
 \subsection{Ingested Results Presentation}
 
