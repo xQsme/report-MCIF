@@ -2,7 +2,7 @@
 kile_livePreviewEnabled=false
 kile_livePreviewStatusUserSpecified=true
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=Chapters/Projects.tex
+lastDocument=Covers/Acronyms.tex
 
 [document-settings,item:Chapters/Analysis.tex]
 Bookmarks=
@@ -426,8 +426,8 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/Projects.tex]
-CursorColumn=0
-CursorLine=19
+CursorColumn=26
+CursorLine=8
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
@@ -466,12 +466,12 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Covers/Acronyms.tex]
-CursorColumn=21
-CursorLine=0
+CursorColumn=16
+CursorLine=7
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,23,46,[,23,46,],23,46
+ViMarks=.,7,15,[,7,12,],7,15
 
 [view-settings,view=0,item:Covers/Bibliography.tex]
 CursorColumn=0
