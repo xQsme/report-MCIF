@@ -15,7 +15,7 @@ Each step taken towards the development of this platform is documented in this c
 
 The project development followed an agile workflow, using a JIRA board to organize bi-weekly sprints.
 
-The project had four intervinient parties involved. The developer was responsible for developing the software. The product owner provided help in decisions surrounding the developed product. 
+The project had four intervening parties involved. The developer was responsible for developing the software. The product owner provided help in decisions surrounding the developed product. 
 The designer came up with ideas for the user interface and user experience of the platform. And the tester made sure everything was working as intended.
 
 For each sprint the process was identical, a sprint review was conducted to assess the progress made in the previous sprint, then a new sprint would be planned by the developer, 
@@ -26,17 +26,17 @@ the features would be implemented during the two week duration of the sprint, an
 Autopsy by itself is capable of providing a distributed solution for multi user collaboration, but it is very resource intensive and requires many complex configuration steps,
 and is also only fully supported on the Windows O.S.
 
-The plan for this internship is to achieve the same kind of functionality provided by the original software, but without the dependency on harduous pre-configuration
+The plan for this internship is to achieve the same kind of functionality provided by the original software, but without the dependency on arduous pre-configuration
 or hardware intensive requirements, resulting in needing only single capable server, and allowing the program to be used by multiple low capacity client devices using 
 any web capable O.S.
 
 To achieve that goal, the project will be an adaptation of the original Autopsy source code, into a client-server model, with the server developed in Java using the Quarkus \cite{quarkus} framework,
-and the client developed in Javascript using the React \cite{react} framework.
+and the client developed in JavaScript using the React \cite{react} framework.
 
 The project is outlined to work in a multi user environment, allowing users to be assigned to teams and teams assigned to cases, and allowing multiple users to interact with
 a case simultaneously.
 
-Autopsy has a major limitation, which is it only allows one case to be open at a time, ideally in this project we should find a workarround to allow working on multiple cases
+Autopsy has a major limitation, which is it only allows one case to be open at a time, ideally in this project we should find a workaround to allow working on multiple cases
 at once, but we feel like dedicating a server instance (which a single machine can have many virtualized within) per case is a good enough approach, though as future work the
 ability to spawn different containers as requested to work on different cases at once is an interesting challenge.
 
@@ -49,7 +49,7 @@ which requests and provides data to both database and indexation servers.
 \begin{figure}[ht]
  \centering
  \includegraphics[width=0.75\linewidth]{imgs/arch.png}
- \caption{Software Arquitecture}
+ \caption{Software Architecture}
  \label{fig:arch}
 \end{figure}
 
@@ -160,14 +160,14 @@ As a first step into replicating the functionalities of the original program, th
 and after that all the other similar actions like closing, creating and deleting cases were also adapted.
 
 Autopsy cases have a case file containing case metadata, which allows the program to connect to the right database when the case is open, this database is also present
-in a file inside the filesystem, which uses the SQLite database engine, so for the cases to be usable in the server these files must also be present in the server,
+in a file inside the file system, which uses the SQLite database engine, so for the cases to be usable in the server these files must also be present in the server,
 which resulted in the creation of a directory within the server called ``repository``, containing all the different cases created within the application.
 
 Later in the development there was the need to create an additional directory alongside the ``repository`` called ``central-repository``
 which contains the database used by the Correlation Engine, which is a feature that finds files present in multiple cases, to ingest data that can be queried by any case.
 
 The development of autopsy features was done alongside the original software, so that every new feature implemented into the platform could be compared and verified with the original software, and it was reassuring to see that cases created 
-through one of the versions of the software were capable of being opened through the other version, meaning that the source code provided by autopsy, with some tinkering, can definetely be used in a client-server model.
+through one of the versions of the software were capable of being opened through the other version, meaning that the source code provided by autopsy, with some tinkering, can definitely be used in a client-server model.
 
 \subsection{Authentication Process}
 
@@ -197,7 +197,7 @@ The authentication can be performed with either username or e-mail and a passwor
 If no extra factors were added to an account, the authentication attempt with the user's credentials will return the JWT when successful and the user can freely access protected content.
 
 When extra factors are present in an account, the response from the same request will contain an array with the extra factors added, and a UUID, which is a pseudo random string, which must be sent in the next request to validate the user's identity.
-This UUID is saved in the database in the form of salted hash using the blowfish algorithm, and is invalidated after a successful login attempt. The user then has the choice between any of the extra factors and must complete the required steps to validate that factor, as can be seen in Figure \ref{fig:login}.
+This UUID is saved in the database in the form of salted hash using the Blowfish algorithm, and is invalidated after a successful login attempt. The user then has the choice between any of the extra factors and must complete the required steps to validate that factor, as can be seen in Figure \ref{fig:login}.
 
 \begin{figure}[ht]
  \centering
@@ -209,7 +209,7 @@ This UUID is saved in the database in the form of salted hash using the blowfish
 
 \subsubsection*{One Time Password}
 
-The process of seting up OTP for an account begins with generating a secret string, which is used by both the server and the authenticator app to generate OTP, when the secret is generated, it is saved as a temporary secret after being encrypted by the RSA algorithm.
+The process of setting up OTP for an account begins with generating a secret string, which is used by both the server and the authenticator app to generate OTP, when the secret is generated, it is saved as a temporary secret after being encrypted by the RSA algorithm.
 
 The temporary secret must be added to the user's device, either by inserting the string itself or by scanning a QR code, and must be validated by the user by submitting the current OTP, after validation the temporary secret is considered permanent.
 
@@ -243,7 +243,7 @@ Managers can add new users to the platform, can approve membership requests, can
 When a user is added by a Manager or his membership request is approved, he must define a password when activating his account through a received e-mail message.
 
 It was at this step in development that was made clear by the testers, that validations must be preformed on both server and client side, and that error handling must be streamlined
-in order to provide a seemless experience to the user, while also allowing future additions to the platform to be implemented in a similar way without much tinkering. Because even though 
+in order to provide a seamless experience to the user, while also allowing future additions to the platform to be implemented in a similar way without much tinkering. Because even though 
 the platform still wasn't fully developed, it already suffered from possible exploits that could break the experience for it's users, like the upload of a 5GB file as an image file, which would stop the page from loading, 
 or possible directory traversal attacks, resulting from the creation of case directories.
 
@@ -302,16 +302,15 @@ Tagging was added to the platform in the form of a context menu, that is shown b
 
 Tags take the form of file or result tags, and the difference is that a result tag is specific to an artifact, while a file tag is related to the file itself.
 
-Autopsy contains 10 different tag types by default, and more can be added, which can result in a very big number of tag types in use, which deteriorates the user experience.
+Autopsy contains 10 different tag types by default, and more can be added, which can result in a high amount of tag types in use, which deteriorates the user experience.
 
-Tag names are also shared between cases, so it seemed important to have more controll over the management of these tags, and the ability to delete tag types was added, even though it didn't exist in the original software.
+Tag names are also shared between cases, so it seemed important to have more control over the management of these tags, and the ability to delete tag types was added, even though it didn't exist in the original software.
 
-Since each case contains it's own database, it's impossible to syncronize every case at once when a tag is deleted, so it was necessary to create a procedure to syncronize case tags when a case is opened.
- 
+Since each case contains it's own database, it's impossible to synchronize every case at once when a tag is deleted, so it was necessary to create a procedure to synchronize case tags when a case is opened.
 
 \subsection{Data Sources}
 
-Using the same credentials used to log-in to the platform, the user can also upload data source files into his folder located inside the server, using an FTP client like filezilla.
+Using the same credentials used to log-in to the platform, the user can also upload data source files into his folder located inside the server, using an FTP client like Filezilla.
 Then the user can browse these directories using the web interface and select a data source to add to the case, as can be seen in Figure \ref{fig:datasource}.
 
 \begin{figure}[ht]
@@ -342,7 +341,7 @@ or data source ingest modules, which run on specific components of a data source
 
 To run a collection of modules, the user selects which modules to run, and may also configure some parameters related to the modules, when the request is received by the server, the modules are started in a background thread.
 
-When the modules are running the server communicates to each client through websockets, offering feedback on the progress of the modules, as can be seen in Figure \ref{fig:modules}.
+When the modules are running the server communicates to each client through WebSockets, offering feedback on the progress of the modules, as can be seen in Figure \ref{fig:modules}.
 
 \begin{figure}[ht]
  \centering
@@ -355,7 +354,7 @@ Originally it was intended to have the clients update their explorer as new info
 it's explorer every 30 seconds while ingests are running.
 
 There were other measures taken into consideration to improve the performance of the ingest procedure, while also maintaining the user informed of it's progress, the server communicates a maximum of one file name per
-second, and it also only communicates a module's progress when it advances at least one percentual point.
+second, and it also only communicates a module's progress when it advances at least one percentage point.
 
 \subsection{Report Modules}
 
@@ -368,9 +367,9 @@ The adaptation of the source code for report modules went pretty smoothly, with 
 
 \subsection{Add-on Modules}
 
-Autopsy supports third party modules in the form or netbeans module files (NBM), and in the form of python scripts, using the Jython language, which allows python code to run alongside classes defined in Java.
+Autopsy supports third party modules in the form or Netbeans module files (NBM), and in the form of python scripts, using the Jython language, which allows python code to run alongside classes defined in Java.
 
-Since the developed platform doesn't support a java user interface, the procedure to install netbeans modules could not be implemented, as this feature is specific to netbeans applications. 
+Since the developed platform doesn't support a java user interface, the procedure to install Netbeans modules could not be implemented, as this feature is specific to Netbeans applications. 
 But most modules are made in the Jython language, and the addition of this modules was implemented as intended.
 
 A user with a manager role can add new modules to the platform by uploading a zip archive containing the modules, the platform also allows management of the added modules, so that managers can enable, disabled and remove certain modules, as can be seen in Figure \ref{fig:settings}.
@@ -382,7 +381,7 @@ A user with a manager role can add new modules to the platform by uploading a zi
  \label{fig:settings}
 \end{figure}
 
-Third party modules require that the original Autopsy source code is accessible in the original name space, which resulted in the seperation of the
+Third party modules require that the original Autopsy source code is accessible in the original name space, which resulted in the separation of the
 developed and adapted code into two different name spaces, the original software's namespace which is org.sleuthkit.autopsy, and the company's namespace which is pt.voidsoftware.kensentme. 
 
 This requirement of the original code can also mean that some modules which weren't tested may fail to run due to missing code, but a procedure to handle failure to run modules is implemented, 
@@ -390,7 +389,7 @@ and it informs the user about which modules are failing to run, allowing the use
 
 \subsection{Project Deployment}
 
-A readme document was created, detailing each step required to setup the platform, which involves installing all the dependencies required, as well as compiling the developed code.
+A ''Read Me'' document was created, detailing each step required to setup the platform, which involves installing all the dependencies required, as well as compiling the developed code.
 
 The setup was tested in multiple versions of Linux and with different versions of needed dependencies, resulting in a controlled step-by-step guide that can be followed in about 30 minutes that leads to a successful deployment of the complete platform.
 
