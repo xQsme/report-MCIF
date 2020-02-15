@@ -47,7 +47,12 @@
 
 \glsaddall
 
-\printglossary[type=\acronymtype,style=super,title=\acronymname]
+\newglossarystyle{modindex}{%
+  \glossarystyle{index}%
+  \renewcommand{\glsgroupskip}{}
+}
+
+\printglossary[type=\acronymtype,style=modindex,title=\acronymname]
 
 % as definições de abreviaturas estão no ficheiro
 % 	Covers/Acronyms-list.tex

@@ -5,13 +5,28 @@
 \label{ch:introduction}
 %************************************************
 
-In the scope of the master's degree in cybersecurity and digital forensics, students had the choice between writing a thesis, developing a project or doing an internship.
+In the scope of the master's degree in Cybersecurity and Digital Forensics, students had the choice between writing a thesis, developing a project or doing an internship.
 This document is the report for a curricular internship conducted at \company, where the main goal of the internship was to develop a collaborative digital forensics platform,
 while also learning to develop software in an enterprise environment.
 
-This chapter encompasses the motivation for this internship, a characterization of the host entity, the scope of the proposed project, and the structure of this document.
+This chapter encompasses the motivation for this internship, a characterization of the host entity, the scope of the proposed project, and a summary of this document's structure.
 
 \section{Motivation}
+
+Collaboration is a major feature included in most forensics software, and while \citetitle{autopsy} \cite{autopsy} also allows the software to be
+configured in a manner to allow collaboration it involves a complicated setup and has certain limitations.
+The setup required for collaborative cases in Autopsy is as follows:
+\begin{itemize}
+ \item Shared hard drive accessible to every machine using the same drive letter
+ \item PostgreSQL Database server 
+ \item Solr indexing server
+ \item ActiveMQ messaging server
+\end{itemize}
+
+The limitations of Autopsy's multi-user case feature are that it requires every user to be using a Windows O.S. computer and it also requires specific configuration on each
+machine involved in the case that is set up.
+
+The goal of this internship is to transform the existing Autopsy platform, into a more complete digital forensics platform, including a client-server model that facilitates collaboration.
 
 As a computer science student, my major interest has always been software engineering, and even after completing the first year of a master's degree in a more advanced subject, 
 my interests remained unchanged. Based on that interest, the opportunity to work in an enterprise environment was captivating, as I could gain experience in the 
@@ -19,16 +34,14 @@ field while also developing an interesting project to complement my education.
 
 \section{Host Entity}
 
-To attain an internship, an interview was conducted at ``\company``, and a 9 month long curricular internship was planned. The initial project proposals were the development of a 
-client-server model for the existing Autopsy platform, or the adaptation of the existing Autopsy platform for MacOS environments, the chosen proposal was the former.
+As a first step, an interview was conducted at ``\company``, and a 9 month long curricular internship was planned. The initial project proposals were (1) the development of a 
+client-server model for the existing Autopsy platform, or (2) the adaptation of the existing Autopsy platform for MacOS environments, the chosen proposal was the former.
 
-\subsection{Company Information}
+\subsection{Company Characterization}
 
 VOID is a privately held software development company established in Leiria, Portugal, in 2006, focused on building high-end products embodied in web, 
 mobile and desktop applications, supported by creative software engineering tailored to each challenge's specific needs. 
 It currently employs 30 high-end professionals in several fields of expertise.
-
-\subsection{Work Environment}
 
 VOID prides itself in providing very good conditions to it's workers, making them feel like they are at home while working,
 and also to feel motivated to come to work every day. These conditions include the work environment itself, which is an open space where 
@@ -50,8 +63,6 @@ The company is capable of comfortably providing services in the following areas:
  \item Desktop applications
  \item Cybersecurity and digital forensics
 \end{itemize}
-
-\subsection{Main Projects}
 
 Throughout it's 14 years of being active in the software development industry, VOID has conducted some very interesting projects, as can be seen in Table \ref{tab:voidProjects}.
 
@@ -83,8 +94,36 @@ Throughout it's 14 years of being active in the software development industry, V
 
 \section{Project Scope}
 
-The planned project can be categorized in the field of digital forensics, even though the main focus is on typical software development, there are plenty of advanced concepts
-related to forensics science and cybersecurity that must be assimilated for the project to succeed.
+The proposed solution consists in adapting Autopsy into a client-server model, and such adaptation can be categorized in the field of digital forensics. 
+Even though the main focus is on typical software development, there are plenty of advanced concepts related to forensics science and cybersecurity 
+that must be assimilated for the project to succeed.
+
+The platform aims to cover three main aspects:
+\begin{enumerate}
+ \item Accessibility
+ \item Collaboration
+ \item Organization 
+\end{enumerate}
+
+\subsection{Accessibility}
+
+Given a client-server architecture, any client with access to the network where the server is located can access the contents provided by the server.
+The aim is to condense the processing heavy features of Autopsy in a single server and provide any number of clients access to this information, requiring less 
+resources from each client, allowing collaboration and removing any type of setup required for each of the client machines, while also providing a more modern 
+and user friendly design.
+
+\subsection{Collaboration}
+
+In order to provide collaboration, all the information is maintained in a single server, or a collection of servers providing different functions (like exposing endpoints,
+storing data, and indexing searches), and every client can preform all the allowed actions whether they consist in consulting, generating, or removing information. 
+Collaboration comes naturally with a client-server model, as the same server that provides the endpoints can also communicate with each client using WebSockets, and maintain 
+information in a coordinated state along every connected client.
+
+\subsection{Organization}
+
+Digital forensics investigations are usually done by specialized organizations, who need to organize their human resources in an efficient and secure manner.
+Assigning investigators to teams, assigning teams to cases, allowing access to the platform and certain information is a critical part of the activities preformed by
+a company that specializes in digital forensics, so having these functionalities properly integrated into a digital forensics platform should be an important feature.
 
 
 \section{Document Structure}

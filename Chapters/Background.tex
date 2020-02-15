@@ -7,7 +7,7 @@
 
 The scope of this internship concerns digital forensics, as it focuses on adapting an existing forensics platform into a collaborative client-server model.
 
-In this chapter, a contextualization of digital forensics is given, an analysis of both \citetitle{sleuthkit} (TSK) \cite{sleuthkit} and \citetitle{autopsy} \cite{autopsy} is made, it's given a brief description of
+In this chapter, a contextualization of digital forensics is given, an analysis of both \citetitle{sleuthkit} (TSK) \cite{sleuthkit} and Autopsy is made, it's given a brief description of
 the existing forensic platform alternatives and the proposed solution for the scope of the internship is described.
 
 \section{Digital Forensics}
@@ -262,7 +262,7 @@ mobile devices, analyze the registry, crack passwords, and build reports.
 
 FTK allows collaboration, contains indexed searches, constructs timelines and other graphical assets, categorizes all the extracted artifacts, and also contains malware identification modules.
 
-\subsection{Comparison}
+\section{Comparison}
 
 A comparison of the features offered by each software is presented in Table \ref{tab:comparison}.
 
@@ -296,46 +296,4 @@ A comparison of the features offered by each software is presented in Table \ref
 
 Every software listed has it's pros and cons, Autopsy mainly benefits from being free and open source, and allowing the development of modular plugins, while the other options seem to try offering a very complete package out of the box.
 
-Any of these software options seem viable for any kind of digital forensics investigation, and as a digital forensics firm, the teams should first test all these available options and chose the one that best suits their needs.
-
-\section{Proposed Solution}
-
-As can be seen from the existing alternative software, collaboration is a major feature included in all these programs, and while Autopsy also allows the software to be
-configured in a manner to allow collaboration it involves a complicated setup and has certain limitations.
-The setup required for collaborative cases in Autopsy is as follows:
-\begin{itemize}
- \item Shared hard drive accessible to every machine using the same drive letter
- \item PostgreSQL Database server 
- \item Solr indexing server
- \item ActiveMQ messaging server
-\end{itemize}
-
-The limitations of Autopsy's multi-user case feature are that it requires every user to be using a Windows O.S. computer and it also requires specific configuration on each
-machine involved in the case that is set up.
-
-The proposed solution aims to cover three main aspects:
-\begin{enumerate}
- \item Accessibility
- \item Collaboration
- \item Organization 
-\end{enumerate}
-
-\subsection{Accessibility}
-
-Given a client-server architecture, any client with access to the network where the server is located can access the contents provided by the server.
-The aim is to condense the processing heavy features of Autopsy in a single server and provide any number of clients access to this information, requiring less 
-resources from each client, allowing collaboration and removing any type of setup required for each of the client machines, while also providing a more modern 
-and user friendly design.
-
-\subsection{Collaboration}
-
-In order to provide collaboration, all the information is maintained in a single server, or a collection of servers providing different functions (like exposing endpoints,
-storing data, and indexing searches), and every client can preform all the allowed actions whether they consist in consulting, generating, or removing information. 
-Collaboration comes naturally with a client-server model, as the same server that provides the endpoints can also communicate with each client using WebSockets, and maintain 
-information in a coordinated state along every connected client.
-
-\subsection{Organization}
-
-Digital forensics investigations are usually done by specialized organizations, who need to organize their human resources in an efficient and secure manner.
-Assigning investigators to teams, assigning teams to cases, allowing access to the platform and certain information is a critical part of the activities preformed by
-a company that specializes in digital forensics, so having these functionalities properly integrated into a digital forensics platform should be an important feature.
+Any of these software options seem viable for any kind of digital forensics investigation, and as a digital forensics firm, the teams should first test all these available options and chose the ones that best suits their needs.
