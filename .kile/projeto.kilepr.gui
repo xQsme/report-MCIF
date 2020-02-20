@@ -2,7 +2,7 @@
 kile_livePreviewEnabled=false
 kile_livePreviewStatusUserSpecified=true
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=Chapters/Intro.tex
+lastDocument=Chapters/Development.tex
 
 [document-settings,item:Chapters/Analysis.tex]
 Bookmarks=
@@ -394,12 +394,12 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/Background.tex]
-CursorColumn=0
-CursorLine=11
+CursorColumn=21
+CursorLine=258
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,9,143,[,9,137,],9,143
+ViMarks=.,258,20,[,258,15,],258,20
 
 [view-settings,view=0,item:Chapters/Conclusion.tex]
 CursorColumn=0
@@ -410,24 +410,24 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/Development.tex]
-CursorColumn=0
-CursorLine=19
+CursorColumn=71
+CursorLine=383
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,33,32,[,33,32,],33,32
+ViMarks=.,384,50,[,384,50,],384,50
 
 [view-settings,view=0,item:Chapters/Intro.tex]
-CursorColumn=127
-CursorLine=109
+CursorColumn=10
+CursorLine=74
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
 ViMarks=.,130,0,[,130,0,],130,0
 
 [view-settings,view=0,item:Chapters/Projects.tex]
-CursorColumn=26
-CursorLine=8
+CursorColumn=0
+CursorLine=19
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
@@ -522,12 +522,12 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:References.bib]
-CursorColumn=1
-CursorLine=93
+CursorColumn=38
+CursorLine=160
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=
+ViMarks=.,162,55,[,162,55,],162,55
 
 [view-settings,view=0,item:config.tex]
 CursorColumn=24
@@ -538,8 +538,8 @@ TextFolding=[]
 ViMarks=.,115,0,[,115,0,],115,0
 
 [view-settings,view=0,item:main.tex]
-CursorColumn=65
-CursorLine=133
+CursorColumn=18
+CursorLine=158
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]

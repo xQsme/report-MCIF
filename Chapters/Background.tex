@@ -7,12 +7,11 @@
 
 The scope of this internship concerns digital forensics, as it focuses on adapting an existing forensics platform into a collaborative client-server model.
 
-In this chapter, a contextualization of digital forensics is given, an analysis of both \citetitle{sleuthkit} (TSK) \cite{sleuthkit} and Autopsy is made, it's given a brief description of
-the existing forensic platform alternatives and the proposed solution for the scope of the internship is described.
+In this chapter, a contextualization of digital forensics is given, an analysis of both \citetitle{sleuthkit} (TSK) \cite{sleuthkit} and Autopsy is made, and it's given a brief description and analysis of the existing forensic platform alternatives.
 
 \section{Digital Forensics}
 
-Forensic science is the use of scientific methods or expertise to investigate crimes
+Forensic science \cite{nist} is the use of scientific methods or expertise to investigate crimes
 or examine evidence that might be presented in a court of law.
 
 The definition of digital forensics is directly related to the definition of
@@ -23,7 +22,7 @@ using investigative processes, tools, and practices.
 Digital forensics is the application of computer technology to criminal cases where evidence
 includes items that are created by digital systems.
 
-Digital forensics, according to \citeauthor{nist} \cite{nist}, is the field of forensic science that is concerned with retrieving,
+Digital forensics, according to \citeauthor{nist2} \cite{nist2}, is the field of forensic science that is concerned with retrieving,
 storing and analyzing electronic data that can be useful in criminal investigations.
 This includes information from computers, hard drives, mobile phones and other data
 storage devices.
@@ -101,7 +100,7 @@ it's contents irreversibly.
 \subsubsection*{Preservation}
 
 For evidence to be defendable in court it must be preserved properly.
-Preservation in the forensics context is the process of creating a chain of custody
+Preservation in the forensics context is the process of creating a chain of custody \cite{custody}
 that begins before collecting the evidence and ends when the evidence is released.
 Any interference in the chain of custody can lead to issues regarding the validity of the evidence.
 Additionally, preservation includes maintaining the evidence in a safe environment, preventing
@@ -143,7 +142,7 @@ evidence was performed.
 
 \section{The Sleuth Kit}
 
-TSK is a library and collection of command line tools that allow the
+The Sleuth Kit is a library and collection of command line tools that allow the
 investigation of disk images. The core functionality of TSK allows volume and file system data analysis.
 The plug-in framework allows incorporation of additional modules to analyze file contents
 and build automated systems. The library can be incorporated into larger digital forensics tools and
@@ -184,7 +183,15 @@ and corporate examiners to investigate what happened on a computer. It can even
 be used by anyone to recover photos from a camera's memory card.
 
 Autopsy was designed to be intuitive out of the box. Installation is easy and
-wizards guide the user through every step. All results are shown in a single tree.
+wizards guide the user through every step. All results are shown in a single tree, as can be seen in Figure \ref{fig:tree}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.4\linewidth]{imgs/tree.png}
+ \caption{Autopsy's Explorer Tree}
+ \label{fig:tree}
+\end{figure}
+
 
 Autopsy was designed to be an end-to-end platform with modules that come with
 it out of the box and others that are available from third-parties. An overview of Autopsy's modules can be found in Table \ref{tab:autopsyModules}.
@@ -249,7 +256,7 @@ reporting framework that empowers tailoring case reports to meet specific needs.
 
 \subsection{Forensics Toolkit}
 
-\citetitle{ftk} \cite{ftk} is an award-winning, court-cited digital investigations solution. 
+\citetitle{ftk} (FTK) \cite{ftk} is an award-winning, court-cited digital investigations solution. 
 
 It locates evidence, collects and analyzes any digital device or system producing, transmitting or 
 storing data by using a single application for multiple devices.

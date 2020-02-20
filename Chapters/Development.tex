@@ -5,7 +5,7 @@
 \label{ch:development}
 %************************************************
 
-The internship started on September 2nd 2019, being planned to last for 9 months, ending on the 29th of May 2020.
+%The internship started on September 2nd 2019, being planned to last for 9 months, ending on the 29th of May 2020.
 
 The main goal of the internship is the development of a collaborative platform based on Autopsy, which was soon named ``Kensentme`` by the company's designer.
 
@@ -13,7 +13,7 @@ Each step taken towards the development of this platform is documented in this c
 
 \section{Development Framework}
 
-The project development followed an agile workflow, using a JIRA board to organize bi-weekly sprints.
+The project development followed an agile workflow, using a JIRA \cite{jira} board to organize bi-weekly sprints.
 
 The project had four intervening parties involved. The developer was responsible for developing the software. The product owner provided help in decisions surrounding the developed product. 
 The designer came up with ideas for the user interface and user experience of the platform. And the tester made sure everything was working as intended.
@@ -21,16 +21,16 @@ The designer came up with ideas for the user interface and user experience of th
 For each sprint the process was identical, a sprint review was conducted to assess the progress made in the previous sprint, then a new sprint would be planned by the developer, 
 the features would be implemented during the two week duration of the sprint, and developed features would be tested thoroughly before the sprint ended.
 
-\section{Project Planning}
+\section{Project Aim and Milestones}
 
 Autopsy by itself is capable of providing a distributed solution for multi user collaboration, but it is very resource intensive and requires many complex configuration steps,
 and is also only fully supported on the Windows O.S.
 
-The plan for this internship is to achieve the same kind of functionality provided by the original software, but without the dependency on arduous pre-configuration
+The plan for this project is to achieve the same kind of functionality provided by the original software, but without the dependency on arduous pre-configuration
 or hardware intensive requirements, resulting in needing only single capable server, and allowing the program to be used by multiple low capacity client devices using 
 any web capable O.S.
 
-To achieve that goal, the project will be an adaptation of the original Autopsy source code, into a client-server model, with the server developed in Java using the Quarkus \cite{quarkus} framework,
+To achieve that goal, the project is an adaptation of the original Autopsy source code, into a client-server model, with the server developed in Java using the Quarkus \cite{quarkus} framework,
 and the client developed in JavaScript using the React \cite{react} framework.
 
 The project is outlined to work in a multi user environment, allowing users to be assigned to teams and teams assigned to cases, and allowing multiple users to interact with
@@ -43,7 +43,7 @@ ability to spawn different containers as requested to work on different cases at
 Given that the core features will be running in a remote server, it was decided that the addition of data sources to cases will be handled by an FTP client, allowing users
 to transfer files to their respective data source directories, and FTP access will be controlled according to each user's credentials on the platform.
 
-The architecture of the expected result is represented in Figure \ref{fig:arch}, where it can be seen that multiple clients can connect through REST API, WebSockets and FTP with the Kensentme server, 
+The architecture of the expected result is represented in Figure \ref{fig:arch}, where it can be seen that multiple clients can connect through a REST API, WebSockets and FTP with the Kensentme server, 
 which requests and provides data to both database and indexation servers.
 
 \begin{figure}[ht]
@@ -66,54 +66,53 @@ The ``Core`` module is where the most important components are located, and afte
     \hline
     \textbf{Name} & \textbf{Description} \\
     \hline\hline
-    Actions & user interactions  \\
+    Actions & User interactions  \\
     \hline
-    Casemodule & case class and other resources needed for the functioning of an autopsy case like data sources and artifacts \\
+    Casemodule & Case class and other resources needed for the functioning of an autopsy case like data sources and artifacts \\
     \hline
-    Centralrepository & data persisted and accessed by multiple cases (Correlation Engine) \\
+    Centralrepository & Data persisted and accessed by multiple cases (Correlation Engine) \\
     \hline
-    Contentviewers & panels used for data representation  \\
+    Contentviewers & Panels used for data representation  \\
     \hline
-    Coordinationservice & configuration information distribution system \\
+    Coordinationservice & Configuration information distribution system \\
     \hline
-    Core & addition of command line options, system configurations and collaboration monitor  \\
+    Core & Addition of command line options, system configurations and collaboration monitor  \\
     \hline
-    Corecomponents & main user interface components \\
+    Corecomponents & Main user interface components \\
     \hline
-    Datamodel & all the entities needed to represent ingested data \\
+    Datamodel & All the entities needed to represent ingested data \\
     \hline
-    Datasourceprocessors & data processing utilities  \\
+    Datasourceprocessors & Data processing utilities  \\
     \hline
-    Directorytree & file explorer for ingested artifacts \\
+    Directorytree & File explorer for ingested artifacts \\
     \hline
-    Ingest & utilities and events for data ingestion  \\
+    Ingest & Utilities and events for data ingestion  \\
     \hline
-    Keywordsearchservice & utility to search artifacts by keyword  \\
+    Keywordsearchservice & Utility to search artifacts by keyword  \\
     \hline
-    Modules & all the pre-included modules (data ingestion procedures) \\
+    Modules & All the pre-included modules (data ingestion procedures) \\
     \hline
-    Progress & progress indicators and similar classes \\
+    Progress & Progress indicators and similar classes \\
     \hline
-    Python & resources needed for the functioning of the Jython language \\
+    Python & Resources needed for the functioning of the Jython language \\
     \hline
-    Rejview & resources used to analyse Windows registry \\
+    Rejview & Resources used to analyse Windows registry \\
     \hline
-    Report & report generation utilities and modules \\
+    Report & Report generation utilities and modules \\
     \hline
-    Timeline & recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows O.S. \\
+    Timeline & Recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows O.S. \\
     \hline
     \caption{Autopsy Modules Overview}
     \label{tab:autopsyOverview}
 \end{tabularx}
 
-
 The ``KeywordSearch`` module is also of critical importance as it provides one of the most meaningful features which is filtering all the artifacts in a case with a keyword
-search using the Apache Solr search platform, which indexes the text contents of all the artifacts and allows extremely fast searching through a large amount of data.  
+search using the Apache Solr \cite{solr} search platform, which indexes the text contents of all the artifacts and allows extremely fast searching through a large amount of data.  
 
 Another module that needs to be adapted is the ``RecentActivity`` module, which contains the tools needed to extract information from browsers, registry and other important resources, providing a great amount of
 critical evidence from data sources.
 
-Each autopsy case contains it's own SQLite database, which contains the tables present in Table \ref{tab:tables}.
+Each autopsy case contains it's own SQLite \cite{sqlite} database, which contains the tables present in Table \ref{tab:tables}.
 
 \begin{tabularx}{\textwidth}{|c|c|c|}
     \hline
@@ -156,11 +155,11 @@ But in order to add features like pagination and tag deletion, custom queries mu
 
 \subsection{Basic Autopsy Functionalities}
 
-As a first step into replicating the functionalities of the original program, the most basic functionality from Autopsy was adapted, the ability to open an Autopsy case. For this some elements of the original Casemodule package were adapted,
+As a first step into replicating the functionalities of the original program, the most basic functionality from Autopsy was adapted, the ability to open an Autopsy case. For this some elements of the original ''Casemodule'' package were adapted,
 and after that all the other similar actions like closing, creating and deleting cases were also adapted.
 
 Autopsy cases have a case file containing case metadata, which allows the program to connect to the right database when the case is open, this database is also present
-in a file inside the file system, which uses the SQLite database engine, so for the cases to be usable in the server these files must also be present in the server,
+in a file inside the file system, which uses the SQLite database engine. So for the cases to be usable in the server these files must also be present in the server,
 which resulted in the creation of a directory within the server called ``repository``, containing all the different cases created within the application.
 
 Later in the development there was the need to create an additional directory alongside the ``repository`` called ``central-repository``
@@ -197,7 +196,7 @@ The authentication can be performed with either username or e-mail and a passwor
 If no extra factors were added to an account, the authentication attempt with the user's credentials will return the JWT when successful and the user can freely access protected content.
 
 When extra factors are present in an account, the response from the same request will contain an array with the extra factors added, and a UUID, which is a pseudo random string, which must be sent in the next request to validate the user's identity.
-This UUID is saved in the database in the form of salted hash using the Blowfish algorithm, and is invalidated after a successful login attempt. The user then has the choice between any of the extra factors and must complete the required steps to validate that factor, as can be seen in Figure \ref{fig:login}.
+This UUID is saved in the database in the form of salted hash using the Blowfish \cite{blowfish} algorithm, and is invalidated after a successful login attempt. The user then has the choice between any of the extra factors and must complete the required steps to validate that factor, as can be seen in Figure \ref{fig:login}.
 
 \begin{figure}[ht]
  \centering
@@ -211,7 +210,7 @@ This UUID is saved in the database in the form of salted hash using the Blowfish
 
 The process of setting up OTP for an account begins with generating a secret string, which is used by both the server and the authenticator app to generate OTP, when the secret is generated, it is saved as a temporary secret after being encrypted by the RSA algorithm.
 
-The temporary secret must be added to the user's device, either by inserting the string itself or by scanning a QR code, and must be validated by the user by submitting the current OTP, after validation the temporary secret is considered permanent.
+The temporary secret must be added to the user's device, either by inserting the string itself or by scanning a QR code \cite{qr}, and must be validated by the user by submitting the current OTP, after validation the temporary secret is considered permanent.
 
 All OTP validations have a 30 second threshold, which means the current OTP is valid for an extra 30 seconds after being replaced by the next OTP, allowing the user to have a better experience with these passwords.
 
@@ -227,7 +226,8 @@ TODO
 
 As a first step in the development, the different persisted entities were created, which are Users, Teams, and Cases. All the endpoints for actions involving these 
 entities were created, resulting in the ability for the client program to interact with these entities and modify their relationships and other variables.
-For these functionalities there are two roles associated, the Manager role allows manipulation of the existing entities while the Investigator role only has access to his
+
+For these functionalities there are two roles associated, (1) the Manager role allows manipulation of the existing entities while (2) the Investigator role only has access to his
 own information and the teams and cases he was assigned to. For these interactions, it was decided to create a drag and drop interface, which allows users to be dragged into
 teams and teams dragged into cases. All these entities are listed side by side and each have their own options and filtering input, as can be observed in Figure \ref{fig:users}.
 
@@ -261,7 +261,7 @@ The platform's resulting data model can be observed in Figure \ref{fig:database}
 
 \subsection{Ingested Results Presentation}
 
-Ingested results are the items present inside the provided data sources, Autopsy can run multiple modules on each data source to extract results, and the extracted results can either be a file instance or an artifact instance.
+Ingested results are the items present inside the provided data sources. Autopsy can run multiple modules on each data source to extract results, and the extracted results can either be a file instance or an artifact instance.
 The difference between a file and an artifact is that an artifact represents only a smaller piece of a file's information, which means a file can contain multiple artifacts, for example a registry file can contain multiple O.S. user account artifacts.
 
 Even though the data ingestion features weren't implemented yet on the platform, the data that was ingested into a case using the original program could also be used on this platform, which allowed this feature to be developed earlier.
@@ -310,7 +310,7 @@ Since each case contains it's own database, it's impossible to synchronize every
 
 \subsection{Data Sources}
 
-Using the same credentials used to log-in to the platform, the user can also upload data source files into his folder located inside the server, using an FTP client like Filezilla.
+Using the same credentials used to log-in to the platform, the user can also upload data source files into his folder located inside the server, using an FTP client like FileZilla \cite{filezilla}.
 Then the user can browse these directories using the web interface and select a data source to add to the case, as can be seen in Figure \ref{fig:datasource}.
 
 \begin{figure}[ht]
@@ -358,7 +358,7 @@ second, and it also only communicates a module's progress when it advances at le
 
 \subsection{Report Modules}
 
-Report modules consist in generating a file or collection of files, to further process, filter, or present the results found in a case, it can take many shapes such as a text file, spreadsheets, HTML pages or even a portable case that can be imported into Autopsy.
+Report modules consist in generating a file or collection of files, to further process, filter, or present the results found in a case. They can take many shapes such as a text file, spreadsheets, HTML pages or even a portable case that can be imported into Autopsy.
 
 Report modules have the ability to process existing data and generate results based on that, such as validating e-mail addresses or credit card numbers, 
 which are found based on regular expressions by the keyword search module and may contain false positives.
@@ -367,12 +367,12 @@ The adaptation of the source code for report modules went pretty smoothly, with 
 
 \subsection{Add-on Modules}
 
-Autopsy supports third party modules in the form or Netbeans module files (NBM), and in the form of python scripts, using the Jython language, which allows python code to run alongside classes defined in Java.
+Autopsy supports third party modules in the form or NetBeans \cite{netbeans} module files (NBM), and in the form of python scripts, using the Jython language, which allows python code to run alongside classes defined in Java.
 
 Since the developed platform doesn't support a java user interface, the procedure to install Netbeans modules could not be implemented, as this feature is specific to Netbeans applications. 
 But most modules are made in the Jython language, and the addition of this modules was implemented as intended.
 
-A user with a manager role can add new modules to the platform by uploading a zip archive containing the modules, the platform also allows management of the added modules, so that managers can enable, disabled and remove certain modules, as can be seen in Figure \ref{fig:settings}.
+A user with a manager role can add new modules to the platform by uploading a zip archive containing the modules. The platform also allows management of the added modules, so that managers can enable, disabled and remove certain modules, as can be seen in Figure \ref{fig:settings}.
 
 \begin{figure}[ht]
  \centering
@@ -381,8 +381,8 @@ A user with a manager role can add new modules to the platform by uploading a zi
  \label{fig:settings}
 \end{figure}
 
-Third party modules require that the original Autopsy source code is accessible in the original name space, which resulted in the separation of the
-developed and adapted code into two different name spaces, the original software's namespace which is org.sleuthkit.autopsy, and the company's namespace which is pt.voidsoftware.kensentme. 
+Third party modules require that the original Autopsy source code is accessible in the original namespace, which resulted in the separation of the
+developed and adapted code into two different namespaces, the original software's namespace which is org.sleuthkit.autopsy, and the company's namespace which is pt.voidsoftware.kensentme. 
 
 This requirement of the original code can also mean that some modules which weren't tested may fail to run due to missing code, but a procedure to handle failure to run modules is implemented, 
 and it informs the user about which modules are failing to run, allowing the user to disable the unsupported modules.
