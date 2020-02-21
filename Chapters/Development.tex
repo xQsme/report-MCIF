@@ -291,14 +291,21 @@ The layout for the ingested results presentation, and for all the case related a
 needed, allowing the user to focus on the information that is most important to him.
 
 This development stage was one of the most intensive, as it required understanding Autopsy's data structure very well. The source code used here was rewritten almost completely, 
-because of the way the user interface and the data structure in the original program and interconnected, resulting in the need to adapt and write custom queries to obtain the desired results, creating more than 
-50 endpoints so that all the needed information could be supplied. As well as creating and adjusting all the UI elements to achieve an user experience similar to what Autopsy's users are used to.
+because of the way the user interface and the data structure in the original program and interconnected, resulting in the need to adapt and write custom queries to obtain the desired results, creating 
+65 endpoints so that all the needed information could be supplied. As well as creating and adjusting all the UI elements to achieve an user experience similar to what Autopsy's users are used to.
 
 \subsection{Tag Management}
 
 Tagging content is a very important step in forensics investigations, as it allows the investigators to keep an organized list of important information.
 
-Tagging was added to the platform in the form of a context menu, that is shown by selecting information from the table/thumbnail viewer.
+Tagging was added to the platform in the form of a context menu, that is shown by selecting information from the table/thumbnail viewer, as can be seen in Figure \ref{fig:tags}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=1\linewidth]{imgs/tags.png}
+ \caption{Tags Context Menu}
+ \label{fig:tags}
+\end{figure}
 
 Tags take the form of file or result tags, and the difference is that a result tag is specific to an artifact, while a file tag is related to the file itself.
 
@@ -387,11 +394,17 @@ developed and adapted code into two different namespaces, the original software'
 This requirement of the original code can also mean that some modules which weren't tested may fail to run due to missing code, but a procedure to handle failure to run modules is implemented, 
 and it informs the user about which modules are failing to run, allowing the user to disable the unsupported modules.
 
-\subsection{Project Deployment}
+\subsection{Complementary Additions}
+
+
+
+\subsection{Project Deployment and Documentation}
 
 A ''Read Me'' document was created, detailing each step required to setup the platform, which involves installing all the dependencies required, as well as compiling the developed code.
 
 The setup was tested in multiple versions of Linux and with different versions of needed dependencies, resulting in a controlled step-by-step guide that can be followed in about 30 minutes that leads to a successful deployment of the complete platform.
+
+The documentation of every endpoint of the platform can be consulted in \autoref{ch:appendixA}.
 
 \section{Critical Analysis and Proposed Improvements}
 

@@ -16,7 +16,7 @@ Mode=LaTeX
 Mode Set By User=false
 
 [document-settings,item:Chapters/ApendixA.tex]
-Bookmarks=
+Bookmarks=9
 Encoding=UTF-8
 FoldedColumns=
 FoldedLines=
@@ -283,10 +283,10 @@ order=1
 
 [item:Chapters/Intro.tex]
 open=true
-order=12
+order=13
 
 [item:Chapters/Projects.tex]
-open=true
+open=false
 order=16
 
 [item:Code/bash.sh]
@@ -315,7 +315,7 @@ order=9
 
 [item:Covers/Contents.tex]
 open=true
-order=11
+order=12
 
 [item:Covers/Declaration.tex]
 open=true
@@ -323,11 +323,11 @@ order=2
 
 [item:Covers/Titleback.tex]
 open=true
-order=13
+order=14
 
 [item:Covers/Titlepage.tex]
 open=true
-order=14
+order=15
 
 [item:Covers/estg_h.pdf]
 open=false
@@ -343,11 +343,11 @@ order=-1
 
 [item:References.bib]
 open=true
-order=15
+order=16
 
 [item:config.tex]
 open=true
-order=17
+order=11
 
 [item:imgs/tp04a_450.jpg]
 open=false
@@ -378,12 +378,12 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/ApendixA.tex]
-CursorColumn=17
-CursorLine=8
+CursorColumn=20
+CursorLine=6
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,8,16,[,8,14,],8,16
+ViMarks=.,7,18,[,7,10,],7,18,a,9,101
 
 [view-settings,view=0,item:Chapters/ApendixB.tex]
 CursorColumn=0
@@ -410,16 +410,16 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/Development.tex]
-CursorColumn=71
-CursorLine=383
+CursorColumn=62
+CursorLine=324
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,384,50,[,384,50,],384,50
+ViMarks=.,396,24,[,396,17,],396,24
 
 [view-settings,view=0,item:Chapters/Intro.tex]
-CursorColumn=10
-CursorLine=74
+CursorColumn=23
+CursorLine=4
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
@@ -530,16 +530,16 @@ TextFolding=[]
 ViMarks=.,162,55,[,162,55,],162,55
 
 [view-settings,view=0,item:config.tex]
-CursorColumn=24
-CursorLine=415
+CursorColumn=36
+CursorLine=218
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,115,0,[,115,0,],115,0
+ViMarks=.,441,0,[,441,0,],441,20
 
 [view-settings,view=0,item:main.tex]
-CursorColumn=18
-CursorLine=158
+CursorColumn=16
+CursorLine=157
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
