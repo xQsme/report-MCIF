@@ -394,12 +394,12 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/Background.tex]
-CursorColumn=213
-CursorLine=305
+CursorColumn=0
+CursorLine=265
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,305,213,[,305,213,],305,213
+ViMarks=.,266,69,[,266,69,],266,69
 
 [view-settings,view=0,item:Chapters/Conclusion.tex]
 CursorColumn=0
@@ -410,20 +410,20 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/Development.tex]
-CursorColumn=42
-CursorLine=409
+CursorColumn=23
+CursorLine=448
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,423,178,[,423,175,],423,178
+ViMarks=.,459,48,[,459,35,],459,48
 
 [view-settings,view=0,item:Chapters/Intro.tex]
-CursorColumn=10
-CursorLine=107
+CursorColumn=130
+CursorLine=131
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,25,127,[,25,126,],25,127
+ViMarks=.,131,129,[,131,126,],131,129
 
 [view-settings,view=0,item:Chapters/Projects.tex]
 CursorColumn=0
@@ -522,12 +522,12 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:References.bib]
-CursorColumn=38
-CursorLine=160
+CursorColumn=51
+CursorLine=153
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,162,55,[,162,55,],162,55
+ViMarks=.,158,9,[,158,6,],158,9
 
 [view-settings,view=0,item:config.tex]
 CursorColumn=36
