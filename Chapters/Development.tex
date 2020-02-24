@@ -24,11 +24,11 @@ the features would be implemented during the two week duration of the sprint, an
 \section{Project Aim and Milestones}
 
 Autopsy by itself is capable of providing a distributed solution for multi user collaboration, but it is very resource intensive and requires many complex configuration steps,
-and is also only fully supported on the Windows O.S.
+and is also only fully supported on the Windows OS.
 
 The plan for this project is to achieve the same kind of functionality provided by the original software, but without the dependency on arduous pre-configuration
 or hardware intensive requirements, resulting in needing only single capable server, and allowing the program to be used by multiple low capacity client devices using 
-any web capable O.S.
+any web capable OS.
 
 To achieve that goal, the project is an adaptation of the original Autopsy source code, into a client-server model, with the server developed in Java using the Quarkus \cite{quarkus} framework,
 and the client developed in JavaScript using the React \cite{react} framework.
@@ -53,6 +53,14 @@ which requests and provides data to both database and indexation servers.
  \label{fig:arch}
 \end{figure}
 
+The KenSentMe server described in the previous figure provides different services, such as authentication, case resources, entity management, and others, as can be seen in Figure \ref{fig:services}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=1\linewidth]{imgs/services.png}
+ \caption{Platform's Services}
+ \label{fig:services}
+\end{figure}
 
 \section{Autopsy Source Code Analysis}
 
@@ -100,7 +108,7 @@ The ``Core`` module is where the most important components are located, and afte
     \hline
     Report & Report generation utilities and modules \\
     \hline
-    Timeline & Recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows O.S. \\
+    Timeline & Recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows OS \\
     \hline
     \caption{Autopsy Modules Overview}
     \label{tab:autopsyOverview}
@@ -155,7 +163,18 @@ But in order to add features like pagination and tag deletion, custom queries mu
 
 \subsection{Basic Autopsy Functionalities}
 
-As a first step into replicating the functionalities of the original program, the most basic functionality from Autopsy was adapted, the ability to open an Autopsy case. For this some elements of the original ''Casemodule'' package were adapted,
+As a first step into replicating the functionalities of the original program, the most basic functionality from Autopsy was adapted, the ability to open an Autopsy case,  
+as can be seen in Figure \ref{fig:open}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.35\linewidth]{imgs/welcome.png}
+ \includegraphics[width=0.35\linewidth]{imgs/open.png}
+ \caption{Welcome and Open Case Modals}
+ \label{fig:open}
+\end{figure}
+
+For this some elements of the original ''Casemodule'' package were adapted,
 and after that all the other similar actions like closing, creating and deleting cases were also adapted.
 
 Autopsy cases have a case file containing case metadata, which allows the program to connect to the right database when the case is open, this database is also present
@@ -220,7 +239,21 @@ In the event of loss of the device that the user uses to generate OTP, all the a
 
 \subsubsection*{Universal Second Factor}
 
-TODO
+The set up and validation of U2F is very similar, as both procedures require the server to generate a challenge.
+This challenge is transmited to the client, and then transmited to the U2F device, which then generates the response which is used to validate the challenge.
+
+In the case of setting up the device, if the response is validated successfully, the device's public key for this specific domain is stored in the server and the procedure is completed.
+
+When authenticating the challenge depends on the public key previously stored, which means only the device used to set up can generate the right response to the challenge.
+
+The U2F procedure is represented in Figure \ref{fig:yubi}, which was provided by Yubico.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=1\linewidth]{imgs/yubi.png}
+ \caption{U2F Procedure}
+ \label{fig:yubi}
+\end{figure}
 
 \subsection{Management Entities}
 
@@ -262,7 +295,7 @@ The platform's resulting data model can be observed in Figure \ref{fig:database}
 \subsection{Ingested Results Presentation}
 
 Ingested results are the items present inside the provided data sources. Autopsy can run multiple modules on each data source to extract results, and the extracted results can either be a file instance or an artifact instance.
-The difference between a file and an artifact is that an artifact represents only a smaller piece of a file's information, which means a file can contain multiple artifacts, for example a registry file can contain multiple O.S. user account artifacts.
+The difference between a file and an artifact is that an artifact represents only a smaller piece of a file's information, which means a file can contain multiple artifacts, for example a registry file can contain multiple OS user account artifacts.
 
 Even though the data ingestion features weren't implemented yet on the platform, the data that was ingested into a case using the original program could also be used on this platform, which allowed this feature to be developed earlier.
 
@@ -379,13 +412,24 @@ Autopsy supports third party modules in the form or NetBeans \cite{netbeans} mod
 Since the developed platform doesn't support a java user interface, the procedure to install Netbeans modules could not be implemented, as this feature is specific to Netbeans applications. 
 But most modules are made in the Jython language, and the addition of this modules was implemented as intended.
 
-A user with a manager role can add new modules to the platform by uploading a zip archive containing the modules. The platform also allows management of the added modules, so that managers can enable, disabled and remove certain modules, as can be seen in Figure \ref{fig:settings}.
+A user with a manager role can add new modules to the platform by either selecting from defined repositories or by uploading a zip archive containing the modules, as can be seen in Figure \ref{fig:addmodule}.
 
 \begin{figure}[ht]
  \centering
- \includegraphics[width=1\linewidth]{imgs/settings.png}
+ \includegraphics[width=0.5\linewidth]{imgs/addmodule.png}
+ \caption{Add-on Modules Addition}
+ \label{fig:addmodule}
+\end{figure}
+
+These repositories previously mentioned can be defined in the platform itself, or accessed from a remote source, which is a standalone platform developed just for this purpose and could allow the company to provide repository sources to any deployed version of the platform.
+
+The platform also allows management of the added modules, so that managers can enable, disabled and remove certain modules, as can be seen in Figure \ref{fig:modulesettings}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=1\linewidth]{imgs/modulesettings.png}
  \caption{Add-on Modules Management}
- \label{fig:settings}
+ \label{fig:modulesettings}
 \end{figure}
 
 Third party modules require that the original Autopsy source code is accessible in the original namespace, which resulted in the separation of the
@@ -393,10 +437,6 @@ developed and adapted code into two different namespaces, the original software'
 
 This requirement of the original code can also mean that some modules which weren't tested may fail to run due to missing code, but a procedure to handle failure to run modules is implemented, 
 and it informs the user about which modules are failing to run, allowing the user to disable the unsupported modules.
-
-\subsection{Complementary Additions}
-
-
 
 \subsection{Project Deployment and Documentation}
 
@@ -410,6 +450,6 @@ The documentation of every endpoint of the platform can be consulted in \autoref
 
 The development of the platform halted due to it being considered in a finished state, which means that all the objectives for the project were completed successfully.
 
-Given that Autopsy is still in active development, it would be very important to keep following it's development, and complimenting this platform with new features and bug fixes which might come up in the future.
+Given that Autopsy is still in active development, it would be very important to keep following it's development, and complementing this platform with new features and bug fixes which might come up in the future.
 
 Besides accompanying Autopsy's improvements, it could also be interesting to further develop the platform to better serve the needs of it's users, which would require installations of the platform, and a feedback channel to better understand the user's needs.
