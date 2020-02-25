@@ -2,7 +2,7 @@
 kile_livePreviewEnabled=false
 kile_livePreviewStatusUserSpecified=true
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=Chapters/Intro.tex
+lastDocument=main.tex
 
 [document-settings,item:Chapters/Analysis.tex]
 Bookmarks=
@@ -283,10 +283,10 @@ order=1
 
 [item:Chapters/Intro.tex]
 open=true
-order=12
+order=13
 
 [item:Chapters/Projects.tex]
-open=true
+open=false
 order=16
 
 [item:Code/bash.sh]
@@ -315,7 +315,7 @@ order=9
 
 [item:Covers/Contents.tex]
 open=true
-order=11
+order=12
 
 [item:Covers/Declaration.tex]
 open=true
@@ -323,11 +323,11 @@ order=2
 
 [item:Covers/Titleback.tex]
 open=true
-order=13
+order=14
 
 [item:Covers/Titlepage.tex]
 open=true
-order=14
+order=15
 
 [item:Covers/estg_h.pdf]
 open=false
@@ -343,11 +343,11 @@ order=-1
 
 [item:References.bib]
 open=true
-order=15
+order=16
 
 [item:config.tex]
 open=true
-order=17
+order=11
 
 [item:imgs/tp04a_450.jpg]
 open=false
@@ -394,12 +394,12 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/Background.tex]
-CursorColumn=13
-CursorLine=152
+CursorColumn=29
+CursorLine=54
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,0,0,[,0,0,],0,0
+ViMarks=.,65,6,[,65,2,],65,6
 
 [view-settings,view=0,item:Chapters/Conclusion.tex]
 CursorColumn=0
@@ -410,20 +410,20 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/Development.tex]
-CursorColumn=0
-CursorLine=454
+CursorColumn=39
+CursorLine=247
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,0,0,[,0,0,],0,0
+ViMarks=.,251,0,[,251,0,],251,0
 
 [view-settings,view=0,item:Chapters/Intro.tex]
-CursorColumn=34
-CursorLine=20
+CursorColumn=38
+CursorLine=22
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,15,86,[,15,80,],15,86
+ViMarks=.,22,37,[,22,29,],22,37
 
 [view-settings,view=0,item:Chapters/Projects.tex]
 CursorColumn=0
@@ -522,28 +522,28 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:References.bib]
-CursorColumn=51
-CursorLine=153
+CursorColumn=38
+CursorLine=188
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,158,9,[,158,6,],158,9
+ViMarks=.,193,11,[,193,6,],193,11
 
 [view-settings,view=0,item:config.tex]
-CursorColumn=36
-CursorLine=218
+CursorColumn=74
+CursorLine=205
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,441,0,[,441,0,],441,20
+ViMarks=.,212,0,[,212,0,],212,0
 
 [view-settings,view=0,item:main.tex]
-CursorColumn=0
-CursorLine=160
+CursorColumn=16
+CursorLine=157
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,160,0,[,160,0,],160,0
+ViMarks=.,41,31,[,41,28,],41,31
 
 [view-settings,view=0,item:projeto.kilepr]
 CursorColumn=10
