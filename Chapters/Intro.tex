@@ -13,14 +13,14 @@ This chapter encompasses the motivation for this internship, a characterization 
 
 \section{Motivation}
 
-Collaboration is a major feature included in most forensics software, and while \citetitle{autopsy} \cite{autopsy} allows the software to be
+Collaboration is a major feature included in most forensics software, and while Autopsy \cite{autopsy} allows the software to be
 configured in a manner to allow collaboration it involves a complicated setup and has certain limitations.
 The setup required for collaborative cases in Autopsy is as follows:
 \begin{itemize}
  \item Shared hard drive accessible to every machine using the same drive letter
- \item PostgreSQL Database server 
- \item Solr indexing server
- \item ActiveMQ messaging server
+ \item PostgreSQL \cite{postgresql} Database server 
+ \item Apache Solr \cite{solr} indexing server
+ \item Apache ActiveMQ \cite{activemq} messaging server
 \end{itemize}
 
 The limitations of Autopsy's multi-user case feature are that it requires every user to be using a Windows Operating System (OS) computer and it also requires specific configuration on each

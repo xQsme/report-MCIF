@@ -64,11 +64,15 @@ The KenSentMe server described in the previous figure provides different service
 
 \section{Autopsy Source Code Analysis}
 
-Autopsy is a digital forensics analysis software that is available as Open Source Software \cite{opensource} on \citetitle{github} \cite{github}.
+Autopsy is a digital forensics analysis software that is available as Open Source Software \cite{opensource} on GitHub \cite{github}.
 
 With the goals set for this project, the source code was analyzed to understand which components need to be replicated and adapted in order to obtain the same logic flow.
 
 The ``Core`` module is where the most important components are located, and after analysis it was concluded that the following directories present in Table \ref{tab:autopsyOverview} contain relevant information.
+
+%TODO PAGE BREAK?
+
+\pagebreak
 
 \begin{tabularx}{\textwidth}{@{}|c| *1{>{\centering\arraybackslash}X}@{}|}
     \hline
@@ -115,7 +119,7 @@ The ``Core`` module is where the most important components are located, and afte
 \end{tabularx}
 
 The ``KeywordSearch`` module is also of critical importance as it provides one of the most meaningful features which is filtering all the artifacts in a case with a keyword
-search using the Apache Solr \cite{solr} search platform, which indexes the text contents of all the artifacts and allows extremely fast searching through a large amount of data.  
+search using the Apache Solr search platform, which indexes the text contents of all the artifacts and allows extremely fast searching through a large amount of data.  
 
 Another module that needs to be adapted is the ``RecentActivity`` module, which contains the tools needed to extract information from browsers, registry and other important resources, providing a great amount of
 critical evidence from data sources.
@@ -245,9 +249,6 @@ This challenge is transmited to the client, and then transmited to the U2F devic
 
 In the case of setting up the device, if the response is validated successfully, the information present in Table \ref{tab:u2f} is stored in the server and the procedure is completed.
 
-%TODO SHOULD NOT BE NEEDED PAGE BREAK
-\pagebreak
-
 \begin{table}[ht]
   \begin{tabularx}{\textwidth}{@{}|c| *1{>{\centering\arraybackslash}X}@{}|}
     \hline
@@ -274,7 +275,7 @@ The U2F procedure is represented in Figure \ref{fig:yubi}.
 
 \begin{figure}[ht]
  \centering
- \includegraphics[width=1\linewidth]{imgs/yubi.png}
+ \includegraphics[width=0.9\linewidth]{imgs/yubi.png}
  \caption{U2F Procedure \cite{yubi}}
  \label{fig:yubi}
 \end{figure}
@@ -392,7 +393,7 @@ The procedure for adding a data source to a case was adapted from Autopsy's sour
  \item Disk image
  \item Virtual machine
  \item Logical file collection
- \item Autopsy logical imager results
+ \item Autopsy Logical Imager \cite{imager} results
 \end{itemize}
 
 Local disk data sources were also an option provided by Autopsy but since the local disks the software has access to belong to a server, this feature is undesired.

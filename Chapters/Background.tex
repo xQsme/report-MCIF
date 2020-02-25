@@ -7,7 +7,7 @@
 
 The scope of this internship concerns digital forensics, as it focuses on adapting an existing forensics platform into a collaborative client-server model.
 
-In this chapter, a contextualization of digital forensics is given, an analysis of both \citetitle{sleuthkit} (TSK) \cite{sleuthkit} and Autopsy is made, and it's given a brief description and analysis of the existing forensic platform alternatives.
+In this chapter, a contextualization of digital forensics is given, an analysis of both The Sleuth Kit (TSK) \cite{sleuthkit} and Autopsy is made, and it's given a brief description and analysis of the existing forensic platform alternatives.
 
 \section{Digital Forensics}
 
@@ -16,13 +16,13 @@ or examine evidence that might be presented in a court of law.
 
 The definition of digital forensics is directly related to the definition of
 computer forensics which is the collection, preservation, analysis,
-and presentation (\citetitle{daniels} \cite{daniels}) of evidence stemming from digital sources for use in a legal matter
+and presentation \cite{daniels} of evidence stemming from digital sources for use in a legal matter
 using investigative processes, tools, and practices.
 
-Digital forensics is the application of computer technology to criminal cases where evidence
+Digital forensics \cite{nist2} is the application of computer technology to criminal cases where evidence
 includes items that are created by digital systems.
 
-Digital forensics, according to \citeauthor{nist2} \cite{nist2}, is the field of forensic science that is concerned with retrieving,
+Digital forensics is the field of forensic science that is concerned with retrieving,
 storing and analyzing electronic data that can be useful in criminal investigations.
 This includes information from computers, hard drives, mobile phones and other data
 storage devices.
@@ -63,7 +63,7 @@ where companies offer software as a service \cite{saas}. Software as a service m
 the customer no longer has to install software on their computer, allowing access to the software remotely,
 and not storing any data locally.
 
-%%Comment about difficulty between retrieving local evidence and cloud stored evidence
+%%TODO Comment about difficulty between retrieving local evidence and cloud stored evidence
 
 \subsection{Processes and Procedures}
 
@@ -142,7 +142,7 @@ evidence was performed.
 
 \section{The Sleuth Kit}
 
-The Sleuth Kit is a library and collection of command line tools that allow the
+TSK is a library and collection of command line tools that allow the
 investigation of disk images. The core functionality of TSK allows volume and file system data analysis.
 The plug-in framework allows incorporation of additional modules to analyze file contents
 and build automated systems. The library can be incorporated into larger digital forensics tools and
@@ -228,9 +228,9 @@ Autopsy is free and open source, allowing for cost-effective digital forensics a
 There are plenty of alternatives to Autopsy in the form of digital forensic analysis platforms, but the ones with most recognition work on a software as a service model, 
 without providing a free trial, so even though it wasn't possible to test them, they were analysed based on the available information.
 
-\subsection{Nuix}
+\subsection{Nuix Lab}
 
-\citetitle{nuix} \cite{nuix} allows investigators to work on large investigations.
+Nuix Lab \cite{nuix} allows investigators to work on large investigations.
 It can be used for local or small regional forensic labs handling high data volume, variety, and 
 complex digital evidence and looking to build or upgrade a dedicated digital forensics facility.
 
@@ -238,13 +238,13 @@ The core technologies of the Nuix Lab, Nuix Workstation and Nuix Investigate, gi
 different viewpoints into the same case data. Investigators can collaborate on 
 the same data at the same time by using browser based tools.
 
-The Implementation of \citetitle{elasticsearch} \cite{elasticsearch} as a data store for the Nuix Lab boosts evidence processing, investigation, and intelligence capabilities. 
+The Implementation of Elasticsearch \cite{elasticsearch} as a data store for the Nuix Lab boosts evidence processing, investigation, and intelligence capabilities. 
 
 Nuix Lab also claims to contain powerful artificial intelligence, machine learning, and analytics which should make it stand out from the competition. 
 
 \subsection{EnCase Forensic}
 
-\citetitle{encase} \cite{encase} enables searching, identifying, and prioritizing potential evidence, in computers and mobile devices, to determine whether 
+EnCase Forensic \cite{encase} enables searching, identifying, and prioritizing potential evidence, in computers and mobile devices, to determine whether 
 further investigation is warranted.
 
 It can collect from a wide variety of operating and file systems, including over 25 types of mobile devices, and parses the most popular mobile apps across iOS, Android, and Blackberry devices.
@@ -255,7 +255,7 @@ reporting framework that empowers tailoring case reports to meet specific needs.
 
 \subsection{Forensics Toolkit}
 
-\citetitle{ftk} (FTK) \cite{ftk} is an award-winning, court-cited digital investigations solution. 
+Forensics Toolkit (FTK) \cite{ftk} is an award-winning, court-cited digital investigations solution. 
 
 It locates evidence, collects and analyzes any digital device or system producing, transmitting or 
 storing data by using a single application for multiple devices.
