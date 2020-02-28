@@ -24,11 +24,11 @@ the features would be implemented during the two week duration of the sprint, an
 \section{Project Aim and Milestones}
 
 Autopsy by itself is capable of providing a distributed solution for multi user collaboration, but it is very resource intensive and requires many complex configuration steps,
-and is also only fully supported on the Windows OS.
+and is also only fully supported on the Windows \acrshort{os}.
 
 The plan for this project is to achieve the same kind of functionality provided by the original software, but without the dependency on arduous pre-configuration
 or hardware intensive requirements, resulting in needing only single capable server, and allowing the program to be used by multiple low capacity client devices using 
-any web capable OS.
+any web capable \acrshort{os}.
 
 To achieve that goal, the project is an adaptation of the original Autopsy source code, into a client-server model, with the server developed in Java using the Quarkus \cite{quarkus} framework,
 and the client developed in JavaScript using the React \cite{react} framework.
@@ -40,10 +40,10 @@ Autopsy has a major limitation, which is it only allows one case to be open at a
 at once, but dedicating a server instance (which a single machine can have many virtualized within) per case is a good enough approach, though as future work the
 ability to spawn different containers as requested to work on different cases at once is an interesting challenge.
 
-Given that the core features will be running in a remote server, it was decided that the addition of data sources to cases will be handled by an FTP client, allowing users
-to transfer files to their respective data source directories, and FTP access will be controlled according to each user's credentials on the platform.
+Given that the core features will be running in a remote server, it was decided that the addition of data sources to cases will be handled by an \acrshort{ftp} client, allowing users
+to transfer files to their respective data source directories, and \acrshort{ftp} access will be controlled according to each user's credentials on the platform.
 
-The architecture of the expected result is represented in Figure \ref{fig:arch}, where it can be seen that multiple clients can connect through a REST API, WebSockets and FTP with the Kensentme server, 
+The architecture of the expected result is represented in Figure \ref{fig:arch}, where it can be seen that multiple clients can connect through a \acrshort{rest} \acrshort{api}, WebSockets and \acrshort{ftp} with the Kensentme server, 
 which requests and provides data to both database and indexation servers.
 
 \begin{figure}[ht]
@@ -112,7 +112,7 @@ The ``Core`` module is where the most important components are located, and afte
     \hline
     Report & Report generation utilities and modules \\
     \hline
-    Timeline & Recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows OS \\
+    Timeline & Recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows \acrshort{os} \\
     \hline
     \caption{Autopsy Modules Overview}
     \label{tab:autopsyOverview}
@@ -193,10 +193,10 @@ through one of the versions of the software were capable of being opened through
 
 \subsection{Authentication Process}
 
-The authentication process is handled through a REST API, when the authentication is completed the user receives a JSON Web Token (JWT).
+The authentication process is handled through a \acrshort{rest} \acrshort{api}, when the authentication is completed the user receives a \acrfull{jwt}.
 
-JWT is an open standard that defines a compact and self-contained way for securely transmitting information between parties. This information can be verified and trusted because it is digitally signed.
-JWT contain three parts, as can be seen in Table \ref{tab:jwtComposition}.
+\acrshort{jwt} is an open standard that defines a compact and self-contained way for securely transmitting information between parties. This information can be verified and trusted because it is digitally signed.
+\acrshort{jwt} contain three parts, as can be seen in Table \ref{tab:jwtComposition}.
 
 \begin{table}[ht]
   \begin{tabularx}{\textwidth}{@{}|c| *1{>{\centering\arraybackslash}X}@{}|}
@@ -210,17 +210,17 @@ JWT contain three parts, as can be seen in Table \ref{tab:jwtComposition}.
     Signature & A signature used to verify the contents weren't changed \\
     \hline
   \end{tabularx}
-  \caption{JWT Composition}
+  \caption{\acrshort{jwt} Composition}
   \label{tab:jwtComposition}
 \end{table}
 
-The authentication can be performed with either username or e-mail and a password, and extra authentication factors can be added such as One Time Passwords (OTP) and Universal Second Factor (U2F).
+The authentication can be performed with either username or e-mail and a password, and extra authentication factors can be added such as \acrfull{otp} and \acrfull{u2f}.
 
-If no extra factors were added to an account, the authentication attempt with the user's credentials will return the JWT when successful and the user can freely access protected content.
+If no extra factors were added to an account, the authentication attempt with the user's credentials will return the \acrshort{jwt} when successful and the user can freely access protected content.
 
-When extra factors are present in an account, the response from the same request will contain an array with the extra factors added, and a UUID, which is a pseudo random string, which must be sent in the next request to validate the user's identity.
+When extra factors are present in an account, the response from the same request will contain an array with the extra factors added, and a \acrshort{uuid}, which is a pseudo random string, which must be sent in the next request to validate the user's identity.
 
-This UUID is saved in the database in the form of salted hash using the Blowfish \cite{blowfish} algorithm, and is invalidated after a successful login attempt. The user then has the choice between any of the extra factors and must complete the required steps to validate that factor, as can be seen in Figure \ref{fig:login}.
+This \acrshort{uuid} is saved in the database in the form of salted hash using the Blowfish \cite{blowfish} algorithm, and is invalidated after a successful login attempt. The user then has the choice between any of the extra factors and must complete the required steps to validate that factor, as can be seen in Figure \ref{fig:login}.
 
 \begin{figure}[ht]
  \centering
@@ -232,20 +232,20 @@ This UUID is saved in the database in the form of salted hash using the Blowfish
 
 \subsubsection*{One Time Password}
 
-The process of setting up OTP for an account begins with generating a secret string, which is used by both the server and the authenticator app to generate OTP, when the secret is generated, it is saved as a temporary secret after being encrypted by the RSA algorithm.
+The process of setting up \acrshort{otp} for an account begins with generating a secret string, which is used by both the server and the authenticator app to generate \acrshort{otp}, when the secret is generated, it is saved as a temporary secret after being encrypted by the RSA algorithm.
 
-The temporary secret must be added to the user's device, either by inserting the string itself or by scanning a QR code \cite{qr}, and must be validated by the user by submitting the current OTP, after validation the temporary secret is considered permanent.
+The temporary secret must be added to the user's device, either by inserting the string itself or by scanning a QR code \cite{qr}, and must be validated by the user by submitting the current \acrshort{otp}, after validation the temporary secret is considered permanent.
 
-All OTP validations have a 30 second threshold, which means the current OTP is valid for an extra 30 seconds after being replaced by the next OTP, allowing the user to have a better experience with these passwords.
+All OTP validations have a 30 second threshold, which means the current \acrshort{otp} is valid for an extra 30 seconds after being replaced by the next \acrshort{otp}, allowing the user to have a better experience with these passwords.
 
-The processes of authenticating and removing this authentication factor both depend on validating the current OTP, which is provided by the user's app.
+The processes of authenticating and removing this authentication factor both depend on validating the current \acrshort{otp}, which is provided by the user's app.
 
-In the event of loss of the device that the user uses to generate OTP, all the authentication factors can be reset using the ''Reset Password'' functionality, which relies on e-mail validation to prove the user's identity.
+In the event of loss of the device that the user uses to generate \acrshort{otp}, all the authentication factors can be reset using the ''Reset Password'' functionality, which relies on e-mail validation to prove the user's identity.
 
 \subsubsection*{Universal Second Factor}
 
-Both the set up and validation of U2F are very similar, as these procedures require the server to generate a challenge.
-This challenge is transmited to the client, and then transmited to the U2F device, which then generates the response which is used to validate the challenge.
+Both the set up and validation of \acrshort{u2f} are very similar, as these procedures require the server to generate a challenge.
+This challenge is transmited to the client, and then transmited to the \acrshort{u2f} device, which then generates the response which is used to validate the challenge.
 
 In the case of setting up the device, if the response is validated successfully, the information present in Table \ref{tab:u2f} is stored in the server and the procedure is completed.
 
@@ -265,18 +265,18 @@ In the case of setting up the device, if the response is validated successfully,
     Compromised & Flag indicating if the credential is considered to be compromised \\
     \hline
   \end{tabularx}
-  \caption{U2F Registration Composition}
+  \caption{\acrshort{u2f} Registration Composition}
   \label{tab:u2f}
 \end{table}
 
 When authenticating the challenge depends on the public key previously stored, which means only the device used to set up can generate the right response to the challenge.
 
-The U2F procedure is represented in Figure \ref{fig:yubi}.
+The \acrshort{u2f} procedure is represented in Figure \ref{fig:yubi}.
 
 \begin{figure}[ht]
  \centering
  \includegraphics[width=0.9\linewidth]{imgs/yubi.png}
- \caption{U2F Procedure \cite{yubi}}
+ \caption{\acrshort{u2f} Procedure \cite{yubi}}
  \label{fig:yubi}
 \end{figure}
 
@@ -323,7 +323,7 @@ The platform's resulting data model can be observed in Figure \ref{fig:database}
 \subsection{Ingested Results Presentation}
 
 Ingested results are the items present inside the provided data sources. Autopsy can run multiple modules on each data source to extract results, and the extracted results can either be a file instance or an artifact instance.
-The difference between a file and an artifact is that an artifact represents only a smaller piece of a file's information, which means a file can contain multiple artifacts, for example a registry file can contain multiple OS user account artifacts.
+The difference between a file and an artifact is that an artifact represents only a smaller piece of a file's information, which means a file can contain multiple artifacts, for example a registry file can contain multiple \acrshort{os} user account artifacts.
 
 Even though the data ingestion features weren't implemented yet on the platform, the data that was ingested into a case using the original program could also be used on this platform, which allowed this feature to be developed earlier.
 
@@ -353,7 +353,7 @@ needed, allowing the user to focus on the information that is most important to 
 
 This development stage was one of the most intensive, as it required understanding Autopsy's data structure very well. The source code used here was rewritten almost completely, 
 because of the way the user interface and the data structure in the original program are interconnected, resulting in the need to adapt and write custom queries to obtain the desired results (which include pagination), creating 
-65 endpoints so that all the needed information could be supplied, as well as creating and adjusting all the UI elements to achieve an user experience similar to what Autopsy's users are used to.
+65 endpoints so that all the needed information could be supplied, as well as creating and adjusting all the user interface elements to achieve an user experience similar to what Autopsy's users are used to.
 
 \subsection{Tag Management}
 
@@ -378,7 +378,7 @@ Since each case contains it's own database, it's impossible to synchronize every
 
 \subsection{Data Sources}
 
-Using the same credentials used to log-in to the platform, the user can also upload data source files into his folder located inside the server, using an FTP client like FileZilla \cite{filezilla}.
+Using the same credentials used to log-in to the platform, the user can also upload data source files into his folder located inside the server, using an \acrshort{ftp} client like FileZilla \cite{filezilla}.
 Then the user can browse these directories using the web interface and select a data source to add to the case, as can be seen in Figure \ref{fig:datasource}.
 
 \begin{figure}[ht]
@@ -427,7 +427,7 @@ second, and it also only communicates a module's progress when it advances at le
 
 \subsection{Report Modules}
 
-Report modules consist in generating a file or collection of files, to further process, filter, or present the results found in a case. They can take many shapes such as a text file, spreadsheets, HTML pages or even a portable case that can be imported into Autopsy.
+Report modules consist in generating a file or collection of files, to further process, filter, or present the results found in a case. They can take many shapes such as a text file, spreadsheets, \acrshort{html} pages or even a portable case that can be imported into Autopsy.
 
 Report modules have the ability to process existing data and generate results based on that, such as validating e-mail addresses or credit card numbers, 
 which are found based on regular expressions by the keyword search module and may contain false positives.

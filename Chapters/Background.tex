@@ -7,7 +7,7 @@
 
 The scope of this internship concerns digital forensics, as it focuses on adapting an existing forensics platform into a collaborative client-server model.
 
-In this chapter, a contextualization of digital forensics is given, an analysis of both The Sleuth Kit (TSK) \cite{sleuthkit} and Autopsy is made, and it's given a brief description and analysis of the existing forensic platform alternatives.
+In this chapter, a contextualization of digital forensics is given, an analysis of both \acrfull{tsk} \cite{sleuthkit} and Autopsy is made, and it's given a brief description and analysis of the existing forensic platform alternatives.
 
 \section{Digital Forensics}
 
@@ -142,42 +142,42 @@ evidence was performed.
 
 \section{The Sleuth Kit}
 
-TSK is a library and collection of command line tools that allow the
-investigation of disk images. The core functionality of TSK allows volume and file system data analysis.
+\acrshort{tsk} is a library and collection of command line tools that allow the
+investigation of disk images. The core functionality of \acrshort{tsk} allows volume and file system data analysis.
 The plug-in framework allows incorporation of additional modules to analyze file contents
 and build automated systems. The library can be incorporated into larger digital forensics tools and
 the command line tools can be directly used to find evidence.
 
-The original part of TSK is a C library and collection of command line
+The original part of \acrshort{tsk} is a C library and collection of command line
 file and volume system forensic analysis tools. The file system tools allow examining file systems
 of a computer in a non-intrusive fashion. Because the tools do not rely on the operating system to process
 the file systems, deleted and hidden content can be shown.
 
 The volume system tools allow examination of the layout of disks
-and other media. TSK supports DOS partitions, BSD partitions, Mac partitions, Sun slices, and 
+and other media. \acrshort{tsk} supports \acrshort{dos} partitions, \acrshort{bsd} partitions, Mac partitions, Sun slices, and 
 GPT disks. With these tools, partition locations can be identified 
 and extracted so that they can be analyzed with file system analysis tools.
 
 When performing a complete analysis of a system, command line 
-tools can become tedious. Autopsy is a graphical interface to the tools in TSK, 
+tools can become tedious. Autopsy is a graphical interface to the tools in \acrshort{tsk}, 
 which allows easier conduction of an investigation. Autopsy 
 provides case management, image integrity, keyword searching, and other automated
 operations.
 
 A complete analysis also requires more than just file and volume system analysis.
 However, a single tool can't provide support for all file types and analysis 
-techniques. The TSK Framework allows tools to easily incorporate file analysis
+techniques. The \acrshort{tsk} Framework allows tools to easily incorporate file analysis
 modules that were written by other developers.
 
-TSK allows listing allocated and deleted ASCII and Unicode file names, can display the
-details and contents of all NTFS attributes, can display file system and meta-data structure details,
+\acrshort{tsk} allows listing allocated and deleted \acrshort{ascii} and Unicode file names, can display the
+details and contents of all \acrshort{ntfs} attributes, can display file system and meta-data structure details,
 can create time lines of file activity, which can be imported into a spread sheet to create graphs and reports.
-TSK allows the lookup of file hashes in hash databases, it organizes files based on their type, and pages of
+\acrshort{tsk} allows the lookup of file hashes in hash databases, it organizes files based on their type, and pages of
 thumbnails can be made from graphic images to facilitate quick analysis.
 
 \section{Autopsy}
 
-Autopsy is a digital forensics platform and a graphical interface to TSK
+Autopsy is a digital forensics platform and a graphical interface to \acrshort{tsk}
 along with other digital forensics tools. It is used by law enforcement, military, 
 and corporate examiners to investigate what happened on a computer. It can even 
 be used by anyone to recover photos from a camera's memory card.
@@ -210,9 +210,9 @@ it out of the box and others that are available from third-parties. An overview 
     \hline
     Data Carving & Recover deleted files from unallocated space \\
     \hline
-    Multimedia & Extract EXIF metadata from pictures and videos and display these files \\
+    Multimedia & Extract \acrshort{exif} metadata from pictures and videos and display these files \\
     \hline
-    Indicators of Compromise & Scan a computer using STIX \\
+    Indicators of Compromise & Scan a computer using \acrshort{stix} \\
     \hline
   \end{tabularx}
     \caption{Autopsy's Modules}
@@ -255,7 +255,7 @@ reporting framework that empowers tailoring case reports to meet specific needs.
 
 \subsection{Forensics Toolkit}
 
-Forensics Toolkit (FTK) \cite{ftk} is an award-winning, court-cited digital investigations solution. 
+\acrfull{ftk} \cite{ftk} is an award-winning, court-cited digital investigations solution. 
 
 It locates evidence, collects and analyzes any digital device or system producing, transmitting or 
 storing data by using a single application for multiple devices.
@@ -263,9 +263,9 @@ storing data by using a single application for multiple devices.
 All digital evidence is stored in one case database. It reduces the time, cost and complexity of creating multiple datasets, and there is continuous data transfer between AccessData's forensic 
 and e-discovery solutions, allowing for collaboration between all parties working on the case. 
 
-FTK allows users to create images, process a wide range of data types, analyze the registry, crack passwords, and build reports. 
+\acrshort{ftk} allows users to create images, process a wide range of data types, analyze the registry, crack passwords, and build reports. 
 
-FTK allows collaboration, contains indexed searches, constructs timelines and other graphical assets, categorizes all the extracted artifacts, and also contains malware identification modules.
+\acrshort{ftk} allows collaboration, contains indexed searches, constructs timelines and other graphical assets, categorizes all the extracted artifacts, and also contains malware identification modules.
 
 \section{Comparison}
 
@@ -274,7 +274,7 @@ A comparison of the features offered by each software is presented in Table \ref
 \begin{table}[ht]
   \begin{tabularx}{\textwidth}{|c|c|c|c|c|}
     \hline
-    \textbf{Feature} & \textbf{Autopsy} & \textbf{Nuix} & \textbf{Encase} & \textbf{FTK} \\
+    \textbf{Feature} & \textbf{Autopsy} & \textbf{Nuix} & \textbf{Encase} & \textbf{\acrshort{ftk}} \\
     \hline\hline
     Collaboration & \cmark & \cmark & \cmark & \cmark \\
     \hline
