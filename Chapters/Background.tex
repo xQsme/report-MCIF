@@ -15,7 +15,7 @@ Forensic science \cite{nist} is the use of scientific methods or expertise to in
 or examine evidence that might be presented in a court of law.
 
 The definition of digital forensics is directly related to the definition of
-computer forensics which is the collection, preservation, analysis,
+computer forensics, which is the collection, preservation, analysis,
 and presentation \cite{daniels} of evidence stemming from digital sources for use in a legal matter
 using investigative processes, tools, and practices.
 
@@ -23,12 +23,12 @@ Digital forensics \cite{nist2} is the application of computer technology to crim
 includes items that are created by digital systems.
 
 Digital forensics is the field of forensic science that is concerned with retrieving,
-storing and analyzing electronic data that can be useful in criminal investigations.
+storing and analysing electronic data that can be useful in criminal investigations.
 This includes information from computers, hard drives, mobile phones and other data
 storage devices.
 
 Digital forensic investigators face challenges such as extracting data from damaged or destroyed
-devices, locating individual items of evidence among vast quantities of data,
+devices, locating individual items of evidence among vast quantities of data
 and ensuring that their methods capture data reliably without altering it in any way.
 
 Personal data should ultimately be attributable to an individual; however, making
@@ -70,7 +70,7 @@ and not storing any data locally.
 Digital forensics is the application of forensic science to electronic evidence in a
 legal matter.
 
-While there are many different subdisciplines and many types of devices, communication,
+While there are many different subdisciplines and many types of devices, communication
 and storage methods available, the basic principles of digital forensics
 apply to all of them.
 
@@ -80,7 +80,7 @@ These principles encompass four areas:
 \item Acquisition
 \item Preservation
 \item Analysis
-\item Presentation
+\item Presentation.
 \end{enumerate}
 
 Each of these areas includes specific forensic processes and procedures.
@@ -95,11 +95,11 @@ the storage devices, while following strict rules to ensure the integrity of all
 Since acquisition is the first interaction between the investigators and the evidence,
 it is the step where it's most likely to occur modifications of the contents of the seized devices,
 because turning on the device or extracting the data without following the right procedures can alter
-it's contents irreversibly.
+its contents irreversibly.
 
 \subsubsection*{Preservation}
 
-For evidence to be defendable in court it must be preserved properly.
+For evidence to be defendable in court, it must be preserved properly.
 Preservation in the forensics context is the process of creating a chain of custody \cite{custody}
 that begins before collecting the evidence and ends when the evidence is released.
 Any interference in the chain of custody can lead to issues regarding the validity of the evidence.
@@ -108,14 +108,14 @@ intentional destruction with malicious purpose or accidental modification by unq
 
 A chain of custody log allows proving that the integrity of the evidence has been maintained from seizure
 through presentation in court. It should contain entries for every time that a piece of evidence
-has been touched, including collection, storage transport, and any time the evidence is checked out for
+has been touched, including collection, storage transport and any time the evidence is checked out for
 handling by any personnel.
 
 \subsubsection*{Analysis}
 
 Analysis is the process of locating and categorizing items from evidence
 that has been collected in a case. Each case is unique as the
-circumstances surrounding each case can vary immensely, not only in the evidence being analyzed, but also in the
+circumstances surrounding each case can vary immensely, not only in the evidence being analysed, but also in the
 approach used to perform the analysis. The analysis is the area where
 the individual skills, tools used, and the training of the forensic examiner have
 the greatest impact on the outcome of the examination. Considering that electronic evidence
@@ -135,7 +135,7 @@ There are no exact rules or standards for reporting the results of an
 examination. Each entity may have its own particular guidelines
 for reporting. However, forensic examination reports should be written clearly, concisely,
 and accurately, explaining what was examined, the tools used for the examination,
-the procedures used by the examiner, and the results of the examination.
+the procedures used by the examiner and the results of the examination.
 The report should also include the collection methods used, including specific steps
 taken to protect and preserve the original evidence and how the verification of the
 evidence was performed.
@@ -144,7 +144,7 @@ evidence was performed.
 
 \acrshort{tsk} is a library and collection of command line tools that allow the
 investigation of disk images. The core functionality of \acrshort{tsk} allows volume and file system data analysis.
-The plug-in framework allows incorporation of additional modules to analyze file contents
+The plug-in framework allows incorporation of additional modules to analyse file contents
 and build automated systems. The library can be incorporated into larger digital forensics tools and
 the command line tools can be directly used to find evidence.
 
@@ -156,12 +156,12 @@ the file systems, deleted and hidden content can be shown.
 The volume system tools allow examination of the layout of disks
 and other media. \acrshort{tsk} supports \acrshort{dos} partitions, \acrshort{bsd} partitions, Mac partitions, Sun slices, and 
 GPT disks. With these tools, partition locations can be identified 
-and extracted so that they can be analyzed with file system analysis tools.
+and extracted so that they can be analysed with file system analysis tools.
 
 When performing a complete analysis of a system, command line 
 tools can become tedious. Autopsy is a graphical interface to the tools in \acrshort{tsk}, 
 which allows easier conduction of an investigation. Autopsy 
-provides case management, image integrity, keyword searching, and other automated
+provides case management, image integrity, keyword searching and other automated
 operations.
 
 A complete analysis also requires more than just file and volume system analysis.
@@ -257,15 +257,15 @@ reporting framework that empowers tailoring case reports to meet specific needs.
 
 \acrfull{ftk} \cite{ftk} is an award-winning, court-cited digital investigations solution. 
 
-It locates evidence, collects and analyzes any digital device or system producing, transmitting or 
+It locates evidence, collects and analyses any digital device or system producing, transmitting or 
 storing data by using a single application for multiple devices.
 
 All digital evidence is stored in one case database. It reduces the time, cost and complexity of creating multiple datasets, and there is continuous data transfer between AccessData's forensic 
 and e-discovery solutions, allowing for collaboration between all parties working on the case. 
 
-\acrshort{ftk} allows users to create images, process a wide range of data types, analyze the registry, crack passwords, and build reports. 
+\acrshort{ftk} allows users to create images, process a wide range of data types, analyse the registry, crack passwords and build reports. 
 
-\acrshort{ftk} allows collaboration, contains indexed searches, constructs timelines and other graphical assets, categorizes all the extracted artifacts, and also contains malware identification modules.
+\acrshort{ftk} allows collaboration, contains indexed searches, constructs timelines and other graphical assets, categorizes all the extracted artifacts and also contains malware identification modules.
 
 \section{Comparison}
 
@@ -299,6 +299,6 @@ A comparison of the features offered by each software is presented in Table \ref
   \label{tab:comparison}
 \end{table}
 
-Every software listed has it's pros and cons, Autopsy mainly benefits from being free and open source, and allowing the development of modular plugins, while the other options seem to try to offer a very complete package out of the box.
+Every software listed has its pros and cons; Autopsy mainly benefits from being free and open source, and allowing the development of modular plugins, while the other options seem to try to offer a very complete package out of the box.
 
 Any of these software options seem viable for any kind of digital forensics investigation, and as a digital forensics firm, the teams should first test all these available options and chose the ones that best suit their needs.

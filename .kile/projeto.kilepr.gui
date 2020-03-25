@@ -283,10 +283,10 @@ order=1
 
 [item:Chapters/Intro.tex]
 open=true
-order=13
+order=12
 
 [item:Chapters/Projects.tex]
-open=false
+open=true
 order=16
 
 [item:Code/bash.sh]
@@ -315,7 +315,7 @@ order=9
 
 [item:Covers/Contents.tex]
 open=true
-order=12
+order=11
 
 [item:Covers/Declaration.tex]
 open=true
@@ -323,11 +323,11 @@ order=2
 
 [item:Covers/Titleback.tex]
 open=true
-order=14
+order=13
 
 [item:Covers/Titlepage.tex]
 open=true
-order=15
+order=14
 
 [item:Covers/estg_h.pdf]
 open=false
@@ -343,11 +343,11 @@ order=-1
 
 [item:References.bib]
 open=true
-order=16
+order=15
 
 [item:config.tex]
 open=true
-order=11
+order=17
 
 [item:imgs/tp04a_450.jpg]
 open=false
@@ -411,11 +411,11 @@ ViMarks=
 
 [view-settings,view=0,item:Chapters/Development.tex]
 CursorColumn=36
-CursorLine=23
+CursorLine=459
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,26,60,[,26,60,],26,60
+ViMarks=.,0,0,[,0,0,],0,0
 
 [view-settings,view=0,item:Chapters/Intro.tex]
 CursorColumn=155
@@ -538,12 +538,12 @@ TextFolding=[]
 ViMarks=.,212,0,[,212,0,],212,0
 
 [view-settings,view=0,item:main.tex]
-CursorColumn=16
-CursorLine=156
+CursorColumn=50
+CursorLine=119
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,41,31,[,41,28,],41,31
+ViMarks=.,145,0,[,145,0,],145,0
 
 [view-settings,view=0,item:projeto.kilepr]
 CursorColumn=10

@@ -18,12 +18,12 @@ The project development followed an agile workflow, using a JIRA \cite{jira} boa
 The project had four intervening parties involved. The developer was responsible for developing the software. The product owner provided help in decisions surrounding the developed product. 
 The designer came up with ideas for the user interface and user experience of the platform. And the tester made sure everything was working as intended.
 
-For each sprint the process was identical, a sprint review was conducted to assess the progress made in the previous sprint, then a new sprint would be planned by the developer, 
+For each sprint the process was identical: a sprint review was conducted to assess the progress made in the previous sprint, then a new sprint would be planned by the developer, 
 the features would be implemented during the two week duration of the sprint, and developed features would be tested thoroughly before the sprint ended.
 
 \section{Project Aim and Milestones}
 
-Autopsy by itself is capable of providing a distributed solution for multi user collaboration, but it is very resource intensive and requires many complex configuration steps,
+Autopsy by itself is capable of providing a distributed solution for multi user collaboration, but it is very resource intensive, requires many complex configuration steps
 and is also only fully supported on the Windows \acrshort{os}.
 
 The plan for this project is to achieve the same kind of functionality provided by the original software, but without the dependency on arduous pre-configuration
@@ -36,8 +36,8 @@ and the client developed in JavaScript using the React \cite{react} framework.
 The project is outlined to work in a multi user environment, allowing users to be assigned to teams and teams assigned to cases, and allowing multiple users to interact with
 a case simultaneously.
 
-Autopsy has a major limitation, which is it only allows one case to be open at a time, ideally in this project a workaround should be created to allow working on multiple cases
-at once, but dedicating a server instance (which a single machine can have many virtualized within) per case is a good enough approach, though as future work the
+Autopsy has a major limitation, which is it only allows one case to be open at a time; Ideally in this project a workaround should be created to allow working on multiple cases
+at once, but dedicating a server instance (which a single machine can contain many within) per case is a good enough approach, though as future work the
 ability to spawn different containers as requested to work on different cases at once is an interesting challenge.
 
 Given that the core features will be running in a remote server, it was decided that the addition of data sources to cases will be handled by an \acrshort{ftp} client, allowing users
@@ -66,7 +66,7 @@ The KenSentMe server described in the previous figure provides different service
 
 Autopsy is a digital forensics analysis software that is available as Open Source Software \cite{opensource} on GitHub \cite{github}.
 
-With the goals set for this project, the source code was analyzed to understand which components need to be replicated and adapted in order to obtain the same logic flow.
+With the goals set for this project, the source code was analysed to understand which components need to be replicated and adapted in order to obtain the same logic flow.
 
 The ``Core`` module is where the most important components are located, and after analysis it was concluded that the following directories present in Table \ref{tab:autopsyOverview} contain relevant information.
 
@@ -118,13 +118,13 @@ The ``Core`` module is where the most important components are located, and afte
     \label{tab:autopsyOverview}
 \end{tabularx}
 
-The ``KeywordSearch`` module is also of critical importance as it provides one of the most meaningful features which is filtering all the artifacts in a case with a keyword
+The ``KeywordSearch`` module is also of critical importance as it provides one of the most meaningful features, which is filtering all the artifacts in a case with a keyword
 search using the Apache Solr search platform, which indexes the text contents of all the artifacts and allows extremely fast searching through a large amount of data.  
 
 Another module that needs to be adapted is the ``RecentActivity`` module, which contains the tools needed to extract information from browsers, registry and other important resources, providing a great amount of
 critical evidence from data sources.
 
-Each autopsy case contains it's own SQLite \cite{sqlite} database, which contains the tables present in Table \ref{tab:tables}.
+Each autopsy case contains its own SQLite \cite{sqlite} database, which contains the tables present in Table \ref{tab:tables}.
 
 \begin{tabularx}{\textwidth}{|c|c|c|}
     \hline
@@ -178,15 +178,15 @@ as can be seen in Figure \ref{fig:open}.
  \label{fig:open}
 \end{figure}
 
-For this some elements of the original ''Casemodule'' package were adapted,
+For this, some elements of the original ''Casemodule'' package were adapted,
 and after that all the other similar actions like closing, creating and deleting cases were also adapted.
 
-Autopsy cases have a case file containing case metadata, which allows the program to connect to the right database when the case is open, this database is also present
-in a file inside the file system, which uses the SQLite database engine. So for the cases to be usable in the server these files must also be present in the server,
+Autopsy cases have a case file containing case metadata, which allows the program to connect to the right database when the case is open: this database is also present
+in a file inside the file system, which uses the SQLite database engine. So, for the cases to be usable in the server, these files must also be present in the server,
 which resulted in the creation of a directory within the server called ``repository``, containing all the different cases created within the application.
 
-Later in the development there was the need to create an additional directory alongside the ``repository`` called ``central-repository``
-which contains the database used by the Correlation Engine, which is a feature that finds files present in multiple cases, to ingest data that can be queried by any case.
+Later in the development there was the need to create an additional directory alongside the ``repository`` called ``central-repository``,
+which contains the database used by the Correlation Engine, a feature that finds files present in multiple cases to ingest data that can be queried by any case.
 
 The development of autopsy features was done with the original software as a reference, so that every new feature implemented into the platform could be compared and verified with the original software, and it was reassuring to see that cases created 
 through one of the versions of the software were capable of being opened through the other version, meaning that the source code provided by autopsy, with some tinkering, can definitely be used in a client-server model.
@@ -232,9 +232,9 @@ This \acrshort{uuid} is saved in the database in the form of salted hash using t
 
 \subsubsection*{One Time Password}
 
-The process of setting up \acrshort{otp} for an account begins with generating a secret string, which is used by both the server and the authenticator app to generate \acrshort{otp}, when the secret is generated, it is saved as a temporary secret after being encrypted by the RSA algorithm.
+The process of setting up \acrshort{otp} for an account begins with generating a secret string, which is used by both the server and the authenticator app to generate \acrshort{otp}. When the secret is generated, it is saved as a temporary secret after being encrypted by the RSA algorithm.
 
-The temporary secret must be added to the user's device, either by inserting the string itself or by scanning a QR code \cite{qr}, and must be validated by the user by submitting the current \acrshort{otp}, after validation the temporary secret is considered permanent.
+The temporary secret must be added to the user's device, either by inserting the string itself or by scanning a QR code \cite{qr}, and must be validated by the user by submitting the current \acrshort{otp}; After validation the temporary secret is considered permanent.
 
 All OTP validations have a 30 second threshold, which means the current \acrshort{otp} is valid for an extra 30 seconds after being replaced by the next \acrshort{otp}, allowing the user to have a better experience with these passwords.
 
@@ -245,7 +245,7 @@ In the event of loss of the device that the user uses to generate \acrshort{otp}
 \subsubsection*{Universal Second Factor}
 
 Both the set up and validation of \acrshort{u2f} are very similar, as these procedures require the server to generate a challenge.
-This challenge is transmited to the client, and then transmited to the \acrshort{u2f} device, which then generates the response which is used to validate the challenge.
+This challenge is transmitted to the client and then transmitted to the \acrshort{u2f} device, which then generates the response which is used to validate the challenge.
 
 In the case of setting up the device, if the response is validated successfully, the information present in Table \ref{tab:u2f} is stored in the server and the procedure is completed.
 
@@ -269,7 +269,7 @@ In the case of setting up the device, if the response is validated successfully,
   \label{tab:u2f}
 \end{table}
 
-When authenticating the challenge depends on the public key previously stored, which means only the device used to set up can generate the right response to the challenge.
+When authenticating, the challenge depends on the public key previously stored, which means only the device used to set up can generate the right response to the challenge.
 
 The \acrshort{u2f} procedure is represented in Figure \ref{fig:yubi}.
 
@@ -285,9 +285,9 @@ The \acrshort{u2f} procedure is represented in Figure \ref{fig:yubi}.
 Further in the development, the different persisted entities were created, which are Users, Teams, and Cases. All the endpoints for actions involving these 
 entities were created, resulting in the ability for the client program to interact with these entities and modify their relationships and other variables.
 
-For these functionalities there are two roles associated, (1) the Manager role allows manipulation of the existing entities while (2) the Investigator role only has access to his
+For these functionalities there are two roles associated: (1) the Manager role allows manipulation of the existing entities, while (2) the Investigator role only has access to his
 own information and the teams and cases he was assigned to. For these interactions, it was decided to create a drag and drop interface, which allows users to be dragged into
-teams and teams dragged into cases. All these entities are listed side by side and each have their own options and filtering input, as can be observed in Figure \ref{fig:users}.
+teams and teams dragged into cases. All these entities are listed side by side and each has its own options and filtering input, as can be observed in Figure \ref{fig:users}.
 
 \begin{figure}[ht]
  \centering
@@ -302,10 +302,10 @@ Managers can add new users to the platform, can approve membership requests, can
 
 When a user is added by a Manager or his membership request is approved, he must define a password when activating his account through a received e-mail message.
 
-It was at this step in development that was made clear by the testers, that validations must be preformed on both server and client side, and that error handling must be streamlined
+It was at this step in development that was made clear by the testers that validations must be preformed on both server and client side, and that error handling must be streamlined
 in order to provide a seamless experience to the user, while also allowing future additions to the platform to be implemented in a similar way without much tinkering.
 
-Because even though the platform still wasn't fully developed, it already suffered from possible exploits that could break the experience for it's users, like the upload of a 5GB file
+Because even though the platform still wasn't fully developed, it already suffered from possible exploits that could break the experience for its users, like the upload of a 5GB file
 as an image file, which would stop the page from loading, or possible directory traversal attacks, resulting from the creation of case directories.
 
 The lessons learned from the testers on this stage of development carried on through the entire development process and ensured that every new feature added was accounting for possible weaknesses which may result from the new 
@@ -338,14 +338,14 @@ of the data contained inside the result selected from the table as can be seen i
  \label{fig:data}
 \end{figure}
 
-The content viewer can display different kinds of information depending on the type of item selected, these can be some of the following:
+The content viewer can display different kinds of information depending on the type of item selected, which can be some of the following:
 \begin{itemize}
  \item Text browser
  \item Media viewer
  \item Database browser
  \item Registry browser
  \item Key-value browser
- \item Table data viewer
+ \item Table data viewer.
 \end{itemize}
 
 The layout for the ingested results presentation, and for all the case related actions, was based on the original Autopsy layout, so that each container can be re-sized as
@@ -374,7 +374,7 @@ Autopsy contains 10 different tag types by default, and more can be added, which
 
 Tag names are also shared between cases, so it seemed important to have more control over the management of these tags, and the ability to delete tag types was added, even though it didn't exist in the original software.
 
-Since each case contains it's own database, it's impossible to synchronize every case at once when a tag is deleted, so it was necessary to create a procedure to synchronize case tags when a case is opened.
+Since each case contains its own database, it's impossible to synchronize every case at once when a tag is deleted, so it was necessary to create a procedure to synchronize case tags when a case is opened.
 
 \subsection{Data Sources}
 
@@ -393,7 +393,7 @@ The procedure for adding a data source to a case was adapted from Autopsy's sour
  \item Disk image
  \item Virtual machine
  \item Logical file collection
- \item Autopsy Logical Imager \cite{imager} results
+ \item Autopsy Logical Imager \cite{imager} results.
 \end{itemize}
 
 Local disk data sources were also an option provided by Autopsy but since the local disks the software has access to belong to a server, this feature is undesired.
@@ -408,9 +408,9 @@ ingestion modules is a critical step into allowing a deeper analysis of a data s
 Data ingestion modules can be either file ingest modules, which analyse each file contained in a data source, one by one,
 or data source ingest modules, which run on specific components of a data source.
 
-To run a collection of modules, the user selects which modules to run, and may also configure some parameters related to the modules, when the request is received by the server, the modules are started in a background thread.
+To run a collection of modules, the user selects which modules to run, and may also configure some parameters related to the modules. When the request is received by the server, the modules are started in a background thread.
 
-When the modules are running the server communicates to each client through WebSockets, offering feedback on the progress of the modules, as can be seen in Figure \ref{fig:modules}.
+When the modules are running, the server communicates to each client through WebSockets, offering feedback on the progress of the modules, as can be seen in Figure \ref{fig:modules}.
 
 \begin{figure}[ht]
  \centering
@@ -420,9 +420,9 @@ When the modules are running the server communicates to each client through WebS
 \end{figure}
 
 Originally it was intended to have the clients update their explorer as new information is ingested, but it would slow down the ingest progress considerably, so what was decided was that every client would refresh 
-it's explorer every 30 seconds while ingests are running.
+its explorer every 30 seconds while ingests are running.
 
-There were other measures taken into consideration to improve the performance of the ingest procedure, while also maintaining the user informed of it's progress, the server communicates a maximum of one file name per
+There were other measures taken into consideration to improve the performance of the ingest procedure, while also maintaining the user informed of its progress: the server communicates a maximum of one file name per
 second, and it also only communicates a module's progress when it advances at least one percentage point.
 
 \subsection{Report Modules}
@@ -479,6 +479,6 @@ The documentation of every endpoint of the platform can be consulted in \autoref
 
 The development of the platform halted due to it being considered in a finished state, which means that all the objectives for the project were completed successfully.
 
-Given that Autopsy is still in active development, it would be very important to keep following it's development, and complementing this platform with new features and bug fixes which might come up in the future.
+Given that Autopsy is still in active development, it would be very important to keep following its development and complementing this platform with new features and bug fixes which might come up in the future.
 
-Besides accompanying Autopsy's improvements, it could also be interesting to further develop the platform to better serve the needs of it's users, which would require installations of the platform, and a feedback channel to better understand the user's needs.
+Besides accompanying Autopsy's improvements, it could also be interesting to further develop the platform to better serve the needs of its users, which would require installations of the platform and a feedback channel to better understand the user's needs.
