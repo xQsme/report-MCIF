@@ -11,8 +11,8 @@ In this chapter, a contextualization of digital forensics is given, an analysis 
 
 \section{Digital Forensics}
 
-Forensic science \cite{nist} is the use of scientific methods or expertise to investigate crimes
-or examine evidence that might be presented in a court of law.
+According to \citeauthor{nist} \cite{nist}, ``forensic science is the use of scientific methods or expertise to investigate crimes
+or examine evidence that might be presented in a court of law``.
 
 The definition of digital forensics is directly related to the definition of
 computer forensics, which is the collection, preservation, analysis,
@@ -27,25 +27,25 @@ storing and analysing electronic data that can be useful in criminal investigati
 This includes information from computers, hard drives, mobile phones and other data
 storage devices.
 
-Digital forensic investigators face challenges such as extracting data from damaged or destroyed
+The list of challenges digital forensic investigators face includes ``extracting data from damaged or destroyed
 devices, locating individual items of evidence among vast quantities of data
-and ensuring that their methods capture data reliably without altering it in any way.
+and ensuring that their methods capture data reliably without altering it in any way`` \cite{nist2}.
 
-Personal data should ultimately be attributable to an individual; however, making
+According to \citetitle{daniels}, ``personal data should ultimately be attributable to an individual; however, making
 that attribution can be difficult due to the presence or absence of individualized
 user accounts, security to protect those user accounts, and the actual placement of a
-person at the same location and time when the data is created.
+person at the same location and time when the data is created`` \cite{daniels}.
 
 \subsection{Digital Evidence}
 
 Digital evidence is any type of digital data with incriminating characteristics,
-which can result from any type of action preformed by a user, like transactions and
+which can result from any type of action performed by a user, like transactions and
 recordings.
 
-Nowadays it's virtually impossible not to leave a digital track behind, since most
+Nowadays it is virtually impossible not to leave a digital track behind, since most
 of us carry and use devices capable of connecting to the internet.
 
-The explosion of social media sites has created a whole new area of electronic
+The explosion of social media \cite{daniels} sites has created a whole new area of electronic
 evidence. Most people today are willing to share all kinds of information through
 social media platforms.
 
@@ -74,7 +74,7 @@ While there are many different subdisciplines and many types of devices, communi
 and storage methods available, the basic principles of digital forensics
 apply to all of them.
 
-These principles encompass four areas:
+Larry and Lars Daniel \cite{daniels} conclude that these principles encompass four areas:
 
 \begin{enumerate}
 \item Acquisition
@@ -142,7 +142,7 @@ evidence was performed.
 
 \section{The Sleuth Kit}
 
-\acrshort{tsk} is a library and collection of command line tools that allow the
+\acrshort{tsk} (\href{https://www.sleuthkit.org/sleuthkit}{https://www.sleuthkit.org/sleuthkit}) is a library and collection of command line tools that allow the
 investigation of disk images. The core functionality of \acrshort{tsk} allows volume and file system data analysis.
 The plug-in framework allows incorporation of additional modules to analyse file contents
 and build automated systems. The library can be incorporated into larger digital forensics tools and
@@ -177,7 +177,7 @@ thumbnails can be made from graphic images to facilitate quick analysis.
 
 \section{Autopsy}
 
-Autopsy is a digital forensics platform and a graphical interface to \acrshort{tsk}
+Autopsy (\href{https://www.sleuthkit.org/autopsy/}{https://www.sleuthkit.org/autopsy/}) is a digital forensics platform and a graphical interface to \acrshort{tsk}
 along with other digital forensics tools. It is used by law enforcement, military, 
 and corporate examiners to investigate what happened on a computer. It can even 
 be used by anyone to recover photos from a camera's memory card.
@@ -204,7 +204,7 @@ it out of the box and others that are available from third-parties. An overview 
     \hline
     Hash Filtering & Flag known bad files and ignore known good \\
     \hline
-    Keyword Search & Indexed keyword search to find files that mention relevant terms \\
+    Keyword Search & Indexed keyword search using Solr to find files that mention relevant terms \\
     \hline
     Web Artifacts & Extract history, bookmarks, and cookies from Firefox, Chrome, Internet Explorer and Microsoft Edge \\
     \hline

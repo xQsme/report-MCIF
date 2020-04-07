@@ -7,7 +7,10 @@
 
 %The internship started on September 2nd 2019, being planned to last for 9 months, ending on the 29th of May 2020.
 
-The main goal of the internship is the development of a collaborative platform based on Autopsy, which was soon named ``Kensentme`` by the company's designer.
+The main goal of the internship is the development of a collaborative platform based on Autopsy, which was soon named ``KenSentMe`` by the company's designer. 
+The chosen name was based on a video game, as it was a password used to access a forbidden area in the game.
+
+
 
 Each step taken towards the development of this platform is documented in this chapter, from project planning to full roll out on a production environment.
 
@@ -43,7 +46,7 @@ ability to spawn different containers as requested to work on different cases at
 Given that the core features will be running in a remote server, it was decided that the addition of data sources to cases will be handled by an \acrshort{ftp} client, allowing users
 to transfer files to their respective data source directories, and \acrshort{ftp} access will be controlled according to each user's credentials on the platform.
 
-The architecture of the expected result is represented in Figure \ref{fig:arch}, where it can be seen that multiple clients can connect through a \acrshort{rest} \acrshort{api}, WebSockets and \acrshort{ftp} with the Kensentme server, 
+The architecture of the expected result is represented in Figure \ref{fig:arch}, where it can be seen that multiple clients can connect through a \acrshort{rest} \acrshort{api}, WebSockets and \acrshort{ftp} with the KenSentMe server, 
 which requests and provides data to both database and indexation servers.
 
 \begin{figure}[ht]
@@ -114,12 +117,12 @@ The ``Core`` module is where the most important components are located, and afte
     \hline
     Timeline & Recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows \acrshort{os} \\
     \hline
-    \caption{Autopsy Modules Overview}
+    \caption{Autopsy Core Module Overview}
     \label{tab:autopsyOverview}
 \end{tabularx}
 
 The ``KeywordSearch`` module is also of critical importance as it provides one of the most meaningful features, which is filtering all the artifacts in a case with a keyword
-search using the Apache Solr search platform, which indexes the text contents of all the artifacts and allows extremely fast searching through a large amount of data.  
+search using the Apache Solr search platform. Solr indexes the text contents of all the artifacts and allows extremely fast searching through a large amount of data.  
 
 Another module that needs to be adapted is the ``RecentActivity`` module, which contains the tools needed to extract information from browsers, registry and other important resources, providing a great amount of
 critical evidence from data sources.
@@ -185,11 +188,11 @@ Autopsy cases have a case file containing case metadata, which allows the progra
 in a file inside the file system, which uses the SQLite database engine. So, for the cases to be usable in the server, these files must also be present in the server,
 which resulted in the creation of a directory within the server called ``repository``, containing all the different cases created within the application.
 
-Later in the development there was the need to create an additional directory alongside the ``repository`` called ``central-repository``,
-which contains the database used by the Correlation Engine, a feature that finds files present in multiple cases to ingest data that can be queried by any case.
+Later in the development there was the need to create an additional directory alongside the ``repository`` called ``central-repository``.
+The central repository contains the database used by the Correlation Engine, a feature that finds files present in multiple cases to ingest data that can be queried by any case.
 
-The development of autopsy features was done with the original software as a reference, so that every new feature implemented into the platform could be compared and verified with the original software, and it was reassuring to see that cases created 
-through one of the versions of the software were capable of being opened through the other version, meaning that the source code provided by autopsy, with some tinkering, can definitely be used in a client-server model.
+The development of autopsy features was done with the original software as a reference, so that every new feature implemented into the platform could be compared and verified with the original software.
+It was reassuring to see that cases created through one of the versions of the software were capable of being opened through the other version, meaning that the source code provided by autopsy, with some tinkering, could be used in a client-server model.
 
 \subsection{Authentication Process}
 
@@ -214,7 +217,7 @@ The authentication process is handled through a \acrshort{rest} \acrshort{api}, 
   \label{tab:jwtComposition}
 \end{table}
 
-The authentication can be performed with either username or e-mail and a password, and extra authentication factors can be added such as \acrfull{otp} and \acrfull{u2f}.
+The authentication can be performed with either username or e-mail and a password, and extra authentication factors can be added such as \acrfull{otp} \cite{otp} and \acrfull{u2f} \cite{u2f}.
 
 If no extra factors were added to an account, the authentication attempt with the user's credentials will return the \acrshort{jwt} when successful and the user can freely access protected content.
 
@@ -285,7 +288,7 @@ The \acrshort{u2f} procedure is represented in Figure \ref{fig:yubi}.
 Further in the development, the different persisted entities were created, which are Users, Teams, and Cases. All the endpoints for actions involving these 
 entities were created, resulting in the ability for the client program to interact with these entities and modify their relationships and other variables.
 
-For these functionalities there are two roles associated: (1) the Manager role allows manipulation of the existing entities, while (2) the Investigator role only has access to his
+For these functionalities there are two roles associated: (1) the Manager role allows manipulation of the existing entities, while (2) the Investigator role only has access to his/her
 own information and the teams and cases he was assigned to. For these interactions, it was decided to create a drag and drop interface, which allows users to be dragged into
 teams and teams dragged into cases. All these entities are listed side by side and each has its own options and filtering input, as can be observed in Figure \ref{fig:users}.
 
@@ -300,12 +303,12 @@ Users can change their own profile picture, while Managers can also change any t
 
 Managers can add new users to the platform, can approve membership requests, can enable/disable user accounts and can create new teams.
 
-When a user is added by a Manager or his membership request is approved, he must define a password when activating his account through a received e-mail message.
+When a user is added by a Manager or his membership request is approved, he/she must define a password when activating his/her account through a received e-mail message.
 
 It was at this step in development that was made clear by the testers that validations must be preformed on both server and client side, and that error handling must be streamlined
 in order to provide a seamless experience to the user, while also allowing future additions to the platform to be implemented in a similar way without much tinkering.
 
-Because even though the platform still wasn't fully developed, it already suffered from possible exploits that could break the experience for its users, like the upload of a 5GB file
+Because even though the platform still was not fully developed, it already suffered from possible exploits that could break the experience for its users, like the upload of a 5GB file
 as an image file, which would stop the page from loading, or possible directory traversal attacks, resulting from the creation of case directories.
 
 The lessons learned from the testers on this stage of development carried on through the entire development process and ensured that every new feature added was accounting for possible weaknesses which may result from the new 
@@ -349,7 +352,7 @@ The content viewer can display different kinds of information depending on the t
 \end{itemize}
 
 The layout for the ingested results presentation, and for all the case related actions, was based on the original Autopsy layout, so that each container can be re-sized as
-needed, allowing the user to focus on the information that is most important to him.
+needed, allowing the user to focus on the information that is most important to him/her.
 
 This development stage was one of the most intensive, as it required understanding Autopsy's data structure very well. The source code used here was rewritten almost completely, 
 because of the way the user interface and the data structure in the original program are interconnected, resulting in the need to adapt and write custom queries to obtain the desired results (which include pagination), creating 
@@ -400,7 +403,7 @@ Local disk data sources were also an option provided by Autopsy but since the lo
 
 When a data source is added to a case, it is processed and instances of abstract files and other entities are created, which allow the user to navigate the data source's contents as soon as it is processed.
 
-Just navigating the data source contents isn't very useful, as the contents are in a raw state, showing mostly the file structure of the source, and not even categorizing files by mime types, so running data
+Just navigating the data source contents isn't very useful, as the contents are in a raw state, showing mostly the file structure of the source, and not even categorizing files by \acrshort{mime} types, so running data
 ingestion modules is a critical step into allowing a deeper analysis of a data source, which is covered in the next section.
 
 \subsection{Data Ingestion Modules}
@@ -439,7 +442,7 @@ The adaptation of the source code for report modules went pretty smoothly, with 
 Autopsy supports third party modules in the form or NetBeans \cite{netbeans} module files (NBM), and in the form of python scripts, using the Jython language, which allows python code to run alongside classes defined in Java.
 
 Since the developed platform doesn't support a java user interface, the procedure to install Netbeans modules could not be implemented, as this feature is specific to Netbeans applications. 
-But most modules are made in the Jython language, and the addition of this modules was implemented as intended.
+But most modules are made in the Jython language, and the addition of these modules was implemented as intended.
 
 A user with a manager role can add new modules to the platform by either selecting from defined repositories or by uploading a zip archive containing the modules, as can be seen in Figure \ref{fig:addmodule}.
 
@@ -462,7 +465,7 @@ The platform also allows management of the added modules, so that managers can e
 \end{figure}
 
 Third party modules require that a great deal of the original Autopsy source code is accessible in the original namespace, which resulted in the separation of the
-developed and adapted code into two different namespaces, the original software's namespace which is org.sleuthkit.autopsy, and the company's namespace which is pt.voidsoftware.kensentme. 
+developed and adapted code into two different namespaces, the original software's namespace which is \texttt{org.sleuthkit.autopsy}, and the company's namespace which is \texttt{pt.voidsoftware.kensentme}. 
 
 This requirement of the original code can also mean that some modules which weren't tested may fail to run due to missing code, but a procedure to handle failure to run modules is implemented, 
 and it informs the user about which modules are failing to run, allowing the user to disable the unsupported modules.
@@ -471,7 +474,7 @@ and it informs the user about which modules are failing to run, allowing the use
 
 A ''Read Me'' document was created, detailing each step required to setup the platform, which involves installing all the dependencies required, as well as compiling the developed code.
 
-The setup was tested in multiple versions of Linux and with different versions of needed dependencies, resulting in a controlled step-by-step guide that can be followed in about 30 minutes that leads to a successful deployment of the complete platform.
+The setup was tested in multiple versions of Linux,  such as CentOS \cite{centos}, Mint \cite{mint} and Arch \cite{arch}, and with different versions of needed dependencies, resulting in a controlled step-by-step guide that can be followed in about 30 minutes that leads to a successful deployment of the complete platform.
 
 The documentation of every endpoint of the platform can be consulted in \autoref{ch:appendixA}.
 
@@ -481,4 +484,4 @@ The development of the platform halted due to it being considered in a finished 
 
 Given that Autopsy is still in active development, it would be very important to keep following its development and complementing this platform with new features and bug fixes which might come up in the future.
 
-Besides accompanying Autopsy's improvements, it could also be interesting to further develop the platform to better serve the needs of its users, which would require installations of the platform and a feedback channel to better understand the user's needs.
+Besides accompanying Autopsy's improvements, it could also be interesting to further develop the platform to better serve the needs of the users, which would require installations of the platform and a feedback channel to better understand the user's needs.
