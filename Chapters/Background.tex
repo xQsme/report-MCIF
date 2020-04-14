@@ -267,32 +267,53 @@ and e-discovery solutions, allowing for collaboration between all parties workin
 
 \acrshort{ftk} allows collaboration, contains indexed searches, constructs timelines and other graphical assets, categorizes all the extracted artifacts and also contains malware identification modules.
 
+\subsection{Magnet AXIOM}
+
+Magnet AXIOM \cite{axiom} provides a complete investigation platform capable of recovering data, analyzing it, and producing reports.
+
+It allows the recovery of digital evidence from most sources, such as phones, computers, IoT devices and cloud services.
+
+AXIOM provides a very complete package that allows the analysis of all kinds of data in a large variety of ways, allowing the attribution of possession, 
+as well as the ability to determine when each file or artifact was handled.
+
+It lacks the ability for multiple users to collaborate on the same case instance, but it can export cases to allow working on the same case in parallel.
+
+\subsection{Belkasoft Evidence Center}
+
+\acrfull{bec} \cite{bec} is a more affordable digital forensics platform.
+
+It encompasses the most critical stages of digital forensics, by allowing acquisition, preservation and analysis of digital evidence.
+It provides solid tools for these stages of the investigation, but lacks features that could make it stand out from the, 
+still it should be seen as a valid option for digital forensics investigations.
+
+
+
 \section{Comparison}
 
 A comparison of the features offered by each software is presented in Table \ref{tab:comparison}.
 
 \begin{table}[ht]
-  \begin{tabularx}{\textwidth}{|c|c|c|c|c|}
+  \begin{tabularx}{\textwidth}{|c|c|c|c|c|c|c|}
     \hline
-    \textbf{Feature} & \textbf{Autopsy} & \textbf{Nuix} & \textbf{Encase} & \textbf{\acrshort{ftk}} \\
+    \textbf{Feature} & \textbf{Autopsy} & \textbf{Nuix} & \textbf{Encase} & \textbf{\acrshort{ftk}} & \textbf{AXIOM} & \textbf{\acrshort{bec}} \\
     \hline\hline
-    Collaboration & \cmark & \cmark & \cmark & \cmark \\
+    Collaboration & \cmark & \cmark & \cmark & \cmark & \xmark & \cmark \\
     \hline
-    Web Based Interface & \xmark & \cmark & \xmark & \xmark \\
+    Web Based Interface & \xmark & \cmark & \xmark & \xmark & \xmark & \xmark \\
     \hline
-    Indexed Searches & \cmark & \cmark & \cmark & \cmark \\
+    Indexed Searches & \cmark & \cmark & \cmark & \cmark & \cmark & \cmark \\
     \hline
-    Decryption & \xmark & \xmark & \cmark & \cmark \\
+    Decryption & \xmark & \xmark & \cmark & \cmark & \cmark & \xmark \\
     \hline
-    Artificial Intelligence & \xmark & \cmark & \cmark & \xmark \\
+    Artificial Intelligence & \xmark & \cmark & \cmark & \xmark & \cmark & \xmark \\
     \hline
-    Malware Analysis & \xmark & \xmark & \xmark & \cmark \\
+    Malware Analysis & \xmark & \xmark & \xmark & \cmark & \cmark & \xmark \\
     \hline
-    Report Generation & \cmark & \cmark & \cmark & \cmark \\
+    Report Generation & \cmark & \cmark & \cmark & \cmark & \cmark & \xmark \\
     \hline
-    Free and Open Source & \cmark & \xmark & \xmark & \xmark \\
+    Free and Open Source & \cmark & \xmark & \xmark & \xmark & \xmark & \xmark \\
     \hline
-    Modular Plugins & \cmark & \xmark & \xmark & \xmark \\
+    Extensible & \cmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
     \hline
   \end{tabularx}
     \caption{Software Comparison}
