@@ -2,7 +2,7 @@
 kile_livePreviewEnabled=false
 kile_livePreviewStatusUserSpecified=true
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=Chapters/Background.tex
+lastDocument=Chapters/Development.tex
 
 [document-settings,item:Chapters/Analysis.tex]
 Bookmarks=
@@ -16,7 +16,7 @@ Mode=LaTeX
 Mode Set By User=false
 
 [document-settings,item:Chapters/ApendixA.tex]
-Bookmarks=8
+Bookmarks=
 Encoding=UTF-8
 FoldedColumns=
 FoldedLines=
@@ -378,28 +378,28 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/ApendixA.tex]
-CursorColumn=21
-CursorLine=7
+CursorColumn=0
+CursorLine=8
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,12,184,[,12,170,],12,184,a,8,102
+ViMarks=.,6,97,[,6,97,],6,97,a,8,0
 
 [view-settings,view=0,item:Chapters/ApendixB.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=73
+CursorLine=6
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=
+ViMarks=.,6,72,[,6,72,],6,72
 
 [view-settings,view=0,item:Chapters/Background.tex]
-CursorColumn=81
-CursorLine=313
+CursorColumn=10
+CursorLine=296
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,286,14,[,286,0,],286,14
+ViMarks=.,324,252,[,324,252,],324,252
 
 [view-settings,view=0,item:Chapters/Conclusion.tex]
 CursorColumn=0
@@ -410,12 +410,12 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Chapters/Development.tex]
-CursorColumn=42
-CursorLine=435
+CursorColumn=54
+CursorLine=556
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,476,119,[,476,115,],476,119
+ViMarks=.,538,44,[,538,40,],538,44
 
 [view-settings,view=0,item:Chapters/Intro.tex]
 CursorColumn=16
@@ -538,12 +538,12 @@ TextFolding=[]
 ViMarks=.,212,0,[,212,0,],212,0
 
 [view-settings,view=0,item:main.tex]
-CursorColumn=50
-CursorLine=119
+CursorColumn=0
+CursorLine=140
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,145,0,[,145,0,],145,0
+ViMarks=.,162,0,[,162,0,],162,0
 
 [view-settings,view=0,item:projeto.kilepr]
 CursorColumn=10

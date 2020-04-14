@@ -470,13 +470,93 @@ developed and adapted code into two different namespaces, the original software'
 This requirement of the original code can also mean that some modules which weren't tested may fail to run due to missing code, but a procedure to handle failure to run modules is implemented, 
 and it informs the user about which modules are failing to run, allowing the user to disable the unsupported modules.
 
+\subsection{Extra Features}
+
+The primary features of the platform have been covered in the previous sections, but some other minor features were also implemented, such as:
+
+\subsubsection*{Database Snapshots}
+
+Database snapshots can be created by any user at any time, and they work by making a copy of the current case database, and associating a user and the current time to it.
+
+Database snapshots can be used by a case manager to restore the case database to a previous state, as can be seen in Figure \ref{fig:snapshotrestore}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.35\linewidth]{imgs/snapshotrestore.png}
+ \caption{Snapshot Restoration}
+ \label{fig:snapshotrestore}
+\end{figure}
+
+They can also be deleted by a case manager in order to save space or organize the snapshots, as can be seen in Figure \ref{fig:snapshotmanage}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.35\linewidth]{imgs/snapshotmanage.png}
+ \caption{Snapshot Management}
+ \label{fig:snapshotmanage}
+\end{figure}
+
+\subsubsection*{File Search By Attributes}
+
+The ability to search the existing files of a case and filtering them with specific attributes is an important feature Autopsy provides, and it's adaptation is present in Figure \ref{fig:search}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=\linewidth]{imgs/search.png}
+ \caption{File Search By Attributes}
+ \label{fig:search}
+\end{figure}
+
+\bigskip
+
+This feature allows:
+
+\begin{itemize}
+ \item Matching part of the file name
+ \item Filtering by file size
+ \item Filtering by \acrshort{mime} Type
+ \item Matching files with a specific MD5 hash
+ \item Finding files related to a date interval
+ \item Finding files tagged with specific kinds of tags
+ \item Limiting the search to specific data sources
+\end{itemize}
+
+\subsubsection*{Data Source Paths Management}
+
+Autopsy provides a feature that detects when a data source is no longer available at the provided path, and allows the user to locate it again.
+
+This feature has a flaw, as it allows the user to provide any path they want, resulting in the case not working properly when the path provided is wrong.
+
+This same feature was recreated, as can be observed in Figure \ref{fig:locate}, but the ability to change data source paths at will was also added, so that mistakes can be corrected.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.6\linewidth]{imgs/locate.png}
+ \caption{Locate Data Source}
+ \label{fig:locate}
+\end{figure}
+
+\subsubsection*{Importing and Exporting Cases}
+
+One of the default report modules included with Autopsy provides the ability to generate a portable case.
+
+These portable cases don't contain much information, but it was still important to provide the ability to import these cases.
+
+The ability to export and import a full case was also added, and it works by generating a zip archive in the user's \acrshort{ftp} directory or extracting a zip archive from the user's \acrshort{ftp} directory.
+
+When the case is imported, the previously mentioned feature is important as it may be needed to relocate the data sources for the case.
+
 \subsection{Project Deployment and Documentation}
 
 A ''Read Me'' document was created, detailing each step required to setup the platform, which involves installing all the dependencies required, as well as compiling the developed code.
 
 The setup was tested in multiple versions of Linux,  such as CentOS \cite{centos}, Mint \cite{mint} and Arch \cite{arch}, and with different versions of needed dependencies, resulting in a controlled step-by-step guide that can be followed in about 30 minutes that leads to a successful deployment of the complete platform.
 
-The documentation of every endpoint of the platform can be consulted in \autoref{ch:appendixA}.
+The ''Read Me'' document can be consulted in \autoref{ch:appendixA}, and it also includes some documentation regarding the different packages contained in the project.
+
+The documentation of every endpoint of the platform can be consulted in \autoref{ch:appendixB}.
+
+The project was also documented using a Javadoc Generator.
 
 \section{Critical Analysis and Proposed Improvements}
 
