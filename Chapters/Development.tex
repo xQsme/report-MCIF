@@ -476,9 +476,9 @@ The primary features of the platform have been covered in the previous sections,
 
 \subsubsection*{Database Snapshots}
 
-Database snapshots can be created by any user at any time, and they work by making a copy of the current case database, and associating a user and the current time to it.
+Database snapshots can be created by any user at any time and they work by making a copy of the current case database, associating a user and the current time to it.
 
-Database snapshots can be used by a case manager to restore the case database to a previous state, as can be seen in Figure \ref{fig:snapshotrestore}.
+They can be used by a case manager to restore the case database to a previous state, as can be seen in Figure \ref{fig:snapshotrestore}.
 
 \begin{figure}[ht]
  \centering
@@ -487,7 +487,7 @@ Database snapshots can be used by a case manager to restore the case database to
  \label{fig:snapshotrestore}
 \end{figure}
 
-They can also be deleted by a case manager in order to save space or organize the snapshots, as can be seen in Figure \ref{fig:snapshotmanage}.
+Database snapshots can also be deleted by a case manager in order to save space or organize the snapshots, as can be seen in Figure \ref{fig:snapshotmanage}.
 
 \begin{figure}[ht]
  \centering
@@ -498,7 +498,7 @@ They can also be deleted by a case manager in order to save space or organize th
 
 \subsubsection*{File Search By Attributes}
 
-The ability to search the existing files of a case and filtering them with specific attributes is an important feature Autopsy provides, and it's adaptation is present in Figure \ref{fig:search}.
+The ability to search the existing files of a case and filtering them with specific attributes is an important feature Autopsy provides, and its adaptation is present in Figure \ref{fig:search}.
 
 \begin{figure}[ht]
  \centering
@@ -518,14 +518,14 @@ This feature allows:
  \item Matching files with a specific MD5 hash
  \item Finding files related to a date interval
  \item Finding files tagged with specific kinds of tags
- \item Limiting the search to specific data sources
+ \item Limiting the search to specific data sources.
 \end{itemize}
 
 \subsubsection*{Data Source Paths Management}
 
-Autopsy provides a feature that detects when a data source is no longer available at the provided path, and allows the user to locate it again.
+Autopsy provides a feature that detects when a data source is no longer available at the provided path and allows the user to locate it again.
 
-This feature has a flaw, as it allows the user to provide any path they want, resulting in the case not working properly when the path provided is wrong.
+This feature has a flaw, as it allows the user to provide any path he/she wants, resulting in the case not working properly when the provided path is invalid.
 
 This same feature was recreated, as can be observed in Figure \ref{fig:locate}, but the ability to change data source paths at will was also added, so that mistakes can be corrected.
 
@@ -544,19 +544,20 @@ These portable cases don't contain much information, but it was still important 
 
 The ability to export and import a full case was also added, and it works by generating a zip archive in the user's \acrshort{ftp} directory or extracting a zip archive from the user's \acrshort{ftp} directory.
 
-When the case is imported, the previously mentioned feature is important as it may be needed to relocate the data sources for the case.
+When the case is imported, the previously mentioned feature is important, as it may be needed to relocate the data sources for the case.
 
 \subsection{Project Deployment and Documentation}
 
 A ''Read Me'' document was created, detailing each step required to setup the platform, which involves installing all the dependencies required, as well as compiling the developed code.
 
-The setup was tested in multiple versions of Linux,  such as CentOS \cite{centos}, Mint \cite{mint} and Arch \cite{arch}, and with different versions of needed dependencies, resulting in a controlled step-by-step guide that can be followed in about 30 minutes that leads to a successful deployment of the complete platform.
+The setup was tested in multiple versions of Linux,  such as CentOS \cite{centos}, Mint \cite{mint} and Arch \cite{arch}, and with different versions of needed dependencies, 
+resulting in a controlled step-by-step guide that can be followed in about 30 minutes, which leads to a successful deployment of the complete platform.
 
-The ''Read Me'' document can be consulted in \autoref{ch:appendixA}, and it also includes some documentation regarding the different packages contained in the project.
+The ''Read Me'' document can be consulted in \autoref{ch:appendixA} and it also includes some documentation regarding the different packages contained in the project.
 
 The documentation of every endpoint of the platform can be consulted in \autoref{ch:appendixB}.
 
-The project was also documented using a Javadoc Generator.
+The project was also documented using a Javadoc \cite{javadoc} generator.
 
 \section{Critical Analysis and Proposed Improvements}
 

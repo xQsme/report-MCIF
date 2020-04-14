@@ -2,7 +2,7 @@
 kile_livePreviewEnabled=false
 kile_livePreviewStatusUserSpecified=true
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=Chapters/Development.tex
+lastDocument=Chapters/Conclusion.tex
 
 [document-settings,item:Chapters/Analysis.tex]
 Bookmarks=
@@ -16,7 +16,7 @@ Mode=LaTeX
 Mode Set By User=false
 
 [document-settings,item:Chapters/ApendixA.tex]
-Bookmarks=
+Bookmarks=8
 Encoding=UTF-8
 FoldedColumns=
 FoldedLines=
@@ -60,7 +60,7 @@ Mode=LaTeX
 Mode Set By User=false
 
 [document-settings,item:Chapters/Development.tex]
-Bookmarks=
+Bookmarks=527
 Encoding=UTF-8
 FoldedColumns=
 FoldedLines=
@@ -402,24 +402,24 @@ TextFolding=[]
 ViMarks=.,324,252,[,324,252,],324,252
 
 [view-settings,view=0,item:Chapters/Conclusion.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=57
+CursorLine=22
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=
+ViMarks=.,22,1,[,22,1,],22,1
 
 [view-settings,view=0,item:Chapters/Development.tex]
-CursorColumn=54
-CursorLine=556
+CursorColumn=181
+CursorLine=529
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,538,44,[,538,40,],538,44
+ViMarks=.,559,61,[,559,47,],559,61,a,527,0
 
 [view-settings,view=0,item:Chapters/Intro.tex]
-CursorColumn=16
-CursorLine=138
+CursorColumn=0
+CursorLine=10
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
@@ -450,20 +450,20 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Covers/Abstract.tex]
-CursorColumn=26
-CursorLine=13
+CursorColumn=38
+CursorLine=38
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,17,5,[,17,5,],17,5
+ViMarks=.,52,0,[,52,0,],52,0
 
 [view-settings,view=0,item:Covers/Acknowledgments.tex]
-CursorColumn=2
-CursorLine=16
+CursorColumn=84
+CursorLine=31
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,30,19,[,30,19,],30,19
+ViMarks=.,31,83,[,31,83,],31,83
 
 [view-settings,view=0,item:Covers/Acronyms.tex]
 CursorColumn=50
@@ -522,12 +522,12 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:References.bib]
-CursorColumn=0
-CursorLine=248
+CursorColumn=101
+CursorLine=267
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,260,88,[,260,88,],260,88
+ViMarks=.,267,35,[,267,35,],267,108
 
 [view-settings,view=0,item:config.tex]
 CursorColumn=74
