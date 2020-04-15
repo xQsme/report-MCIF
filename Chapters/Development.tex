@@ -33,8 +33,8 @@ The plan for this project is to achieve the same kind of functionality provided 
 or hardware intensive requirements, resulting in needing only single capable server, and allowing the program to be used by multiple low capacity client devices using 
 any web capable \acrshort{os}.
 
-To achieve that goal, the project is an adaptation of the original Autopsy source code, into a client-server model, with the server developed in Java using the Quarkus \cite{quarkus} framework,
-and the client developed in JavaScript using the React \cite{react} framework.
+To achieve that goal, the project is an adaptation of the original Autopsy source code, into a client-server model, with the server developed in Java \cite{java} using the Quarkus \cite{quarkus} framework,
+and the client developed in JavaScript \cite{javascript} using the React \cite{react} framework.
 
 The project is outlined to work in a multi user environment, allowing users to be assigned to teams and teams assigned to cases, and allowing multiple users to interact with
 a case simultaneously.
@@ -43,10 +43,10 @@ Autopsy has a major limitation, which is it only allows one case to be open at a
 at once, but dedicating a server instance (which a single machine can contain many within) per case is a good enough approach, though as future work the
 ability to spawn different containers as requested to work on different cases at once is an interesting challenge.
 
-Given that the core features will be running in a remote server, it was decided that the addition of data sources to cases will be handled by an \acrshort{ftp} client, allowing users
+Given that the core features will be running in a remote server, it was decided that the addition of data sources to cases will be handled by an \acrshort{ftp} \cite{ftp} client, allowing users
 to transfer files to their respective data source directories, and \acrshort{ftp} access will be controlled according to each user's credentials on the platform.
 
-The architecture of the expected result is represented in Figure \ref{fig:arch}, where it can be seen that multiple clients can connect through a \acrshort{rest} \acrshort{api}, WebSockets and \acrshort{ftp} with the KenSentMe server, 
+The architecture of the expected result is represented in Figure \ref{fig:arch}, where it can be seen that multiple clients can connect through a \acrshort{rest} \acrshort{api} \cite{rest}, WebSockets and \acrshort{ftp} with the KenSentMe server, 
 which requests and provides data to both database and indexation servers.
 
 \begin{figure}[ht]
@@ -198,7 +198,7 @@ It was reassuring to see that cases created through one of the versions of the s
 
 The authentication process is handled through a \acrshort{rest} \acrshort{api}, when the authentication is completed the user receives a \acrfull{jwt}.
 
-\acrshort{jwt} is an open standard that defines a compact and self-contained way for securely transmitting information between parties. This information can be verified and trusted because it is digitally signed.
+\acrshort{jwt} \cite{jwt} is an open standard that defines a compact and self-contained way for securely transmitting information between parties. This information can be verified and trusted because it is digitally signed.
 \acrshort{jwt} contain three parts, as can be seen in Table \ref{tab:jwtComposition}.
 
 \begin{table}[ht]

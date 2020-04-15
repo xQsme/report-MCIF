@@ -7,7 +7,7 @@
 
 The scope of this internship concerns digital forensics, as it focuses on adapting an existing forensics platform into a collaborative client-server model.
 
-In this chapter, a contextualization of digital forensics is given, an analysis of both \acrfull{tsk} \cite{sleuthkit} and Autopsy is made, and it's given a brief description and analysis of the existing forensic platform alternatives.
+In this chapter, a contextualization of digital forensics is given, an analysis of both \acrfull{tsk} \cite{sleuthkit} and Autopsy \cite{autopsy} is made, and it's given a brief description and analysis of the existing forensic platform alternatives.
 
 \section{Digital Forensics}
 
@@ -142,13 +142,13 @@ evidence was performed.
 
 \section{The Sleuth Kit}
 
-\acrshort{tsk} (\href{https://www.sleuthkit.org/sleuthkit}{https://www.sleuthkit.org/sleuthkit}) is a library and collection of command line tools that allow the
+\acrfull{tsk} \cite{sleuthkit} is a library and collection of command line tools that allow the
 investigation of disk images. The core functionality of \acrshort{tsk} allows volume and file system data analysis.
 The plug-in framework allows incorporation of additional modules to analyse file contents
 and build automated systems. The library can be incorporated into larger digital forensics tools and
 the command line tools can be directly used to find evidence.
 
-The original part of \acrshort{tsk} is a C library and collection of command line
+The original part of \acrshort{tsk} is a C \cite{c} library and collection of command line
 file and volume system forensic analysis tools. The file system tools allow examining file systems
 of a computer in a non-intrusive fashion. Because the tools do not rely on the operating system to process
 the file systems, deleted and hidden content can be shown.
@@ -177,7 +177,7 @@ thumbnails can be made from graphic images to facilitate quick analysis.
 
 \section{Autopsy}
 
-Autopsy (\href{https://www.sleuthkit.org/autopsy/}{https://www.sleuthkit.org/autopsy/}) is a digital forensics platform and a graphical interface to \acrshort{tsk}
+Autopsy \cite{autopsy} is a digital forensics platform and a graphical interface to \acrshort{tsk}
 along with other digital forensics tools. It is used by law enforcement, military, 
 and corporate examiners to investigate what happened on a computer. It can even 
 be used by anyone to recover photos from a camera's memory card.
@@ -247,7 +247,7 @@ Nuix Lab also claims to contain powerful artificial intelligence, machine learni
 EnCase Forensic \cite{encase} enables searching, identifying, and prioritizing potential evidence, in computers and mobile devices, to determine whether 
 further investigation is warranted.
 
-It can collect from a wide variety of operating and file systems, including over 25 types of mobile devices, and parses the most popular mobile apps across iOS, Android, and Blackberry devices.
+It can collect from a wide variety of operating and file systems, including over 25 types of mobile devices, and parses the most popular mobile apps across iOS \cite{ios}, Android \cite{android}, and Blackberry \cite{blackberry} devices.
 Has strong decryption capabilities, allowing identification and unlocking password-protected files, and contains a custom indexing engine.
 
 EnCase Forensic provides a wide range of capabilities that enable performing deep forensic analysis as well as fast triage analysis from the same solution, and provides a flexible
