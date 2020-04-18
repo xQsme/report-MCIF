@@ -331,13 +331,13 @@ The difference between a file and an artifact is that an artifact represents onl
 Even though the data ingestion features weren't implemented yet on the platform, the data that was ingested into a case using the original program could also be used on this platform, which allowed this feature to be developed earlier.
 
 The ingested results are presented in three different containers, one taking the shape of a file explorer, allowing exploration of the structure of all the results, 
-one taking the shape of a table or thumbnail viewer, that can be referenced as a board, presenting all the contents of the results selected from the explorer, and one taking the shape of a content viewer, allowing visualization
+one taking the shape of a table or thumbnail viewer, that can be referenced as a blackboard, presenting all the contents of the results selected from the explorer, and one taking the shape of a content viewer, allowing visualization
 of the data contained inside the result selected from the table as can be seen in Figure \ref{fig:data}.
 
 \begin{figure}[ht]
  \centering
  \includegraphics[width=1\linewidth]{imgs/data.png}
- \caption{Ingested Results Presentation (A) Explorer; (B) Board; (C) Content Viewer}
+ \caption{Ingested Results Presentation (A) Explorer; (B) Blackboard; (C) Content Viewer}
  \label{fig:data}
 \end{figure}
 
@@ -545,6 +545,36 @@ These portable cases don't contain much information, but it was still important 
 The ability to export and import a full case was also added, and it works by generating a zip archive in the user's \acrshort{ftp} directory or extracting a zip archive from the user's \acrshort{ftp} directory.
 
 When the case is imported, the previously mentioned feature is important, as it may be needed to relocate the data sources for the case.
+
+\subsubsection*{Report Management}
+
+Previous reports can be accessed through the explorer and can be presented as artifacts on the blackboard, and Autopsy allows the user to delete and to open them.
+
+Deleting reports on the KenSentMe platform is done in the same way, single or multiple reports selected from the blackboard can be deleted at once, but unlike the original platform, deleting reports also removes them from disk storage, 
+as the users can only access their respective \acrshort{ftp} directories and keeping deleted reports would be a waste of space.
+
+Opening a report in this case requires that the report is downloaded by the client, so it is provided in its original state if it is a single file, or in the form of a zip archive in the case of a report comprised of multiple files.
+
+\subsubsection*{File Download}
+
+Autopsy allows the extraction of files and directories from provided data sources, this procedure is done by selecting and right clicking items from the blackboard.
+
+This feature was replicated, and single files can be downloaded in their original state, while multiple selections and directories can be downloaded in the for of a zip archive.
+
+\subsubsection*{User Permissions}
+
+Since the KenSentMe platform is aimed to be used by multiple users, and given that a person in a team might not have permission to access all the information in a case, a feature to restrict access to content was created.
+
+This feature allows case managers to define permissions to access specific file types to each users, as can be seen in Figure \ref{fig:permissions}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.5\linewidth]{imgs/permissions.png}
+ \caption{User's Permissions}
+ \label{fig:permissions}
+\end{figure}
+
+Restricted files are removed from the user's explorer, blackboard, and content viewer.
 
 \subsection{Project Deployment and Documentation}
 

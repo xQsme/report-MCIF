@@ -2,7 +2,7 @@
 kile_livePreviewEnabled=false
 kile_livePreviewStatusUserSpecified=true
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=References.bib
+lastDocument=Chapters/ApendixB.tex
 
 [document-settings,item:Chapters/Analysis.tex]
 Bookmarks=
@@ -386,12 +386,12 @@ TextFolding=[]
 ViMarks=.,6,97,[,6,97,],6,97,a,8,0
 
 [view-settings,view=0,item:Chapters/ApendixB.tex]
-CursorColumn=73
-CursorLine=6
+CursorColumn=0
+CursorLine=8
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,6,72,[,6,72,],6,72
+ViMarks=.,7,21,[,7,21,],7,21
 
 [view-settings,view=0,item:Chapters/Background.tex]
 CursorColumn=0
@@ -410,12 +410,12 @@ TextFolding=[]
 ViMarks=.,22,1,[,22,1,],22,1
 
 [view-settings,view=0,item:Chapters/Development.tex]
-CursorColumn=54
-CursorLine=53
+CursorColumn=60
+CursorLine=571
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,0,0,[,0,0,],0,0,a,527,0
+ViMarks=.,333,85,[,333,81,],333,85,a,527,0
 
 [view-settings,view=0,item:Chapters/Intro.tex]
 CursorColumn=0
@@ -522,8 +522,8 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:References.bib]
-CursorColumn=1
-CursorLine=345
+CursorColumn=39
+CursorLine=329
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
