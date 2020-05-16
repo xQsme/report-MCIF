@@ -6,7 +6,7 @@
 %************************************************
 
 In the scope of the master's degree in Cybersecurity and Digital Forensics, students had the choice between writing a thesis, developing a project or doing an internship.
-This document is the report for a curricular internship conducted at \company, where the main goal of the internship was to develop a collaborative digital forensics platform,
+This document is the report for a curricular internship conducted at \company \cite{void}, where the main goal of the internship was to develop a collaborative digital forensics platform,
 while also learning to develop software in an enterprise environment.
 
 This chapter encompasses the motivation for this internship, a characterization of the host entity, the scope of the proposed project, and a summary of this document's structure.
@@ -14,12 +14,12 @@ This chapter encompasses the motivation for this internship, a characterization 
 \section{Motivation}
 
 Collaboration is a major feature included in most forensics software, and while Autopsy \cite{autopsy} allows the software to be
-configured in a manner to allow collaboration, it involves a complicated setup and has certain limitations.
+configured in a manner to allow collaboration, it involves a complex setup and has certain limitations.
 The setup required for collaborative cases in Autopsy is as follows:
 \begin{itemize}
- \item Shared hard drive accessible to every machine using the same drive letter
- \item PostgreSQL \cite{postgresql} Database server 
- \item Apache Solr \cite{solr} indexing server
+ \item Shared hard drive accessible to every machine using the same drive letter.
+ \item PostgreSQL \cite{postgresql} Database server.
+ \item Apache Solr \cite{solr} indexing server.
  \item Apache ActiveMQ \cite{activemq} messaging server.
 \end{itemize}
 
@@ -29,12 +29,12 @@ machine involved in the case that is set up.
 The goal of this internship is to transform the existing Autopsy platform into a more complete digital forensics platform, including a client-server model that facilitates collaboration.
 
 As a computer science student, my major interest has always been software engineering, and even after completing the first year of a master's degree in a more advanced subject, 
-my interests remained unchanged. Based on that interest, the opportunity to work in an enterprise environment was captivating, as I could gain experience in the 
+my interests remained unchanged. Based on that enthusiasm, the opportunity to work in an enterprise environment was captivating, as I could gain experience in the 
 field while also developing an interesting project to complement my education.
 
 \section{Host Entity}
 
-As a first step, an interview was conducted at \company, and a 9 month long curricular internship was planned. The initial project proposals were (1) the development of a 
+As a first step, an interview was conducted at \company \cite{void}, and a 9 month long curricular internship was planned. The initial project proposals were (1) the development of a 
 client-server model for the existing Autopsy platform, or (2) the adaptation of the existing Autopsy platform for macOS \cite{macos} environments; The chosen proposal was the former.
 
 \subsection{Company Characterization}
@@ -55,12 +55,12 @@ it can also provide services in different areas like cybersecurity and digital f
 
 The company is capable of comfortably providing services in the following areas:
 \begin{itemize}
- \item Blockchain
- \item Machine learning and data science
- \item Augmented reality and virtual reality
- \item Mobile applications
- \item Web applications
- \item Desktop applications
+ \item Blockchain.
+ \item Machine learning and data science.
+ \item Augmented reality and virtual reality.
+ \item Mobile applications.
+ \item Web applications.
+ \item Desktop applications.
  \item Cybersecurity and digital forensics.
 \end{itemize}
 
@@ -94,14 +94,14 @@ Throughout its 14 years of being active in the software development industry, VO
 
 \section{Project Scope}
 
-The proposed solution consists in adapting Autopsy into a client-server model, and such adaptation can be categorized in the field of digital forensics. 
+The proposed solution, named KenSentMe, consists in adapting Autopsy into a client-server model, and such adaptation can be categorized in the field of digital forensics. 
 Even though the main focus is on typical software development, there are plenty of advanced concepts related to forensics science and cybersecurity 
 that must be assimilated for the project to succeed.
 
 The platform aims to cover three main aspects:
 \begin{enumerate}
- \item Accessibility
- \item Collaboration
+ \item Accessibility.
+ \item Collaboration.
  \item Organization.
 \end{enumerate}
 
@@ -109,7 +109,7 @@ The platform aims to cover three main aspects:
 
 Given a client-server architecture, any client with access to the network where the server is located can access the contents provided by the server.
 The aim is to condense the processing heavy features of Autopsy in a single server and provide any number of clients access to this information, requiring less 
-resources from each client, allowing collaboration and removing any type of setup required for each of the client machines, while also providing a more modern 
+resources from each client. Thus allowing collaboration and removing any type of setup required for each of the client machines, while also providing a more modern 
 and user friendly design.
 
 \subsection{Collaboration}
@@ -127,17 +127,19 @@ a company that specializes in digital forensics, so having these functionalities
 
 \section{Contributions}
 
-This project aims to contribute to the existing Autopsy platform with the following features:
+This project aims to contribute and enhance the existing Autopsy platform with the following features:
 
 \begin{itemize}
- \item Easy setup for multi-user projects
- \item Web based user interface
- \item Lower requirements from each client machine
- \item Personnel management system
- \item Centralized module repository
- \item Shared configurations between users and machines
- \item Bug fixes
- \item Improved Linux \cite{linux} support
+ \item Easy setup for multi-user projects.
+ \item Web based user interface.
+ \item Lower requirements from each client machine.
+ \item Personnel management system.
+ \item Centralized module repository.
+ \item Shared configurations between users and machines.
+ \item Case database snapshot recovery system.
+ \item File access permission filters.
+ \item Bug fixes.
+ \item Improved Linux \cite{linux} support.
 \end{itemize}
 
 \section{Document Structure}

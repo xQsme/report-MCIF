@@ -7,7 +7,8 @@
 
 The scope of this internship concerns digital forensics, as it focuses on adapting an existing forensics platform into a collaborative client-server model.
 
-In this chapter, a contextualization of digital forensics is given, an analysis of both \acrfull{tsk} \cite{sleuthkit} and Autopsy \cite{autopsy} is made, and it's given a brief description and analysis of the existing forensic platform alternatives.
+In this chapter, a contextualization of digital forensics is given, an analysis of both \acrfull{tsk} \cite{sleuthkit} and Autopsy \cite{autopsy} is made, 
+and it is given a brief description and analysis of the existing forensic platform alternatives.
 
 \section{Digital Forensics}
 
@@ -50,7 +51,7 @@ evidence. Most people today are willing to share all kinds of information throug
 social media platforms.
 
 In order for electronic data to become digital evidence, it must be stored and be recoverable
-by a forensic examiner. One of the great challenges is not whether digital
+by a forensic examiner \cite{daniels}. One of the great challenges is not whether digital
 evidence may exist, but where the evidence is stored, getting access to that storage,
 and finally, recovering and processing that digital evidence for relevance within
 a civil or criminal action.
@@ -77,9 +78,9 @@ apply to all of them.
 Larry and Lars Daniel \cite{daniels} conclude that these principles encompass four areas:
 
 \begin{enumerate}
-\item Acquisition
-\item Preservation
-\item Analysis
+\item Acquisition.
+\item Preservation.
+\item Analysis.
 \item Presentation.
 \end{enumerate}
 
@@ -155,11 +156,11 @@ the file systems, deleted and hidden content can be shown.
 
 The volume system tools allow examination of the layout of disks
 and other media. \acrshort{tsk} supports \acrshort{dos} partitions, \acrshort{bsd} partitions, Mac partitions, Sun slices, and 
-GPT disks. With these tools, partition locations can be identified 
+\acrshort{gpt} \cite{gpt} disks. With these tools, partition locations can be identified 
 and extracted so that they can be analysed with file system analysis tools.
 
 When performing a complete analysis of a system, command line 
-tools can become tedious. Autopsy is a graphical interface to the tools in \acrshort{tsk}, 
+tools can become tedious. Autopsy \cite{autopsy} is a graphical interface to the tools in \acrshort{tsk}, 
 which allows easier conduction of an investigation. Autopsy 
 provides case management, image integrity, keyword searching and other automated
 operations.
@@ -200,19 +201,19 @@ it out of the box and others that are available from third-parties. An overview 
     \hline
     \textbf{Name} & \textbf{Description} \\
     \hline\hline
-    Timeline Analysis & Advanced graphical event viewing interface \\
+    Timeline Analysis & Advanced graphical event viewing interface. \\
     \hline
-    Hash Filtering & Flag known bad files and ignore known good \\
+    Hash Filtering & Flag known bad files and ignore known good. \\
     \hline
-    Keyword Search & Indexed keyword search using Solr to find files that mention relevant terms \\
+    Keyword Search & Indexed keyword search using Solr to find files that mention relevant terms. \\
     \hline
-    Web Artifacts & Extract history, bookmarks, and cookies from Firefox, Chrome, Internet Explorer and Microsoft Edge \\
+    Web Artifacts & Extract history, bookmarks, and cookies from Firefox, Chrome, Internet Explorer and Microsoft Edge. \\
     \hline
-    Data Carving & Recover deleted files from unallocated space \\
+    Data Carving & Recover deleted files from unallocated space. \\
     \hline
-    Multimedia & Extract \acrshort{exif} metadata from pictures and videos and display these files \\
+    Multimedia & Extract \acrshort{exif} metadata from pictures and videos and display these files. \\
     \hline
-    Indicators of Compromise & Scan a computer using \acrshort{stix} \\
+    Indicators of Compromise & Scan a computer using \acrshort{stix}. \\
     \hline
   \end{tabularx}
     \caption{Autopsy's Modules}
@@ -225,7 +226,7 @@ Autopsy is free and open source, allowing for cost-effective digital forensics a
 
 \section{Related Software}
 
-There are plenty of alternatives to Autopsy in the form of digital forensic analysis platforms, but the ones with most recognition work on a software as a service model, 
+There are plenty of alternatives to Autopsy in the form of digital forensic analysis platforms, but the ones with most recognition work on a \acrfull{saas} \cite{saas} model, 
 without providing a free trial, so even though it wasn't possible to test them, they were analysed based on the available information.
 
 \subsection{Nuix Lab}

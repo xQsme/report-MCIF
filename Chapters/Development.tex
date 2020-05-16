@@ -16,7 +16,7 @@ Each step taken towards the development of this platform is documented in this c
 
 \section{Development Framework}
 
-The project development followed an agile workflow, using a JIRA \cite{jira} board to organize bi-weekly sprints.
+The project development followed an agile workflow, using a JIRA \cite{jira} board to organize bi-weekly sprints \cite{sprint}.
 
 The project had four intervening parties involved. The developer was responsible for developing the software. The product owner provided help in decisions surrounding the developed product. 
 The designer came up with ideas for the user interface and user experience of the platform. And the tester made sure everything was working as intended.
@@ -39,7 +39,7 @@ and the client developed in JavaScript \cite{javascript} using the React \cite{r
 The project is outlined to work in a multi user environment, allowing users to be assigned to teams and teams assigned to cases, and allowing multiple users to interact with
 a case simultaneously.
 
-Autopsy has a major limitation, which is it only allows one case to be open at a time; Ideally in this project a workaround should be created to allow working on multiple cases
+Autopsy has a major limitation: it only allows one case to be open at a time; Ideally in this project a workaround should be created to allow working on multiple cases
 at once, but dedicating a server instance (which a single machine can contain many within) per case is a good enough approach, though as future work the
 ability to spawn different containers as requested to work on different cases at once is an interesting challenge.
 
@@ -67,7 +67,7 @@ The KenSentMe server described in the previous figure provides different service
 
 \section{Autopsy Source Code Analysis}
 
-Autopsy is a digital forensics analysis software that is available as Open Source Software \cite{opensource} on GitHub \cite{github}.
+Autopsy is a digital forensics analysis software that is available as \acrfull{oss} \cite{opensource} on GitHub \cite{github}.
 
 With the goals set for this project, the source code was analysed to understand which components need to be replicated and adapted in order to obtain the same logic flow.
 
@@ -81,41 +81,41 @@ The ``Core`` module is where the most important components are located, and afte
     \hline
     \textbf{Name} & \textbf{Description} \\
     \hline\hline
-    Actions & User interactions  \\
+    Actions & User interactions..  \\
     \hline
-    Casemodule & Case class and other resources needed for the functioning of an autopsy case like data sources and artifacts \\
+    Casemodule & Case class and other resources needed for the functioning of an autopsy case like data sources and artifacts. \\
     \hline
-    Centralrepository & Data persisted and accessed by multiple cases (Correlation Engine) \\
+    Centralrepository & Data persisted and accessed by multiple cases (Correlation Engine). \\
     \hline
-    Contentviewers & Panels used for data representation  \\
+    Contentviewers & Panels used for data representation.  \\
     \hline
-    Coordinationservice & Configuration information distribution system \\
+    Coordinationservice & Configuration information distribution system. \\
     \hline
-    Core & Addition of command line options, system configurations and collaboration monitor  \\
+    Core & Addition of command line options, system configurations and collaboration monitor.  \\
     \hline
-    Corecomponents & Main user interface components \\
+    Corecomponents & Main user interface components. \\
     \hline
-    Datamodel & All the entities needed to represent ingested data \\
+    Datamodel & All the entities needed to represent ingested data. \\
     \hline
-    Datasourceprocessors & Data processing utilities  \\
+    Datasourceprocessors & Data processing utilities.  \\
     \hline
-    Directorytree & File explorer for ingested artifacts \\
+    Directorytree & File explorer for ingested artifacts. \\
     \hline
-    Ingest & Utilities and events for data ingestion  \\
+    Ingest & Utilities and events for data ingestion.  \\
     \hline
-    Keywordsearchservice & Utility to search artifacts by keyword  \\
+    Keywordsearchservice & Utility to search artifacts by keyword. \\
     \hline
-    Modules & All the pre-included modules (data ingestion procedures) \\
+    Modules & All the pre-included modules (data ingestion procedures). \\
     \hline
-    Progress & Progress indicators and similar classes \\
+    Progress & Progress indicators and similar classes. \\
     \hline
-    Python & Resources needed for the functioning of the Jython language \\
+    Python & Resources needed for the functioning of the Jython language. \\
     \hline
-    Rejview & Resources used to analyse Windows registry \\
+    Rejview & Resources used to analyse Windows registry. \\
     \hline
-    Report & Report generation utilities and modules \\
+    Report & Report generation utilities and modules. \\
     \hline
-    Timeline & Recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows \acrshort{os} \\
+    Timeline & Recent addition to Autopsy, allows visualization of artifacts in temporal chart, only available for Windows \acrshort{os}. \\
     \hline
     \caption{Autopsy Core Module Overview}
     \label{tab:autopsyOverview}
@@ -131,27 +131,27 @@ Each autopsy case contains its own SQLite \cite{sqlite} database, which contains
 
 \begin{tabularx}{\textwidth}{|c|c|c|}
     \hline
-    tsk\_db\_info & tsk\_db\_info\_extended & tsk\_objects \\
+    tsk\_db\_info & tsk\_db\_info\_extended & {\color{teal}tsk\_objects} \\
     \hline
-    tsk\_image\_info & tsk\_image\_names & tsk\_vs\_info \\
+    {\color{teal}tsk\_image\_info} & {\color{teal}tsk\_image\_names} & {\color{teal}tsk\_vs\_info} \\
     \hline
-    tsk\_vs\_parts & tsk\_fs\_info & data\_source\_info \\
+    {\color{teal}tsk\_vs\_parts} & {\color{teal}tsk\_fs\_info} & {\color{teal}data\_source\_info} \\
     \hline
-    tsk\_files & file\_encoding\_types & tsk\_files\_path \\
+    {\color{teal}tsk\_files} & {\color{teal}file\_encoding\_types} & {\color{teal}tsk\_files\_path} \\
     \hline
-    tsk\_files\_derived & tsk\_files\_derived\_method & tag\_names \\
+    {\color{teal}tsk\_files\_derived} & {\color{teal}tsk\_files\_derived\_method} & tsk\_event\_types \\
     \hline
-    review\_statuses & blackboard\_artifacts & blackboard\_attributes \\
+    review\_statuses & {\color{violet}blackboard\_artifacts} & ingest\_job\_status\_types \\
     \hline
-    ingest\_modules & blackboard\_attribute\_types & ingest\_module\_types \\
+    ingest\_modules & {\color{violet}blackboard\_attribute\_types} & ingest\_module\_types \\
     \hline
-    reports & blackboard\_artifact\_types & ingest\_jobs \\
+    reports & {\color{violet}blackboard\_artifact\_types} & ingest\_jobs \\
     \hline
-    ingest\_job\_modules & ingest\_job\_status\_types & account\_types \\
+    ingest\_job\_modules & {\color{violet}blackboard\_attributes} & account\_types \\
     \hline
-    accounts & account\_relationships & tsk\_event\_types \\
+    accounts & account\_relationships & {\color{blue}tag\_names} \\
     \hline
-    tsk\_examiners & blackboard\_artifact\_tags & content\_tags \\
+    {\color{blue}tsk\_examiners} & {\color{blue}blackboard\_artifact\_tags} & {\color{blue}content\_tags} \\
     \hline
     tsk\_file\_layout & tsk\_event\_descriptions & tsk\_events \\
     \hline
@@ -161,12 +161,14 @@ Each autopsy case contains its own SQLite \cite{sqlite} database, which contains
     \label{tab:tables}
 \end{tabularx}
 
-The tables containing the information accessed most frequently are the ones related to blackboard artifacts, along with tables related to files and tags.
+The tables containing the information accessed most frequently are the ones related to {\color{violet}blackboard artifacts}, along with tables related to {\color{teal}files} and {\color{blue}tags}.
 
 Autopsy's source code allows access to most of the important entities present in this database, through pre-defined queries which return entities like data sources, abstract files, or artifacts. 
 But in order to add features like pagination and tag deletion, custom queries must be created, so that the queries may return only a specific amount of entity ids, or so that delete commands may be executed. 
 
 \section{Development Stages}
+
+The development was done incrementally, starting with basic functionalities and slowly progressing into the finished product. All these steps are documented in this section.
 
 \subsection{Basic Autopsy Functionalities}
 
@@ -206,11 +208,11 @@ The authentication process is handled through a \acrshort{rest} \acrshort{api}, 
     \hline
     \textbf{Name} & \textbf{Contents} \\
     \hline\hline
-    Header & Information about the signing algorithm used  \\
+    Header & Information about the signing algorithm used. \\
     \hline
-    Payload & Information about the user, such as username, e-mail and roles \\
+    Payload & Information about the user, such as username, e-mail and roles. \\
     \hline
-    Signature & A signature used to verify the contents weren't changed \\
+    Signature & A signature used to verify the contents weren't changed. \\
     \hline
   \end{tabularx}
   \caption{\acrshort{jwt} Composition}
@@ -235,7 +237,7 @@ This \acrshort{uuid} is saved in the database in the form of salted hash using t
 
 \subsubsection*{One Time Password}
 
-The process of setting up \acrshort{otp} for an account begins with generating a secret string, which is used by both the server and the authenticator app to generate \acrshort{otp}. When the secret is generated, it is saved as a temporary secret after being encrypted by the RSA algorithm.
+The process of setting up \acrfull{otp} for an account begins with generating a secret string, which is used by both the server and the authenticator app to generate \acrshort{otp}. When the secret is generated, it is saved as a temporary secret after being encrypted by the RSA algorithm.
 
 The temporary secret must be added to the user's device, either by inserting the string itself or by scanning a QR code \cite{qr}, and must be validated by the user by submitting the current \acrshort{otp}; After validation the temporary secret is considered permanent.
 
@@ -247,7 +249,7 @@ In the event of loss of the device that the user uses to generate \acrshort{otp}
 
 \subsubsection*{Universal Second Factor}
 
-Both the set up and validation of \acrshort{u2f} are very similar, as these procedures require the server to generate a challenge.
+Both the set up and validation of \acrfull{u2f} are very similar, as these procedures require the server to generate a challenge.
 This challenge is transmitted to the client and then transmitted to the \acrshort{u2f} device, which then generates the response which is used to validate the challenge.
 
 In the case of setting up the device, if the response is validated successfully, the information present in Table \ref{tab:u2f} is stored in the server and the procedure is completed.
@@ -257,18 +259,18 @@ In the case of setting up the device, if the response is validated successfully,
     \hline
     \textbf{Name} & \textbf{Description} \\
     \hline\hline
-    Key Handle & Identification of the registration, allows the same key to be used for multiple accounts in the same domain  \\
+    Key Handle & Identification of the registration, allows the same key to be used for multiple accounts in the same domain.  \\
     \hline
-    Public Key & Resulting from the generation of a key pair specific to the domain, used to verify the information provided by the device \\
+    Public Key & Resulting from the generation of a key pair specific to the domain, used to verify the information provided by the device. \\
     \hline
-    Attestation Certificate & A certificate that can be used to verify the authenticity of the device \\
+    Attestation Certificate & A certificate that can be used to verify the authenticity of the device. \\
     \hline
-    Counter & The device's authentication counter, used to prevent the use of cloned devices \\
+    Counter & The device's authentication counter, used to prevent the use of cloned devices. \\
     \hline
-    Compromised & Flag indicating if the credential is considered to be compromised \\
+    Compromised & Flag indicating if the credential is considered to be compromised. \\
     \hline
   \end{tabularx}
-  \caption{\acrshort{u2f} Registration Composition}
+  \caption{\acrfull{u2f} Registration Composition}
   \label{tab:u2f}
 \end{table}
 
@@ -295,7 +297,7 @@ teams and teams dragged into cases. All these entities are listed side by side a
 \begin{figure}[ht]
  \centering
  \includegraphics[width=1\linewidth]{imgs/users.png}
- \caption{Entity Management Interface}
+ \caption{Entity Management Interface - roles, users, teams and cases}
  \label{fig:users}
 \end{figure}
 
@@ -330,8 +332,8 @@ The difference between a file and an artifact is that an artifact represents onl
 
 Even though the data ingestion features weren't implemented yet on the platform, the data that was ingested into a case using the original program could also be used on this platform, which allowed this feature to be developed earlier.
 
-The ingested results are presented in three different containers, one taking the shape of a file explorer, allowing exploration of the structure of all the results, 
-one taking the shape of a table or thumbnail viewer, that can be referenced as a blackboard, presenting all the contents of the results selected from the explorer, and one taking the shape of a content viewer, allowing visualization
+The ingested results are presented in three different containers: (A) one taking the shape of a file explorer, allowing exploration of the structure of all the results, 
+(B) one taking the shape of a table or thumbnail viewer, that can be referenced as a blackboard, presenting all the contents of the results selected from the explorer, (C) and one taking the shape of a content viewer, allowing visualization
 of the data contained inside the result selected from the table as can be seen in Figure \ref{fig:data}.
 
 \begin{figure}[ht]
@@ -343,11 +345,11 @@ of the data contained inside the result selected from the table as can be seen i
 
 The content viewer can display different kinds of information depending on the type of item selected, which can be some of the following:
 \begin{itemize}
- \item Text browser
- \item Media viewer
- \item Database browser
- \item Registry browser
- \item Key-value browser
+ \item Text browser.
+ \item Media viewer.
+ \item Database browser.
+ \item Registry browser.
+ \item Key-value browser.
  \item Table data viewer.
 \end{itemize}
 
@@ -357,6 +359,15 @@ needed, allowing the user to focus on the information that is most important to 
 This development stage was one of the most intensive, as it required understanding Autopsy's data structure very well. The source code used here was rewritten almost completely, 
 because of the way the user interface and the data structure in the original program are interconnected, resulting in the need to adapt and write custom queries to obtain the desired results (which include pagination), creating 
 65 endpoints so that all the needed information could be supplied, as well as creating and adjusting all the user interface elements to achieve an user experience similar to what Autopsy's users are used to.
+
+Figure \ref{fig:endpoints} illustrates the calls made by clients to access the ingested results endpoints.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=0.5\linewidth]{imgs/endpoints.png}
+ \caption{Ingested Results Endpoints}
+ \label{fig:endpoints}
+\end{figure}
 
 \subsection{Tag Management}
 
@@ -393,9 +404,9 @@ Then the user can browse these directories using the web interface and select a 
 
 The procedure for adding a data source to a case was adapted from Autopsy's source code, and depends on the type of data source added, which can be one of the following:
 \begin{itemize}
- \item Disk image
- \item Virtual machine
- \item Logical file collection
+ \item Disk image.
+ \item Virtual machine.
+ \item Logical file collection.
  \item Autopsy Logical Imager \cite{imager} results.
 \end{itemize}
 
@@ -437,11 +448,20 @@ which are found based on regular expressions by the keyword search module and ma
 
 The adaptation of the source code for report modules went pretty smoothly, with the exception that some modules require the user to provide a file when running the module, which resulted in the creation of a file repository within the server, for files to be used in this manner.
 
+The pre-included report modules can be observed in Figure \ref{fig:reports}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=1\linewidth]{imgs/reports.png}
+ \caption{Report Modules}
+ \label{fig:reports}
+\end{figure}
+
 \subsection{Add-on Modules}
 
 Autopsy supports third party modules in the form or NetBeans \cite{netbeans} module files (NBM), and in the form of python scripts, using the Jython language, which allows python code to run alongside classes defined in Java.
 
-Since the developed platform doesn't support a java user interface, the procedure to install Netbeans modules could not be implemented, as this feature is specific to Netbeans applications. 
+Since the developed platform doesn't support a Java user interface, the procedure to install Netbeans modules could not be implemented, as this feature is specific to Netbeans applications. 
 But most modules are made in the Jython language, and the addition of these modules was implemented as intended.
 
 A user with a manager role can add new modules to the platform by either selecting from defined repositories or by uploading a zip archive containing the modules, as can be seen in Figure \ref{fig:addmodule}.
@@ -512,12 +532,12 @@ The ability to search the existing files of a case and filtering them with speci
 This feature allows:
 
 \begin{itemize}
- \item Matching part of the file name
- \item Filtering by file size
- \item Filtering by \acrshort{mime} Type
- \item Matching files with a specific MD5 hash
- \item Finding files related to a date interval
- \item Finding files tagged with specific kinds of tags
+ \item Matching part of the file name.
+ \item Filtering by file size.
+ \item Filtering by \acrshort{mime} Type.
+ \item Matching files with a specific MD5 hash.
+ \item Finding files related to a date interval.
+ \item Finding files tagged with specific kinds of tags.
  \item Limiting the search to specific data sources.
 \end{itemize}
 
@@ -527,7 +547,7 @@ Autopsy provides a feature that detects when a data source is no longer availabl
 
 This feature has a flaw, as it allows the user to provide any path he/she wants, resulting in the case not working properly when the provided path is invalid.
 
-This same feature was recreated, as can be observed in Figure \ref{fig:locate}, but the ability to change data source paths at will was also added, so that mistakes can be corrected.
+This same feature was recreated in the KenSentMe platform, as can be observed in Figure \ref{fig:locate}, but the ability to change data source paths at will was also added, so that mistakes can be corrected.
 
 \begin{figure}[ht]
  \centering
@@ -540,7 +560,7 @@ This same feature was recreated, as can be observed in Figure \ref{fig:locate}, 
 
 One of the default report modules included with Autopsy provides the ability to generate a portable case.
 
-These portable cases don't contain much information, but it was still important to provide the ability to import these cases.
+These portable cases do not contain much information, but it was still important to provide the ability to import these cases.
 
 The ability to export and import a full case was also added, and it works by generating a zip archive in the user's \acrshort{ftp} directory or extracting a zip archive from the user's \acrshort{ftp} directory.
 
@@ -589,7 +609,32 @@ The documentation of every endpoint of the platform can be consulted in \autoref
 
 The project was also documented using a Javadoc \cite{javadoc} generator.
 
+For the publication of the Platform as Open Source, a static presentation website was created, containing the following pages:
+
+\begin{itemize}
+ \item Project Description.
+ \item Setup Instructions.
+ \item Documentation Page.
+ \item Information about the student and the company.
+\end{itemize}
+
+The project description page of the presentation website can be seen in Figure \ref{fig:website}.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=1\linewidth]{imgs/website.png}
+ \caption{Presentation Website}
+ \label{fig:website}
+\end{figure}
+
+The publication was not completed yet, but it is expected to include the deployment of the presentation website, the deployment of a demo version of the platform and
+the publication of the developed platform as \acrfull{oss} on GitHub.
+
+
 \section{Critical Analysis and Proposed Improvements}
+
+During the platform's development, as new features were produced, a critical analysis was conducted to make sure the feature was properly integrated with the existing functionalities, 
+and that it would not hinder the development of additional functionalities in later stages,
 
 The development of the platform halted due to it being considered in a finished state, which means that all the objectives for the project were completed successfully.
 

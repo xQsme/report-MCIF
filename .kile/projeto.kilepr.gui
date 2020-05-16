@@ -2,7 +2,7 @@
 kile_livePreviewEnabled=false
 kile_livePreviewStatusUserSpecified=true
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=Chapters/Development.tex
+lastDocument=Chapters/Intro.tex
 
 [document-settings,item:Chapters/Analysis.tex]
 Bookmarks=
@@ -410,20 +410,20 @@ TextFolding=[]
 ViMarks=.,22,1,[,22,1,],22,1
 
 [view-settings,view=0,item:Chapters/Development.tex]
-CursorColumn=24
-CursorLine=573
+CursorColumn=54
+CursorLine=552
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
 ViMarks=.,576,86,[,576,86,],576,86,a,527,0
 
 [view-settings,view=0,item:Chapters/Intro.tex]
-CursorColumn=0
-CursorLine=106
+CursorColumn=26
+CursorLine=114
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,118,176,[,118,159,],118,176
+ViMarks=.,139,36,[,139,1,],139,36
 
 [view-settings,view=0,item:Chapters/Projects.tex]
 CursorColumn=0
