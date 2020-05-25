@@ -71,7 +71,7 @@ Autopsy is a digital forensics analysis software that is available as \acrfull{o
 
 With the goals set for this project, the source code was analysed to understand which components need to be replicated and adapted in order to obtain the same logic flow.
 
-The ``Core`` module is where the most important components are located, and after analysis it was concluded that the following directories present in Table \ref{tab:autopsyOverview} contain relevant information.
+The ``Core`` module \cite{core} is where the most important components are located, and after analysis it was concluded that the following directories present in Table \ref{tab:autopsyOverview} contain relevant information.
 
 %TODO PAGE BREAK?
 
@@ -121,10 +121,10 @@ The ``Core`` module is where the most important components are located, and afte
     \label{tab:autopsyOverview}
 \end{tabularx}
 
-The ``KeywordSearch`` module is also of critical importance as it provides one of the most meaningful features, which is filtering all the artifacts in a case with a keyword
-search using the Apache Solr search platform. Solr indexes the text contents of all the artifacts and allows extremely fast searching through a large amount of data.  
+The ``KeywordSearch`` module \cite{keyword} is also of critical importance as it provides one of the most meaningful features, which is filtering all the artifacts in a case with a keyword
+search using the Apache Solr search platform \cite{solr}. Solr indexes the text contents of all the artifacts and allows extremely fast searching through a large amount of data.  
 
-Another module that needs to be adapted is the ``RecentActivity`` module, which contains the tools needed to extract information from browsers, registry and other important resources, providing a great amount of
+Another module that needs to be adapted is the ``RecentActivity`` module \cite{recent}, which contains the tools needed to extract information from browsers, registry and other important resources, providing a great amount of
 critical evidence from data sources.
 
 Each autopsy case contains its own SQLite \cite{sqlite} database, which contains the tables present in Table \ref{tab:tables}.
@@ -345,11 +345,11 @@ of the data contained inside the result selected from the table as can be seen i
 
 The content viewer can display different kinds of information depending on the type of item selected, which can be some of the following:
 \begin{itemize}
- \item Text browser.
- \item Media viewer.
- \item Database browser.
- \item Registry browser.
- \item Key-value browser.
+ \item Text browser;
+ \item Media viewer;
+ \item Database browser;
+ \item Registry browser;
+ \item Key-value browser;
  \item Table data viewer.
 \end{itemize}
 
@@ -404,9 +404,9 @@ Then the user can browse these directories using the web interface and select a 
 
 The procedure for adding a data source to a case was adapted from Autopsy's source code, and depends on the type of data source added, which can be one of the following:
 \begin{itemize}
- \item Disk image.
- \item Virtual machine.
- \item Logical file collection.
+ \item Disk image;
+ \item Virtual machine;
+ \item Logical file collection;
  \item Autopsy Logical Imager \cite{imager} results.
 \end{itemize}
 
@@ -532,12 +532,12 @@ The ability to search the existing files of a case and filtering them with speci
 This feature allows:
 
 \begin{itemize}
- \item Matching part of the file name.
- \item Filtering by file size.
- \item Filtering by \acrshort{mime} Type.
- \item Matching files with a specific MD5 hash.
- \item Finding files related to a date interval.
- \item Finding files tagged with specific kinds of tags.
+ \item Matching part of the file name;
+ \item Filtering by file size;
+ \item Filtering by \acrshort{mime} Type;
+ \item Matching files with a specific MD5 hash;
+ \item Finding files related to a date interval;
+ \item Finding files tagged with specific kinds of tags;
  \item Limiting the search to specific data sources.
 \end{itemize}
 
@@ -612,9 +612,9 @@ The project was also documented using a Javadoc \cite{javadoc} generator.
 For the publication of the Platform as Open Source, a static presentation website was created, containing the following pages:
 
 \begin{itemize}
- \item Project Description.
- \item Setup Instructions.
- \item Documentation Page.
+ \item Project Description;
+ \item Setup Instructions;
+ \item Documentation Page;
  \item Information about the student and the company.
 \end{itemize}
 
@@ -628,7 +628,7 @@ The project description page of the presentation website can be seen in Figure \
 \end{figure}
 
 The publication was not completed yet, but it is expected to include the deployment of the presentation website, the deployment of a demo version of the platform and
-the publication of the developed platform as \acrfull{oss} on GitHub.
+the publication of the developed code on GitHub.
 
 
 \section{Critical Analysis and Proposed Improvements}
@@ -640,4 +640,5 @@ The development of the platform halted due to it being considered in a finished 
 
 Given that Autopsy is still in active development, it would be very important to keep following its development and complementing this platform with new features and bug fixes which might come up in the future.
 
-Besides accompanying Autopsy's improvements, it could also be interesting to further develop the platform to better serve the needs of the users, which would require installations of the platform and a feedback channel to better understand the user's needs.
+Besides accompanying Autopsy's improvements, it could also be interesting to further develop the platform to better serve the needs of the users.
+For this, an open source publication should allow installations of the platform and a feedback channel to better understand the user's needs.

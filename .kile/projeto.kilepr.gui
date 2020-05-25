@@ -2,7 +2,7 @@
 kile_livePreviewEnabled=false
 kile_livePreviewStatusUserSpecified=true
 kile_livePreviewTool=LivePreview-PDFLaTeX
-lastDocument=Chapters/Intro.tex
+lastDocument=Chapters/Conclusion.tex
 
 [document-settings,item:Chapters/Analysis.tex]
 Bookmarks=
@@ -60,7 +60,7 @@ Mode=LaTeX
 Mode Set By User=false
 
 [document-settings,item:Chapters/Development.tex]
-Bookmarks=527
+Bookmarks=547
 Encoding=UTF-8
 FoldedColumns=
 FoldedLines=
@@ -115,7 +115,7 @@ Mode=C
 Mode Set By User=false
 
 [document-settings,item:Covers/Abstract.tex]
-Bookmarks=
+Bookmarks=21
 Encoding=UTF-8
 FoldedColumns=
 FoldedLines=
@@ -263,31 +263,31 @@ order=16
 
 [item:Chapters/ApendixA.tex]
 open=true
-order=6
+order=5
 
 [item:Chapters/ApendixB.tex]
 open=true
-order=7
+order=6
 
 [item:Chapters/Background.tex]
 open=true
-order=8
+order=7
 
 [item:Chapters/Conclusion.tex]
 open=true
-order=10
+order=9
 
 [item:Chapters/Development.tex]
 open=true
-order=1
+order=17
 
 [item:Chapters/Intro.tex]
 open=true
-order=12
+order=11
 
 [item:Chapters/Projects.tex]
 open=true
-order=16
+order=15
 
 [item:Code/bash.sh]
 open=false
@@ -299,35 +299,35 @@ order=-1
 
 [item:Covers/Abstract.tex]
 open=true
-order=3
+order=2
 
 [item:Covers/Acknowledgments.tex]
 open=true
-order=4
+order=3
 
 [item:Covers/Acronyms.tex]
 open=true
-order=5
+order=4
 
 [item:Covers/Bibliography.tex]
 open=true
-order=9
+order=8
 
 [item:Covers/Contents.tex]
 open=true
-order=11
+order=10
 
 [item:Covers/Declaration.tex]
 open=true
-order=2
+order=1
 
 [item:Covers/Titleback.tex]
 open=true
-order=13
+order=12
 
 [item:Covers/Titlepage.tex]
 open=true
-order=14
+order=13
 
 [item:Covers/estg_h.pdf]
 open=false
@@ -343,11 +343,11 @@ order=-1
 
 [item:References.bib]
 open=true
-order=15
+order=14
 
 [item:config.tex]
 open=true
-order=17
+order=16
 
 [item:imgs/tp04a_450.jpg]
 open=false
@@ -394,36 +394,36 @@ TextFolding=[]
 ViMarks=.,7,21,[,7,21,],7,21
 
 [view-settings,view=0,item:Chapters/Background.tex]
-CursorColumn=0
-CursorLine=235
+CursorColumn=167
+CursorLine=228
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,249,227,[,249,211,],249,227
+ViMarks=.,228,166,[,228,162,],228,166
 
 [view-settings,view=0,item:Chapters/Conclusion.tex]
-CursorColumn=57
-CursorLine=22
+CursorColumn=0
+CursorLine=26
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,22,1,[,22,1,],22,1
+ViMarks=.,24,117,[,24,117,],24,117
 
 [view-settings,view=0,item:Chapters/Development.tex]
-CursorColumn=54
-CursorLine=552
+CursorColumn=82
+CursorLine=69
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,576,86,[,576,86,],576,86,a,527,0
+ViMarks=.,630,36,[,630,33,],630,36,a,547,0
 
 [view-settings,view=0,item:Chapters/Intro.tex]
-CursorColumn=26
-CursorLine=114
+CursorColumn=0
+CursorLine=126
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,139,36,[,139,1,],139,36
+ViMarks=.,0,0,[,0,0,],0,0
 
 [view-settings,view=0,item:Chapters/Projects.tex]
 CursorColumn=0
@@ -450,28 +450,28 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:Covers/Abstract.tex]
-CursorColumn=38
-CursorLine=38
+CursorColumn=26
+CursorLine=47
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,52,0,[,52,0,],52,0
+ViMarks=.,29,50,[,29,50,],29,50,a,21,0
 
 [view-settings,view=0,item:Covers/Acknowledgments.tex]
-CursorColumn=84
-CursorLine=31
+CursorColumn=10
+CursorLine=18
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
 ViMarks=.,31,83,[,31,83,],31,83
 
 [view-settings,view=0,item:Covers/Acronyms.tex]
-CursorColumn=50
-CursorLine=26
+CursorColumn=43
+CursorLine=33
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,30,46,[,30,41,],30,46
+ViMarks=.,33,42,[,33,26,],33,42
 
 [view-settings,view=0,item:Covers/Bibliography.tex]
 CursorColumn=0
@@ -522,28 +522,28 @@ TextFolding=[]
 ViMarks=
 
 [view-settings,view=0,item:References.bib]
-CursorColumn=39
-CursorLine=329
+CursorColumn=0
+CursorLine=18
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,347,8,[,347,6,],347,8
+ViMarks=.,16,0,[,16,0,],16,24
 
 [view-settings,view=0,item:config.tex]
-CursorColumn=74
-CursorLine=205
+CursorColumn=11
+CursorLine=201
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
 ViMarks=.,212,0,[,212,0,],212,0
 
 [view-settings,view=0,item:main.tex]
-CursorColumn=42
-CursorLine=121
+CursorColumn=0
+CursorLine=104
 Dynamic Word Wrap=false
 JumpList=
 TextFolding=[]
-ViMarks=.,162,0,[,162,0,],162,0
+ViMarks=.,72,31,[,72,21,],72,31
 
 [view-settings,view=0,item:projeto.kilepr]
 CursorColumn=10
