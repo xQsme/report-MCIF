@@ -10,16 +10,14 @@
 The main goal of the internship is the development of a collaborative platform based on Autopsy, which was soon named ``KenSentMe`` by the company's designer. 
 The chosen name was based on a video game, as it was a password used to access a forbidden area in the game.
 
-
-
-Each step taken towards the development of this platform is documented in this chapter, from project planning to full roll out on a production environment.
+Each step taken towards the development of this platform is documented in this chapter, from project planning through completion.
 
 \section{Development Framework}
 
 The project development followed an agile workflow, using a JIRA \cite{jira} board to organize bi-weekly sprints \cite{sprint}.
 
-The project had four intervening parties involved. The developer was responsible for developing the software. The product owner provided help in decisions surrounding the developed product. 
-The designer came up with ideas for the user interface and user experience of the platform. And the tester made sure everything was working as intended.
+The project had four intervening parties involved. (1) The developer was responsible for developing the software. (2) The product owner provided help in decisions surrounding the developed product. 
+(3) The designer came up with ideas for the user interface and user experience of the platform. And (4) the tester made sure everything was working as intended.
 
 For each sprint the process was identical: a sprint review was conducted to assess the progress made in the previous sprint, then a new sprint would be planned by the developer, 
 the features would be implemented during the two week duration of the sprint, and developed features would be tested thoroughly before the sprint ended.
@@ -81,7 +79,7 @@ The ``Core`` module \cite{core} is where the most important components are locat
     \hline
     \textbf{Name} & \textbf{Description} \\
     \hline\hline
-    Actions & User interactions..  \\
+    Actions & User interactions.  \\
     \hline
     Casemodule & Case class and other resources needed for the functioning of an autopsy case like data sources and artifacts. \\
     \hline
@@ -254,6 +252,8 @@ This challenge is transmitted to the client and then transmitted to the \acrshor
 
 In the case of setting up the device, if the response is validated successfully, the information present in Table \ref{tab:u2f} is stored in the server and the procedure is completed.
 
+\pagebreak
+
 \begin{table}[ht]
   \begin{tabularx}{\textwidth}{@{}|c| *1{>{\centering\arraybackslash}X}@{}|}
     \hline
@@ -335,6 +335,8 @@ Even though the data ingestion features weren't implemented yet on the platform,
 The ingested results are presented in three different containers: (A) one taking the shape of a file explorer, allowing exploration of the structure of all the results, 
 (B) one taking the shape of a table or thumbnail viewer, that can be referenced as a blackboard, presenting all the contents of the results selected from the explorer, (C) and one taking the shape of a content viewer, allowing visualization
 of the data contained inside the result selected from the table as can be seen in Figure \ref{fig:data}.
+
+\pagebreak
 
 \begin{figure}[ht]
  \centering
@@ -452,7 +454,7 @@ The pre-included report modules can be observed in Figure \ref{fig:reports}.
 
 \begin{figure}[ht]
  \centering
- \includegraphics[width=1\linewidth]{imgs/reports.png}
+ \includegraphics[width=0.65\linewidth]{imgs/reports.png}
  \caption{Report Modules}
  \label{fig:reports}
 \end{figure}
@@ -498,22 +500,14 @@ The primary features of the platform have been covered in the previous sections,
 
 Database snapshots can be created by any user at any time and they work by making a copy of the current case database, associating a user and the current time to it.
 
-They can be used by a case manager to restore the case database to a previous state, as can be seen in Figure \ref{fig:snapshotrestore}.
+They can be used by a case manager to restore the case database to a previous state, and can also be deleted by a case manager in order to save space or organize the snapshots, as can be seen in Figure \ref{fig:snapshotrestore}.
 
 \begin{figure}[ht]
  \centering
  \includegraphics[width=0.35\linewidth]{imgs/snapshotrestore.png}
- \caption{Snapshot Restoration}
- \label{fig:snapshotrestore}
-\end{figure}
-
-Database snapshots can also be deleted by a case manager in order to save space or organize the snapshots, as can be seen in Figure \ref{fig:snapshotmanage}.
-
-\begin{figure}[ht]
- \centering
  \includegraphics[width=0.35\linewidth]{imgs/snapshotmanage.png}
- \caption{Snapshot Management}
- \label{fig:snapshotmanage}
+ \caption{Snapshot Restoration and Snapshot Management}
+ \label{fig:snapshotrestore}
 \end{figure}
 
 \subsubsection*{File Search By Attributes}
@@ -526,8 +520,6 @@ The ability to search the existing files of a case and filtering them with speci
  \caption{File Search By Attributes}
  \label{fig:search}
 \end{figure}
-
-\bigskip
 
 This feature allows:
 
@@ -589,7 +581,7 @@ This feature allows case managers to define permissions to access specific file 
 
 \begin{figure}[ht]
  \centering
- \includegraphics[width=0.5\linewidth]{imgs/permissions.png}
+ \includegraphics[width=0.35\linewidth]{imgs/permissions.png}
  \caption{User's Permissions}
  \label{fig:permissions}
 \end{figure}
@@ -609,7 +601,7 @@ The documentation of every endpoint of the platform can be consulted in \autoref
 
 The project was also documented using a Javadoc \cite{javadoc} generator.
 
-For the publication of the Platform as Open Source, a static presentation website was created, containing the following pages:
+For the publication of the platform as \acrshort{oss}, a static presentation website was created, containing the following pages:
 
 \begin{itemize}
  \item Project Description;
@@ -641,4 +633,4 @@ The development of the platform halted due to it being considered in a finished 
 Given that Autopsy is still in active development, it would be very important to keep following its development and complementing this platform with new features and bug fixes which might come up in the future.
 
 Besides accompanying Autopsy's improvements, it could also be interesting to further develop the platform to better serve the needs of the users.
-For this, an open source publication should allow installations of the platform and a feedback channel to better understand the user's needs.
+For this, an open source publication should allow installations of the platform and a feedback channel to better understand the users' needs.
