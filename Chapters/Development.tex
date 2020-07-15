@@ -16,8 +16,8 @@ Each step taken towards the development of this platform is documented in this c
 
 The project development followed an agile workflow, using a JIRA \cite{jira} board to organize bi-weekly sprints \cite{sprint}.
 
-The project had four intervening parties involved. (1) The developer was responsible for developing the software. (2) The product owner provided help in decisions surrounding the developed product. 
-(3) The designer came up with ideas for the user interface and user experience of the platform. And (4) the tester made sure everything was working as intended.
+The project had four intervening parties involved: (1) The developer was responsible for developing the software; (2) The product owner provided help in decisions surrounding the developed product; 
+(3) The designer came up with ideas for the user interface and user experience of the platform; And (4) the tester made sure everything was working as intended.
 
 For each sprint the process was identical: a sprint review was conducted to assess the progress made in the previous sprint, then a new sprint would be planned by the developer, 
 the features would be implemented during the two week duration of the sprint, and developed features would be tested thoroughly before the sprint ended.
@@ -54,7 +54,7 @@ which requests and provides data to both database and indexation servers.
  \label{fig:arch}
 \end{figure}
 
-The KenSentMe server described in the previous figure provides different services, such as authentication, case resources, entity management, and others, as can be seen in Figure \ref{fig:services}.
+The KenSentMe server described in the previous figure provides different services, such as authentication, case resources, entity management, and others, as can be seen in more detail in Figure \ref{fig:services}.
 
 \begin{figure}[ht]
  \centering
@@ -182,7 +182,7 @@ as can be seen in Figure \ref{fig:open}.
 \end{figure}
 
 For this, some elements of the original ''Casemodule'' package were adapted,
-and after that all the other similar actions like closing, creating and deleting cases were also adapted.
+and after that all the other similar actions like closing, creating and deleting cases were also integrated.
 
 Autopsy cases have a case file containing case metadata, which allows the program to connect to the right database when the case is open: this database is also present
 in a file inside the file system, which uses the SQLite database engine. So, for the cases to be usable in the server, these files must also be present in the server,
@@ -330,18 +330,18 @@ The platform's resulting data model can be observed in Figure \ref{fig:database}
 Ingested results are the items present inside the provided data sources. Autopsy can run multiple modules on each data source to extract results, and the extracted results can either be a file instance or an artifact instance.
 The difference between a file and an artifact is that an artifact represents only a smaller piece of a file's information, which means a file can contain multiple artifacts, for example a registry file can contain multiple \acrshort{os} user account artifacts.
 
-Even though the data ingestion features weren't implemented yet on the platform, the data that was ingested into a case using the original program could also be used on this platform, which allowed this feature to be developed earlier.
+Even though the data ingestion features weren't implemented yet on the platform, the data that was ingested into a case, using the original program, could also be used on this platform, which allowed this feature to be developed earlier.
 
-The ingested results are presented in three different containers: (A) one taking the shape of a file explorer, allowing exploration of the structure of all the results, 
-(B) one taking the shape of a table or thumbnail viewer, that can be referenced as a blackboard, presenting all the contents of the results selected from the explorer, (C) and one taking the shape of a content viewer, allowing visualization
-of the data contained inside the result selected from the table as can be seen in Figure \ref{fig:data}.
+The ingested results are presented in three different containers, which can be seen in Figure \ref{fig:data}: (A) one taking the shape of a file explorer, allowing exploration of the structure of all the results; 
+(B) one taking the shape of a table or thumbnail viewer, that can be referenced as a blackboard, presenting all the contents of the results selected from the explorer; (C) and one taking the shape of a content viewer, allowing visualization
+of the data contained inside the result selected from the table.
 
 \pagebreak
 
 \begin{figure}[ht]
  \centering
  \includegraphics[width=1\linewidth]{imgs/data.png}
- \caption{Ingested Results Presentation (A) Explorer; (B) Blackboard; (C) Content Viewer}
+ \caption{Ingested Results Presentation: (A) Explorer; (B) Blackboard; (C) Content Viewer}
  \label{fig:data}
 \end{figure}
 
@@ -384,7 +384,7 @@ Tagging was added to the platform in the form of a context menu, that is shown b
  \label{fig:tags}
 \end{figure}
 
-Tags take the form of file or result tags, and the difference is that a result tag is specific to an artifact, while a file tag is related to the file itself.
+Tags take the form of file or result tags. The difference is that a result tag is specific to an artifact, while a file tag is related to the file itself.
 
 Autopsy contains 10 different tag types by default, and more can be added, which can result in a high amount of tag types in use, which deteriorates the user experience.
 
@@ -426,7 +426,7 @@ or data source ingest modules, which run on specific components of a data source
 
 To run a collection of modules, the user selects which modules to run, and may also configure some parameters related to the modules. When the request is received by the server, the modules are started in a background thread.
 
-When the modules are running, the server communicates to each client through WebSockets, offering feedback on the progress of the modules, as can be seen in Figure \ref{fig:modules}.
+When the modules are running, the server communicates to each client through WebSockets, offering a visual feedback on the progress of the modules, as can be seen in Figure \ref{fig:modules}.
 
 \begin{figure}[ht]
  \centering
@@ -435,7 +435,7 @@ When the modules are running, the server communicates to each client through Web
  \label{fig:modules}
 \end{figure}
 
-Originally it was intended to have the clients update their explorer as new information is ingested, but it would slow down the ingest progress considerably, so what was decided was that every client would refresh 
+Originally it was intended to have the clients update their explorer as new information is ingested, but it would slow down the ingest progress considerably, so it was decided was that every client would refresh 
 its explorer every 30 seconds while ingests are running.
 
 There were other measures taken into consideration to improve the performance of the ingest procedure, while also maintaining the user informed of its progress: the server communicates a maximum of one file name per
@@ -461,7 +461,7 @@ The pre-included report modules can be observed in Figure \ref{fig:reports}.
 
 \subsection{Add-on Modules}
 
-Autopsy supports third party modules in the form or NetBeans \cite{netbeans} module files (NBM), and in the form of python scripts, using the Jython language, which allows python code to run alongside classes defined in Java.
+Autopsy supports third party modules in the form or NetBeans \cite{netbeans} module files (NBM), and in the form of python scripts, using the Jython language \cite{jython}, which allows python code to run alongside classes defined in Java.
 
 Since the developed platform doesn't support a Java user interface, the procedure to install Netbeans modules could not be implemented, as this feature is specific to Netbeans applications. 
 But most modules are made in the Jython language, and the addition of these modules was implemented as intended.
@@ -486,10 +486,10 @@ The platform also allows management of the added modules, so that managers can e
  \label{fig:modulesettings}
 \end{figure}
 
-Third party modules require that a great deal of the original Autopsy source code is accessible in the original namespace, which resulted in the separation of the
-developed and adapted code into two different namespaces, the original software's namespace which is \texttt{org.sleuthkit.autopsy}, and the company's namespace which is \texttt{pt.voidsoftware.kensentme}. 
+Third party modules require that a great deal of the original Autopsy source code is accessible in the original namespace resulted in the separation of the
+developed and adapted code into two different namespaces: the original software's namespace which is \texttt{org.sleuthkit.autopsy}; and the company's namespace which is \texttt{pt.voidsoftware.kensentme}. 
 
-This requirement of the original code can also mean that some modules which weren't tested may fail to run due to missing code, but a procedure to handle failure to run modules is implemented, 
+This requirement of the original code can also mean that some modules which weren't tested may fail to run due to missing code. Because of that a procedure to handle failure to run modules is implemented, 
 and it informs the user about which modules are failing to run, allowing the user to disable the unsupported modules.
 
 \subsection{Extra Features}
@@ -537,7 +537,7 @@ This feature allows:
 
 Autopsy provides a feature that detects when a data source is no longer available at the provided path and allows the user to locate it again.
 
-This feature has a flaw, as it allows the user to provide any path he/she wants, resulting in the case not working properly when the provided path is invalid.
+Originally, in Autopsy, this feature has a flaw, as it allows the user to provide any path he/she wants, resulting in the case not working properly when the provided path is invalid.
 
 This same feature was recreated in the KenSentMe platform, as can be observed in Figure \ref{fig:locate}, but the ability to change data source paths at will was also added, so that mistakes can be corrected.
 
